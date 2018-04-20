@@ -1,0 +1,26 @@
+/**app.wxss**/
+@import "weui.wxss";
+@import "iconfont/iconfont.wxss";
+.container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  /*justify-content: center;!*水平居中*!*/
+}
+.black{
+  color:#333!important;
+}
+.gray{
+  color: #aaa!important;
+}
+
+.lr-padding{
+  padding: 0 30rpx;
+}
+.slide-image{
+  width: 750rpx;
+  height: 340rpx;
+}

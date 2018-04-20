@@ -1,0 +1,9 @@
+<!--logs.wxml-->
+<scroll-view scroll-y class="container">
+  <view class="section" wx:for="{{towns}}" id="{{index}}" bindtap="tapTown">
+    <image class="town_head_img"
+           src="{{item.imgUrl}}"></image>
+    <text class="title black lr-padding">{{item.name}}</text>
+    <text class="detail gray lr-padding">{{item.subTitle}}</text>
+  </view>
+</scroll-view>

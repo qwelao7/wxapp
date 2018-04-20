@@ -1,0 +1,2 @@
+<!--logs.wxml-->
+  <webview src="{{url}}"></webview>

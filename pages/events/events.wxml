@@ -1,0 +1,48 @@
+<!--logs.wxml-->
+<scroll-view scroll-y class="container" style="background-color: #ebebeb" scroll-into-view="{{toView}}"
+             scroll-with-animation="true">
+
+  <!--月份划分-->
+  <block wx:for="{{events}}" wx:for-item="items" wx:for-index="items_index" id="">
+    <view
+        class="weui-cells weui-cells_after-title time_cell {{items_index<(events.length-1)&&items.isShow===false?'border':''}}"
+        data-month="{{items_index}}" bindtap="tapMonth">
+      <view url="" class="weui-cell weui-cell_access black" hover-class="weui-cell_active" hover-stay-time="100">
+        <view class="weui-cell__bd">{{items.month}}</view>
+        <view class="weui-cell__ft"><i class="iconfont {{items.isShow?'icon-DOWN':'icon-UP'}} black"></i></view>
+      </view>
+    </view>
+    <view class="{{items.isShow?'event_mb':''}}">
+      <!--周划分-->
+      <block wx:for="{{items.week_data}}" wx:for-item="item" wx:for-index="item_index" wx:if="{{items.isShow}}">
+        <view style="text-align: center">
+          <view class="weui-cells__title"
+                style="background-color: #d8d8d8;color: #fff;border-radius: 28rpx;display: inline-block">
+            {{item.weekCN}}
+          </view>
+        </view>
+
+        <!--活动列表-->
+        <block wx:for="{{item.data}}" wx:for-item="itm" wx:for-index="itm_index">
+          <view class="weui-cells weui-cells_after-title list_cell_block" bindtap="tapEvent"
+                data-month="{{items_index}}"
+                data-week="{{item_index}}" data-event="{{itm_index}}">
+            <view class="weui-cell weui-cell_access list_cell {{itm_index<(item.data.length-1)?'border':''}}"
+                  hover-class="weui-cell_active" hover-stay-time="100">
+              <view class="weui-cell__bd {{itm.eventUrl?'black':'gray'}}">
+                {{itm.title}}
+                <block wx:if="{{itm.isHot===1}}">
+                  <image src="../../img/hot{{itm.eventUrl?'1':'2'}}.png" class="hot-img"></image>
+                </block>
+              </view>
+              <view class="weui-cell__ft">{{itm.projectName}}</view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
+
+  </block>
+
+
+</scroll-view>
