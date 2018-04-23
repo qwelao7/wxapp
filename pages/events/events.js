@@ -34,6 +34,11 @@ Page({
     }
 
   },
+  tapImg: function () {
+    wx.navigateTo({
+      url: 'event_detail/event_detail'
+    })
+  },
   onLoad: function () {
     let _this = this;
     wx.request({

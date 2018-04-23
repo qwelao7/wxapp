@@ -9,7 +9,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat小程序demo",
+    "navigationBarTitleText": "东方小镇Club",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

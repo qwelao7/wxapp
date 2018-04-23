@@ -139,5 +139,5 @@ const toZhDigit = (digit) => {
 module.exports = {
   formatTime: formatTime,
   toZhDigit: toZhDigit,
-  formatMonth:formatMonth
+  formatMonth: formatMonth
 }

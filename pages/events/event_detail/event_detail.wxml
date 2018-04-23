@@ -1,2 +1,5 @@
 <!--logs.wxml-->
-  <webview src="{{url}}"></webview>
+  <!--<webview src="{{url}}"></webview>-->
+<scroll-view scroll-y class="container">
+  <image style="width: 100%" mode="widthFix" src="http://pub.huilaila.net/dfclub/dfclub_event_detail.jpg"></image>
+</scroll-view>

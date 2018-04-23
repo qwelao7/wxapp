@@ -2,13 +2,12 @@
 const util = require('../../../utils/util.js')
 
 Page({
-  data: {
-  },
+  data: {},
   onLoad: function () {
     let _this = this,
-    url=wx.getStorageSync('eventUrl');
+        url = wx.getStorageSync('eventUrl');
     _this.setData({
-      'url':url
+      'url': url
     })
   }
 })
