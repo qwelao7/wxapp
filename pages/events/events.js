@@ -12,7 +12,7 @@ Page({
       temp[tapIndex].isShow = false
     } else {
       for (let value of temp) {
-        if (value.isShow = true) {
+        if (value.isShow === true) {
           value.isShow = false
         }
       }
