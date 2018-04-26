@@ -16,7 +16,8 @@ Page({
           'http://pub.huilaila.net/dfclub/putang/1.jpg',
           'http://pub.huilaila.net/dfclub/putang/2.jpg',
           'http://pub.huilaila.net/dfclub/putang/3.jpg'
-        ]
+        ],
+        url:'http://pub.huilaila.net/dfclub/putang/detail.jpg'
       },
       {
         name: "宝华桃李春风",
@@ -30,7 +31,8 @@ Page({
           'http://pub.huilaila.net/dfclub/baohua/5.jpg',
           'http://pub.huilaila.net/dfclub/baohua/6.jpg',
           'http://pub.huilaila.net/dfclub/baohua/7.jpg'
-        ]
+        ],
+        url:'http://pub.huilaila.net/dfclub/baohua/detail.jpg'
       },
       {
         name: "协鑫春风江南",
@@ -42,7 +44,8 @@ Page({
           'http://pub.huilaila.net/dfclub/xiexin/3.jpg',
           'http://pub.huilaila.net/dfclub/xiexin/4.jpg',
           'http://pub.huilaila.net/dfclub/xiexin/5.jpg'
-        ]
+        ],
+        url:'http://pub.huilaila.net/dfclub/xiexin/detail.jpg'
       },
       {
         name: "绿城·南京桃花源",
@@ -54,15 +57,17 @@ Page({
           'http://pub.huilaila.net/dfclub/taohuayuan/3.jpg',
           'http://pub.huilaila.net/dfclub/taohuayuan/4.jpg',
           'http://pub.huilaila.net/dfclub/taohuayuan/5.jpg'
-        ]
+        ],
+        url:'http://pub.huilaila.net/dfclub/taohuayuan/detail.jpg'
       },
       {
         name: "枣林·桃李",
         location: "句容国家森林公园旁",
         detail: "仪征枣林湾项目择址宁扬中心、华东最大的生态中心——扬州枣林湾生态园内，紧邻南京江北国家级新区，由蓝城东方团队与万博集团合作打造。2018年9月、2021年4月，江苏省园艺博览会、世界园艺博览会都将在此举办。作为省博园、世博园内的唯一私家园，仪征枣林湾项目是“两园”不可或缺的一部分，窗外就是4800亩的世界级山水园林大观，这在中国还是第一次。",
         imgUrls: [
-          'http://pub.huilaila.net/dfclub/zaolin/0.jpg'
-        ]
+          'http://pub.huilaila.net/dfclub/zaolin/detail.jpg'
+        ],
+        url:'http://pub.huilaila.net/dfclub/zaolin/detail.jpg'
       }
     ],
     town: {},

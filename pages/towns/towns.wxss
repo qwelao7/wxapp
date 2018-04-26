@@ -1,19 +1,31 @@
-.section{
-  display: block;
-  width: 100%;
-  height: 472rpx;
+/*.section{*/
+  /*display: block;*/
+  /*width: 100%;*/
+  /*height: 472rpx;*/
+/*}*/
+/*.title{*/
+  /*display: block;*/
+  /*line-height: 72rpx;*/
+  /*font-size: 28rpx;*/
+/*}*/
+/*.detail{*/
+  /*display: block;*/
+  /*font-size: 24rpx;*/
+/*}*/
+/*.town_head_img{*/
+  /*width: 100%;*/
+  /*height: 340rpx;*/
+  /*display: block;*/
+/*}*/
+
+.town-container{
+  background-image: url('http://pub.huilaila.net/dfclub/towns/bg.jpg');
+  background-size: 100% 100%;
 }
-.title{
-  display: block;
-  line-height: 72rpx;
-  font-size: 28rpx;
+.btn-container{
+  width: 400rpx;
+  margin-top: 25%;
 }
-.detail{
-  display: block;
-  font-size: 24rpx;
-}
-.town_head_img{
-  width: 100%;
-  height: 340rpx;
-  display: block;
+.town-btn{
+  width: 100%;display: block;height: auto;margin-top: 30rpx;
 }

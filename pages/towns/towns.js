@@ -7,27 +7,27 @@ Page({
     towns: [
       {
         name: '濮塘·桃李',
-        imgUrl: 'http://pub.huilaila.net/dfclub/putang/1.jpg',
+        imgUrl: 'http://pub.huilaila.net/dfclub/towns/putang.png',
         subTitle: '南京南 濮塘风景区 农旅度假小镇'
       },
       {
         name: '宝华桃李春风',
-        imgUrl: 'http://pub.huilaila.net/dfclub/baohua/1.jpg',
+        imgUrl: 'http://pub.huilaila.net/dfclub/towns/baohua.png',
         subTitle: '南京东 宝华山景区 故乡小镇'
       },
       {
         name: '协鑫春风江南',
-        imgUrl: 'http://pub.huilaila.net/dfclub/xiexin/1.jpg',
+        imgUrl: 'http://pub.huilaila.net/dfclub/towns/xiexin.png',
         subTitle: '南京东 秦淮源 农耕科技小镇',
       },
       {
         name: '绿城·南京桃花源',
-        imgUrl: 'http://pub.huilaila.net/dfclub/taohuayuan/1.jpg',
+        imgUrl: 'http://pub.huilaila.net/dfclub/towns/taohuayuan.png',
         subTitle: '汤山国家级旅游度假区内 东方生活综合体'
       },
       {
         name: '枣林·桃李',
-        imgUrl: 'http://pub.huilaila.net/dfclub/zaolin/0.jpg',
+        imgUrl: 'http://pub.huilaila.net/dfclub/towns/zaolin.png',
         subTitle: '宁扬中心 双博园内 园博小镇'
       },
     ]

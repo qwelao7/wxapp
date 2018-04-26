@@ -14,26 +14,26 @@
   },
   "tabBar": {
     "color": "#ababab",
-    "selectedColor": "#333",
+    "selectedColor": "#9e7f60",
     "backgroundColor": "#fffcf5",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath":"img/index_2.png",
-        "selectedIconPath":"img/index_1.png"
+        "iconPath": "img/index_2.png",
+        "selectedIconPath": "img/index_1.png"
       },
       {
         "pagePath": "pages/towns/towns",
         "text": "小镇",
-        "iconPath":"img/town_2.png",
-        "selectedIconPath":"img/town_1.png"
+        "iconPath": "img/town_2.png",
+        "selectedIconPath": "img/town_1.png"
       },
       {
         "pagePath": "pages/events/events",
         "text": "活动",
-        "iconPath":"img/event_2.png",
-        "selectedIconPath":"img/event_1.png"
+        "iconPath": "img/event_2.png",
+        "selectedIconPath": "img/event_1.png"
       }
     ],
     "position": "bottom"
