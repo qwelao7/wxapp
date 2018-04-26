@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfd0f509-c25e-4d9c-b552-d0bb84e3ae3d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/events/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/events/events.js" afterDir="false" />
+    <list default="true" id="cfd0f509-c25e-4d9c-b552-d0bb84e3ae3d" name="Default" comment="1.1.1版本，修改前的展示版本">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/events/event_detail/event_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/events/event_detail/event_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/events/event_detail/event_detail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/events/event_detail/event_detail.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/towns/town_detail/town_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/towns/town_detail/town_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/towns/towns.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/towns/towns.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/towns/towns.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/towns/towns.wxss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,16 +23,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="events.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            <state relative-caret-position="323">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="towns.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/towns/towns.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="town_detail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="towns.wxss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_detail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Less File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -53,7 +122,6 @@
         <option value="$PROJECT_DIR$/pages/index/index.wxss" />
         <option value="$PROJECT_DIR$/iconfont/iconfont.css" />
         <option value="$PROJECT_DIR$/pages/town/town.wxml" />
-        <option value="$PROJECT_DIR$/pages/index/index.json" />
         <option value="$PROJECT_DIR$/pages/town/town.json" />
         <option value="$PROJECT_DIR$/pages/town/town.wxss" />
         <option value="$PROJECT_DIR$/pages/event1/events.js" />
@@ -66,24 +134,30 @@
         <option value="$PROJECT_DIR$/pages/towns/town_detail/town_detail.wxml" />
         <option value="$PROJECT_DIR$/pages/towns/town_detail/town_detail.wxss" />
         <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.json" />
-        <option value="$PROJECT_DIR$/pages/towns/towns.wxss" />
         <option value="$PROJECT_DIR$/pages/towns/towns.wxml" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
-        <option value="$PROJECT_DIR$/pages/towns/town_detail/town_detail.js" />
         <option value="$PROJECT_DIR$/weui.wxss" />
         <option value="$PROJECT_DIR$/app.wxss" />
         <option value="$PROJECT_DIR$/pages/events/events.json" />
         <option value="$PROJECT_DIR$/pages/events/events.wxss" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.wxss" />
         <option value="$PROJECT_DIR$/pages/index/index.wxml" />
-        <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.wxml" />
         <option value="$PROJECT_DIR$/utils/util.js" />
-        <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.js" />
-        <option value="$PROJECT_DIR$/pages/towns/towns.js" />
         <option value="$PROJECT_DIR$/pages/events/events.wxml" />
         <option value="$PROJECT_DIR$/pages/events/events.js" />
+        <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.js" />
+        <option value="$PROJECT_DIR$/pages/events/event_detail/event_detail.wxml" />
+        <option value="$PROJECT_DIR$/pages/towns/towns.wxss" />
+        <option value="$PROJECT_DIR$/pages/towns/town_detail/town.less" />
+        <option value="$PROJECT_DIR$/pages/towns/town_detail/towns.less" />
+        <option value="$PROJECT_DIR$/pages/towns/towns.less" />
+        <option value="$PROJECT_DIR$/pages/towns/towns.css" />
+        <option value="$PROJECT_DIR$/pages/towns/test.less" />
+        <option value="$PROJECT_DIR$/pages/index/index.json" />
+        <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/towns/towns.js" />
+        <option value="$PROJECT_DIR$/pages/towns/town_detail/town_detail.js" />
       </list>
     </option>
   </component>
@@ -97,9 +171,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -107,7 +180,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,48 +192,35 @@
               <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
-              <item name="event_detail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pages/events" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/events" />
       <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/pages/index" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/towns/town_detail" />
+      <recent name="$PROJECT_DIR$/pages/towns" />
+      <recent name="$PROJECT_DIR$/pages/events" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -201,26 +260,29 @@
       <workItem from="1524195270367" duration="39000" />
       <workItem from="1524195325202" duration="33000" />
       <workItem from="1524196368191" duration="4605000" />
-      <workItem from="1524447035536" duration="1950000" />
+      <workItem from="1524447035536" duration="10482000" />
+      <workItem from="1524704829638" duration="290000" />
+      <workItem from="1524706323050" duration="1569000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66808000" />
+    <option name="totallyTimeSpent" value="77199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.1663143" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.1663143" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="调试" order="7" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32917705" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" sideWeight="0.50249374" side_tool="true" weight="0.15785764" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -231,7 +293,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,74 +302,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.1.1版本，修改前的展示版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.1.1版本，修改前的展示版本" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="323">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="68" lean-forward="true" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weui.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1691">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weui.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1691">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+        <state relative-caret-position="323">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -357,13 +367,6 @@
     <entry file="file://$PROJECT_DIR$/pages/town/town.js" />
     <entry file="file://$PROJECT_DIR$/pages/towns/town1/town1.js" />
     <entry file="file://$PROJECT_DIR$/pages/towns/town1/town1.wxml" />
-    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -372,59 +375,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/event_detail/events.js" />
-    <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="4610" column="13" selection-start-line="4610" selection-start-column="13" selection-end-line="4610" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -456,10 +410,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
+    <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.wxss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="44" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/events/events.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -470,97 +452,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
+        <state relative-caret-position="19">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/util.js">
+    <entry file="file://$PROJECT_DIR$/project.config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="143" selection-start-line="143" selection-end-line="143" />
-          <folding>
-            <element signature="e#27#346#0" />
-            <element signature="e#348#381#0" />
-            <element signature="e#411#583#0" />
-            <element signature="e#611#661#0" />
-            <element signature="e#663#787#0" />
-            <element signature="e#817#3877#0" />
-            <element signature="e#1290#3875#0" />
-            <element signature="e#1309#2203#0" />
-            <element signature="e#1451#2197#0" />
-            <element signature="e#1482#1990#0" />
-            <element signature="e#1519#1782#0" />
-            <element signature="e#1678#1737#0" />
-            <element signature="e#1788#1980#0" />
-            <element signature="e#1909#1968#0" />
-            <element signature="e#1996#2189#0" />
-            <element signature="e#2052#2122#0" />
-            <element signature="e#2209#3851#0" />
-            <element signature="e#2354#3825#0" />
-            <element signature="e#2385#2925#0" />
-            <element signature="e#2422#2706#0" />
-            <element signature="e#2498#2584#0" />
-            <element signature="e#2590#2661#0" />
-            <element signature="e#2712#2773#0" />
-            <element signature="e#2860#2915#0" />
-            <element signature="e#2931#3817#0" />
-            <element signature="e#3052#3179#0" />
-            <element signature="e#3213#3378#0" />
-            <element signature="e#3267#3310#0" />
-            <element signature="e#3316#3366#0" />
-            <element signature="e#3384#3436#0" />
-            <element signature="e#3521#3787#0" />
-            <element signature="e#3578#3710#0" />
-            <element signature="e#3716#3775#0" />
-          </folding>
+        <state relative-caret-position="301">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
+    <entry file="file://$PROJECT_DIR$/pages/towns/towns.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town.less" />
+    <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="44" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#image#0;n#scroll-view#0;n#!!top" expanded="true" />
-          </folding>
+          <caret selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/towns.less" />
+    <entry file="file://$PROJECT_DIR$/pages/towns/towns.less" />
+    <entry file="file://$PROJECT_DIR$/pages/towns/test.less" />
+    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/towns/towns.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="427">
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        <state relative-caret-position="285">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+    <entry file="file://$PROJECT_DIR$/pages/towns/town_detail/town_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state relative-caret-position="159">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/towns/towns.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>

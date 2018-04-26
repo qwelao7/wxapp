@@ -6,6 +6,11 @@ Page({
     url: 'town_detail/town_detail',
     towns: [
       {
+        name: '濮塘·桃李',
+        imgUrl: 'http://pub.huilaila.net/dfclub/putang/1.jpg',
+        subTitle: '南京南 濮塘风景区 农旅度假小镇'
+      },
+      {
         name: '宝华桃李春风',
         imgUrl: 'http://pub.huilaila.net/dfclub/baohua/1.jpg',
         subTitle: '南京东 宝华山景区 故乡小镇'
@@ -20,12 +25,6 @@ Page({
         imgUrl: 'http://pub.huilaila.net/dfclub/taohuayuan/1.jpg',
         subTitle: '汤山国家级旅游度假区内 东方生活综合体'
       },
-      {
-        name: '濮塘·桃李',
-        imgUrl: 'http://pub.huilaila.net/dfclub/putang/1.jpg',
-        subTitle: '南京南 濮塘风景区 农旅度假小镇'
-      },
-
       {
         name: '枣林·桃李',
         imgUrl: 'http://pub.huilaila.net/dfclub/zaolin/0.jpg',

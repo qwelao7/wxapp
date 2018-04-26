@@ -8,14 +8,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fffcf5",
     "navigationBarTitleText": "东方小镇Club",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#ababab",
     "selectedColor": "#333",
-    "backgroundColor": "#fff",
+    "backgroundColor": "#fffcf5",
     "list": [
       {
         "pagePath": "pages/index/index",
