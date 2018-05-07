@@ -33,9 +33,9 @@
       },
       {
         "pagePath": "pages/events/events",
-        "text": "活动",
-        "iconPath": "img/event_2.png",
-        "selectedIconPath": "img/event_1.png"
+        "text": "课表",
+        "iconPath": "img/syllabus_2.png",
+        "selectedIconPath": "img/syllabus_1.png"
       }
     ],
     "position": "bottom"

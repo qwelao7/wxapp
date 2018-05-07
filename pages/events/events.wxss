@@ -39,3 +39,17 @@
 .event_mb{
   margin-bottom: 20rpx;
 }
+.weui-grids{
+  border: none;
+  background-color: #fffcf5;
+}
+.weui-grid{
+  border:none;
+  width: 50%;
+}
+.weui-grid__icon{
+  width:345rpx;
+  height: 345rpx;
+  display: block;
+  margin: 0 auto;
+}

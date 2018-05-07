@@ -5,19 +5,25 @@ const app = getApp()
 Page({
   data: {
     imgs: [
-      'http://pub.huilaila.net/dfclub/index/index_detail01.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_detail02.jpg'
+      'http://pub.huilaila.net/dfclub/index/index_detail02.jpg',
+      'http://pub.huilaila.net/dfclub/index/index_detail01.jpg'
     ],
     showImg: ''
   },
 
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: "加载中...",
+    })
     let _this = this,
         img = this.data.imgs[options.id];
     _this.setData({
       'showImg': img
     });
+  },
+  imgLoad:function(e){
+    wx.hideLoading()
   },
 
 

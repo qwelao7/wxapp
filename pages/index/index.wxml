@@ -1,27 +1,26 @@
 <!--index.wxml-->
 <scroll-view scroll-y class="container">
-  <!--<image style="width: 100%;display: block" mode="widthFix" src="http://pub.huilaila.net/dfclub/dfclub_cover5.jpg"></image>-->
 
   <!--顶部banner轮播图-->
-  <swiper interval="3000" duration="500" circular="true" indicator-dots="true" style="width: 100%">
-    <block wx:for="{{bannerImgs}}">
+  <swiper interval="3000" duration="500" circular="true" indicator-dots="true" style="width: 100%;height: 375rpx">
+    <block wx:for="{{bannerImgs}}"wx:key="*this">
       <swiper-item>
         <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
       </swiper-item>
     </block>
   </swiper>
 
-  <block>
+  <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
     <view>
 
       <view style="padding:30rpx;">
         <view class="icon-box">
-          <image class="icon-avatar" style="" src="../../img/hot1.png"></image>
+          <image class="icon-avatar" style="" src="{{items.headPicName}}"></image>
           <view class="icon-box__ctn">
             <view class="icon-box__title">
-              薄荷草
+              {{items.userName}}
             </view>
-            <view class="icon-box__desc">2018.05.04</view>
+            <view class="icon-box__desc">{{items.inTimeTag}}</view>
           </view>
           <view class="hash_title">
             <image class="hash_icon" src="../../img/hash_tag1.png"></image>
@@ -30,32 +29,29 @@
         </view>
       </view>
 
-      <view class="weui-grids">
-        <block wx:for="{{grids}}" wx:key="*this">
-          <view url="" class="weui-grid">
-            <image class="weui-grid__icon" style="" src="../../img/hot1.png" bindtap="previewImg"/>
+      <view class="weui-grids" wx:if="{{items.annexs}}.length>0">
+        <block wx:for="{{items.annexs}}" wx:key="*this" wx:for-index="index" wx:for-item="item">
+          <view class="weui-grid">
+            <image class="weui-grid__icon" lazy-load="true" src="{{item}}" bindtap="previewImg" data-indexs="indexs" data-index="index"/>
           </view>
         </block>
       </view>
 
-      <view class="weui-article__p black  ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <view class="weui-article__p black">
+        {{items.topicContent}}
       </view>
 
       <view class="weui-flex comment_btn_bar">
         <view class="placeholder like-container">
           <image class="weui-icon" src="../../img/like_1.png"></image>
-          <text class="gray like_num">2</text>
+          <text class="gray like_num">{{items.topicPraiseNumber}}</text>
         </view>
         <view class="placeholder comment-container">
           <image class="weui-icon" src="../../img/comment_1.png"></image>
-          <text class="gray like_num">2</text>
+          <text class="gray like_num">{{items.topicCommentNumber}}</text>
         </view>
       </view>
-
+      <view style="width: 100%;height: 15rpx;background-color:#F2F2F2;"></view>
     </view>
   </block>
 
