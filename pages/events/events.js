@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    events: []
+    events: [],
   },
   tapMonth: function (e) {
     let tapIndex = e.currentTarget.dataset.month
@@ -63,6 +63,7 @@ Page({
       }
     })
   },
+
 
   onShareAppMessage: function (res) {
     return {

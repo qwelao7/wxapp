@@ -5,16 +5,14 @@ const app = getApp()
 Page({
   data: {
     bannerImgs: [
-      'http://pub.huilaila.net/dfclub/index/index_01.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_02.jpg'
+      'http://pub.huilaila.net/dfclub/putang/1.jpg',
+      'http://pub.huilaila.net/dfclub/putang/2.jpg',
+      'http://pub.huilaila.net/dfclub/putang/3.jpg'
     ],
     grids: [0, 1, 2, 3, 4]
   },
   tapBanner: function (e) {
-    let bannerId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: 'index_banner/index_banner?id='+bannerId
-    })
+
   },
   previewImg:function(e){
 

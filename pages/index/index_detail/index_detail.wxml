@@ -6,7 +6,7 @@
   <swiper interval="3000" duration="500" circular="true" indicator-dots="true" style="width: 100%">
     <block wx:for="{{bannerImgs}}">
       <swiper-item>
-        <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
+        <image class="bannerImg" src="{{item}}" bindtap="tapBanner"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -14,7 +14,7 @@
   <block>
     <view>
 
-      <view style="padding:30rpx;">
+      <view class="" style="padding:30rpx;">
         <view class="icon-box">
           <image class="icon-avatar" style="" src="../../img/hot1.png"></image>
           <view class="icon-box__ctn">

@@ -4,32 +4,28 @@ const app = getApp()
 
 Page({
   data: {
-    bannerImgs: [
-      'http://pub.huilaila.net/dfclub/index/index_01.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_02.jpg'
+    imgs: [
+      'http://pub.huilaila.net/dfclub/index/index_detail01.jpg',
+      'http://pub.huilaila.net/dfclub/index/index_detail02.jpg'
     ],
-    grids: [0, 1, 2, 3, 4]
+    showImg: ''
   },
-  tapBanner: function (e) {
-    let bannerId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: 'index_banner/index_banner?id='+bannerId
-    })
-  },
-  previewImg:function(e){
 
-  },
 
   onLoad: function (options) {
-
+    let _this = this,
+        img = this.data.imgs[options.id];
+    _this.setData({
+      'showImg': img
+    });
   },
 
 
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function (res,options) {
     return {
       title: '东方小镇Club',
-      desc: '东方小镇Club首页',
-      path: '/pages/index/index',
+      desc: '东方小镇Club',
+      path: '/pages/index/index_banner/index_banner?id='+options.id,
       success: function (res) {
         // 转发成功
         wx.showModal({

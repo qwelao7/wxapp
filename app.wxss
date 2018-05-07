@@ -1,6 +1,5 @@
 /**app.wxss**/
 @import "weui.wxss";
-@import "iconfont/iconfont.wxss";
 .container {
   position: fixed;
   height: 100%;

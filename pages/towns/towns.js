@@ -30,6 +30,13 @@ Page({
         imgUrl: 'http://pub.huilaila.net/dfclub/towns/zaolin.png',
         subTitle: '宁扬中心 双博园内 园博小镇'
       },
+    ],
+    imgs:[
+      'http://pub.huilaila.net/dfclub/towns/towns_full01.jpg',
+      'http://pub.huilaila.net/dfclub/towns/towns_full02.jpg',
+      'http://pub.huilaila.net/dfclub/towns/towns_full03.jpg',
+      'http://pub.huilaila.net/dfclub/towns/towns_full04.jpg',
+      'http://pub.huilaila.net/dfclub/towns/towns_full05.jpg'
     ]
   },
   tapTown: function (e) {

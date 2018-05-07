@@ -7,15 +7,24 @@
     <!--<text class="detail gray lr-padding">{{item.subTitle}}</text>-->
   <!--</view>-->
 <!--</scroll-view>-->
-<view class="container town-container">
-  <!--<image style="width: 100%;height: 100%" src="http://pub.huilaila.net/dfclub/dfclub_cover2.jpg"></image>-->
-  <block>
-    <view class="btn-container">
-      <block wx:for="{{towns}}">
-        <image id="{{index}}" class="town-btn" id="{{index}}" bindtap="tapTown" mode="widthFix"
-               src="{{item.imgUrl}}"></image>
-      </block>
+<!--<scroll-view scroll-y class="container town-container">-->
+  <!--<image style="width: 100%;display: block" mode="widthFix" src="http://pub.huilaila.net/dfclub/dfclub_cover6.jpg"></image>-->
+  <!--<block>-->
+    <!--<view class="btn-container">-->
+      <!--<block wx:for="{{towns}}">-->
+        <!--<image id="{{index}}" class="town-btn" id="{{index}}" bindtap="tapTown" mode="widthFix"-->
+               <!--src="{{item.imgUrl}}"></image>-->
+      <!--</block>-->
 
-    </view>
-  </block>
+    <!--</view>-->
+  <!--</block>-->
+<!--</scroll-view>-->
+<view class="container">
+  <swiper interval="3000" duration="500" vertical="true" circular="true" indicator-dots="true" style="width: 100%;height: 100%">
+    <block wx:for="{{imgs}}">
+      <swiper-item>
+        <image src="{{item}}" style="width: 100%;height: 100%"></image>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>

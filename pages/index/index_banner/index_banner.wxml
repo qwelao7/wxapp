@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<scroll-view scroll-y class="container">
+  <image style="width: 100%;display: block" mode="widthFix" src="{{showImg}}"></image>
+</scroll-view>
