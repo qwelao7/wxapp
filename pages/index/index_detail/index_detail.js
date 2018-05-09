@@ -4,22 +4,26 @@ const app = getApp()
 
 Page({
   data: {
-    bannerImgs: [
-      'http://pub.huilaila.net/dfclub/putang/1.jpg',
-      'http://pub.huilaila.net/dfclub/putang/2.jpg',
-      'http://pub.huilaila.net/dfclub/putang/3.jpg'
-    ],
-    grids: [0, 1, 2, 3, 4]
+
   },
   tapBanner: function (e) {
 
   },
-  previewImg:function(e){
-
+  previewImg: function (e) {
+    let _this = this,
+        index = e.currentTarget.dataset.index
+    wx.previewImage({
+      current: _this.data.content.annexs[index], // 当前显示图片的http链接
+      urls: _this.data.content.annexs // 需要预览的图片http链接列表
+    })
   },
 
   onLoad: function (options) {
-
+    let content=wx.getStorageSync('indexList');
+    this.setData({
+      content: content
+    })
+    console.log(this.data.content)
   },
 
 

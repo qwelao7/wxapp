@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -10,31 +9,14 @@ Page({
     hasMoreData: true,
     isHiddenToast: true,
     contentlist: [],
-    bannerImgs: [
-      'http://pub.huilaila.net/dfclub/index/index_02.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_01.jpg'
-    ],
   },
 
 
-  tapBanner: function (e) {
-    let bannerId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: 'index_banner/index_banner?id=' + bannerId
-    })
-  },
-  tapGroup: function (e) {
-    let groupId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: 'index_group/index_group?id=' + groupId
-    })
-  },
   tapList: function (e) {
-    let _this = this
     let listId = e.currentTarget.dataset.listid;
     wx.setStorageSync('indexList', this.data.contentlist[listId])
     wx.navigateTo({
-      url: 'index_detail/index_detail'
+      url: '../index_detail/index_detail'
     })
   },
   previewImg: function (e) {
@@ -57,7 +39,7 @@ Page({
       isHiddenToast: true
     })
   },
-  getList: function (message) {
+  getList: function (message, groupId) {
     let that = this
     wx.showNavigationBarLoading()
     if (message != "") {
@@ -65,8 +47,9 @@ Page({
         title: message,
       });
     }
+
     wx.request({
-      url: 'https://signin.afguanjia.com/club/newThings?page=' + that.data.page,
+      url: 'https://signin.afguanjia.com/club/newThings?page=' + that.data.page + '&query=' + groupId,
       success: function (res) {
         wx.hideNavigationBarLoading()
         if (message != "") {
@@ -108,14 +91,16 @@ Page({
         })
       }
     })
+
   },
 
   onLoad: function (options) {
-    let _this = this
-    _this.getList('正在加载数据...')
-    util.get('/club/newThings').then(res => {
-      console.log(res)
+    let _this = this,
+        groupId = options.id
+    _this.setData({
+      groupId: groupId
     })
+    _this.getList('正在加载数据...', groupId)
   },
 
 
@@ -123,16 +108,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    let groupId = this.data.groupId
     this.data.page = 1
-    this.getList('正在刷新数据')
+    this.getList('正在刷新数据', groupId)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    let groupId = this.data.groupId
     if (this.data.hasMoreData) {
-      this.getList('加载更多数据')
+      this.getList('加载更多数据', groupId)
     } else {
       wx.showToast({
         title: '没有更多数据',

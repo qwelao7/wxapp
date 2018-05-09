@@ -1,62 +1,72 @@
 <!--index.wxml-->
 <scroll-view scroll-y class="container">
-  <!--<image style="width: 100%;display: block" mode="widthFix" src="http://pub.huilaila.net/dfclub/dfclub_cover5.jpg"></image>-->
-
-  <!--顶部banner轮播图-->
-  <swiper interval="3000" duration="500" circular="true" indicator-dots="true" style="width: 100%">
-    <block wx:for="{{bannerImgs}}">
-      <swiper-item>
-        <image class="bannerImg" src="{{item}}" bindtap="tapBanner"></image>
-      </swiper-item>
-    </block>
-  </swiper>
 
   <block>
     <view>
 
-      <view class="" style="padding:30rpx;">
+      <view style="padding:30rpx;">
         <view class="icon-box">
-          <image class="icon-avatar" style="" src="../../img/hot1.png"></image>
+          <image class="icon-avatar" src="{{content.headPicName}}"></image>
           <view class="icon-box__ctn">
-            <view class="icon-box__title">
-              薄荷草
+            <view class="icon-box__title black">
+              {{content.userName}}
             </view>
-            <view class="icon-box__desc">2018.05.04</view>
+            <view class="icon-box__desc gray">{{content.inTimeTag}}</view>
           </view>
           <view class="hash_title">
-            <image class="hash_icon" src="../../img/hash_tag1.png"></image>
-            桃李春风
+            <image class="hash_icon" src="../../../img/hash_tag1.png"></image>
+            {{content.topicTag}}
           </view>
         </view>
       </view>
 
-      <view class="weui-grids">
-        <block wx:for="{{grids}}" wx:key="*this">
-          <view url="" class="weui-grid">
-            <image class="weui-grid__icon" style="" src="../../img/hot1.png" bindtap="previewImg"/>
+      <view class="weui-grids" wx:if="{{content.annexs}}.length>0">
+        <block wx:for="{{content.annexs}}" wx:key="*this" wx:for-index="index" wx:for-item="item">
+          <view class="weui-grid">
+            <image class="weui-grid__icon" src="{{item}}" catchtap="previewImg"
+                   data-index="{{index}}"/>
           </view>
         </block>
       </view>
 
-      <view class="weui-article__p black  ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <view class="weui-article__p black">
+        {{content.topicContent}}
       </view>
 
-      <view class="weui-flex comment_btn_bar">
-        <view class="placeholder like-container">
-          <image class="weui-icon" src="../../img/like_1.png"></image>
-          <text class="gray like_num">2</text>
-        </view>
-        <view class="placeholder comment-container">
-          <image class="weui-icon" src="../../img/comment_1.png"></image>
-          <text class="gray like_num">2</text>
-        </view>
-      </view>
-
+      <view class="list-spacing"></view>
     </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view url="" class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd gray" style="font-size: 26rpx">
+          <text style="margin-right: 30rpx">共{{content.topicPraiseNumber}}人点赞</text>
+          <image src="../../../img/hot1.png" class="praise-img" ></image>
+          <image src="../../../img/hot1.png" class="praise-img" ></image>
+          <image src="../../../img/hot1.png" class="praise-img" ></image>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd gray" style="font-size: 26rpx">
+          共{{content.comments.length>0?content.comments.length:0}}人评论
+        </view>
+      </view>
+    </view>
+    <block>
+      <view class="comment-list">
+        <view class="icon-box">
+          <image class="icon-avatar" src="{{content.headPicName}}"></image>
+          <view class="icon-box__ctn">
+            <view class="icon-comment__title  gray">
+              {{content.userName}}
+            </view>
+            <view class="icon-comment__desc black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea error facilis minus rem. Alias atque commodi debitis eius eum ex explicabo illo nam, neque nulla quae rem rerum vero!</view>
+          </view>
+        </view>
+      </view>
+    </block>
+
   </block>
 
 </scroll-view>
