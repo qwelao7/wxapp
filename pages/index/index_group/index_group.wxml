@@ -4,7 +4,7 @@
   <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
     <view bindtap="tapList" data-listid="{{indexs}}">
 
-      <view style="padding:30rpx;">
+      <view class="pd-30">
         <view class="icon-box">
           <image class="icon-avatar" src="{{items.headPicName}}"></image>
           <view class="icon-box__ctn">
@@ -14,7 +14,7 @@
             <view class="icon-box__desc">{{items.inTimeTag}}</view>
           </view>
           <view class="hash_title">
-            <image class="hash_icon" src="../../../img/hash_tag1.png"></image>
+            <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
             {{items.topicTag}}
           </view>
         </view>
@@ -33,15 +33,15 @@
 
       <view class="weui-flex comment_btn_bar">
         <view class="placeholder like-container">
-          <image class="weui-icon" src="../../../img/like_1.png"></image>
+          <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_1.png"></image>
           <text class="gray like_num">{{items.topicPraiseNumber}}</text>
         </view>
         <view class="placeholder comment-container">
-          <image class="weui-icon" src="../../../img/comment_1.png"></image>
+          <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/comment_1.png"></image>
           <text class="gray like_num">{{items.topicCommentNumber}}</text>
         </view>
       </view>
-      <view style="width: 100%;height: 15rpx;background-color:#F2F2F2;"></view>
+      <view class="list-spacing"></view>
     </view>
   </block>
 

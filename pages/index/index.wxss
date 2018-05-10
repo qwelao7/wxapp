@@ -24,7 +24,10 @@
   background-color: #fffcf5;
   position: relative;
 }
-
+.index-banner{
+  width: 100%;
+  height: 375rpx;
+}
 .bannerImg {
   width: 100%;
   height: 375rpx;
@@ -80,9 +83,14 @@
   margin-bottom: 6rpx;
   padding-right: 6rpx;
 }
+
 .weui-grid__icon{
   width: 226rpx;
   height: 226rpx;
+}
+.weui-grid__icon_single{
+  width: 100%;
+  height: 294rpx;
 }
 .weui-article__p{
   padding: 10rpx 30rpx;

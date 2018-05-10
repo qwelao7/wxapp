@@ -12,4 +12,3 @@
   <image style="width: 100%;display: block" mode="widthFix"
          src="http://pub.huilaila.net/dfclub/syllabus/bottom.jpg" bindtap="tapQR"></image>
 </scroll-view>
-

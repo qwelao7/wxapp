@@ -4,7 +4,7 @@
   <block>
     <view>
 
-      <view style="padding:30rpx;">
+      <view class="pd-30">
         <view class="icon-box">
           <image class="icon-avatar" src="{{content.headPicName}}"></image>
           <view class="icon-box__ctn">
@@ -14,7 +14,7 @@
             <view class="icon-box__desc gray">{{content.inTimeTag}}</view>
           </view>
           <view class="hash_title">
-            <image class="hash_icon" src="../../../img/hash_tag1.png"></image>
+            <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
             {{content.topicTag}}
           </view>
         </view>
@@ -37,19 +37,19 @@
     </view>
     <view class="weui-cells weui-cells_after-title">
       <view url="" class="weui-cell weui-cell_access">
-        <view class="weui-cell__bd gray" style="font-size: 26rpx">
-          <text style="margin-right: 30rpx">共{{content.topicPraiseNumber}}人点赞</text>
-          <image src="../../../img/hot1.png" class="praise-img" ></image>
-          <image src="../../../img/hot1.png" class="praise-img" ></image>
-          <image src="../../../img/hot1.png" class="praise-img" ></image>
+        <view class="weui-cell__bd gray fs-26">
+          <text class="praise-number">共{{content.topicPraiseNumber}}人点赞</text>
+          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
+          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
+          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
         </view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </view>
     </view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
-        <view class="weui-cell__bd gray" style="font-size: 26rpx">
-          共{{content.comments.length>0?content.comments.length:0}}人评论
+        <view class="weui-cell__bd gray fs-26">
+          共{{content.topicCommentNumber}}人评论
         </view>
       </view>
     </view>

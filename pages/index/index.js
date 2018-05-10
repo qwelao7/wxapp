@@ -113,9 +113,9 @@ Page({
   onLoad: function (options) {
     let _this = this
     _this.getList('正在加载数据...')
-    util.get('/club/newThings').then(res => {
-      console.log(res)
-    })
+    util.get('/club/newThings')
+        .then(res => {})
+        .then(res=>{})
   },
 
 
