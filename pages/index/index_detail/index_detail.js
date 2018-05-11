@@ -26,7 +26,7 @@ Page({
 
   tapPraiseList: function () {
     wx.navigateTo({
-      url: '../index_detail_praise/index_detail_praise?neighborId='+this.data.content.neighborId
+      url: '../index_detail_praise/index_detail_praise?neighborId=' + this.data.content.neighborId
     })
   },
 
@@ -40,22 +40,24 @@ Page({
     _this.setData({
       content: content
     })
-    util.get(praiseUrl).then(res => {
-      if (res.status == 100) {
-        _this.setData({
-          likelist: res.data.resultList
+    util.get(praiseUrl)
+        .then(res => {
+          if (res.status == 100) {
+            _this.setData({
+              likelist: res.data.resultList
+            })
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
         })
-      } else {
-        wx.showToast({
-          title: res.msg,
+        .catch(e => {
+          wx.showToast({
+            title: '加载点赞数据失败',
+          })
+          console.log(e)
         })
-      }
-    }).catch(e => {
-      wx.showToast({
-        title: '加载点赞数据失败',
-      })
-      console.log(e)
-    })
     _this.getCommentList('正在加载数据...')
   },
 
@@ -113,7 +115,6 @@ Page({
 
   },
 
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -134,7 +135,6 @@ Page({
       })
     }
   },
-
 
   onShareAppMessage: function (res) {
     return {

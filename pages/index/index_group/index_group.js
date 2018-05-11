@@ -12,7 +12,6 @@ Page({
     contentlist: [],
   },
 
-
   tapList: function (e) {
     let listId = e.currentTarget.dataset.listid;
     wx.setStorageSync('indexList', this.data.contentlist[listId])
@@ -20,6 +19,7 @@ Page({
       url: '../index_detail/index_detail'
     })
   },
+
   previewImg: function (e) {
     let _this = this,
         indexs = e.currentTarget.dataset.indexs,
@@ -35,11 +35,13 @@ Page({
       isHiddenToast: false
     })
   },
+
   toastChange: function () {
     this.setData({
       isHiddenToast: true
     })
   },
+
   getList: function (message, groupId) {
     let that = this,
         url = 'newThings?curPage=' + that.data.page + '&communityId=' + groupId
@@ -105,7 +107,6 @@ Page({
     })
     _this.getList('正在加载数据...', groupId)
   },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

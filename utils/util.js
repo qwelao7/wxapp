@@ -13,7 +13,6 @@ const formatTime = date => {
  * 日期格式化为(年月)
  * time 时间戳
  */
-
 const formatMonth = time => {
   var date;
   date = new Date(time * 1000);
@@ -137,7 +136,6 @@ const toZhDigit = (digit) => {
 
 const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
 
-
 const http = ({url = '', params = {}, ...other} = {}) => {
   wx.showLoading({
     title: '正在加载数据...'
@@ -164,14 +162,12 @@ const http = ({url = '', params = {}, ...other} = {}) => {
   })
 }
 
-
 const getUrl = url => {
   if (url.indexOf('://') == -1) {
     url = baseURL + url
   }
   return url
 }
-
 
 const getHeader = () => {
   try {
@@ -184,7 +180,6 @@ const getHeader = () => {
     return {}
   }
 }
-
 
 module.exports = {
   formatTime: formatTime,

@@ -16,19 +16,20 @@ Page({
     ],
   },
 
-
   tapBanner: function (e) {
     let bannerId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'index_banner/index_banner?id=' + bannerId
     })
   },
+
   tapGroup: function (e) {
     let groupId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'index_group/index_group?id=' + groupId
     })
   },
+
   tapList: function (e) {
     let _this = this
     let listId = e.currentTarget.dataset.listid;
@@ -37,6 +38,7 @@ Page({
       url: 'index_detail/index_detail'
     })
   },
+
   previewImg: function (e) {
     let _this = this,
         indexs = e.currentTarget.dataset.indexs,
@@ -52,11 +54,13 @@ Page({
       isHiddenToast: false
     })
   },
+
   toastChange: function () {
     this.setData({
       isHiddenToast: true
     })
   },
+
   getList: function (message) {
     let that = this,
         url = 'newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
@@ -113,7 +117,6 @@ Page({
     let _this = this
     _this.getList('正在加载数据...')
   },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

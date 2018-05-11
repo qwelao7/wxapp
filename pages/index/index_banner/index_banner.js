@@ -11,8 +11,10 @@ Page({
     showImg: ''
   },
 
-
   onLoad: function (options) {
+    /**
+     *加载页面后，显示loading，图片加载完成后隐藏loading
+     */
     wx.showLoading({
       title: "加载中...",
     })
@@ -22,10 +24,13 @@ Page({
       'showImg': img
     });
   },
+
+  /**
+   *图片加载完成后，隐藏loading
+   */
   imgLoad:function(e){
     wx.hideLoading()
   },
-
 
   onShareAppMessage: function (res,options) {
     return {
