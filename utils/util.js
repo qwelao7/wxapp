@@ -135,7 +135,7 @@ const toZhDigit = (digit) => {
   }
 }
 
-const baseURL = 'https://signin.afguanjia.com' // 自己后台API地址
+const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
 
 
 const http = ({url = '', params = {}, ...other} = {}) => {
@@ -211,4 +211,12 @@ module.exports = {
       method: 'put'
     })
   },
+  // 这里不能使用 delete, delete为关键字段
+  myDelete (url, params = {}) {
+    return http({
+      url,
+      params,
+      method: 'delete'
+    })
+  }
 }

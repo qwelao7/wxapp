@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": ""
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "wxparser": "plugin://wxparserPlugin/wxparser"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }

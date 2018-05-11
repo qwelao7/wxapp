@@ -1,25 +1,3 @@
-/**index.wxss**/
-/*.userinfo {*/
-/*display: flex;*/
-/*flex-direction: column;*/
-/*align-items: center;*/
-/*}*/
-
-/*.userinfo-avatar {*/
-/*width: 128rpx;*/
-/*height: 128rpx;*/
-/*margin: 20rpx;*/
-/*border-radius: 50%;*/
-/*}*/
-
-/*.userinfo-nickname {*/
-/*color: #aaa;*/
-/*}*/
-
-/*.usermotto {*/
-/*margin-top: 200px;*/
-/*}*/
-
 .container {
   background-color: #fffcf5;
 }
@@ -30,9 +8,11 @@
 }
 
 .icon-box {
-  display: flex;
-  align-items: center;
   position: relative;
+
+  display: flex;
+
+  align-items: center;
 }
 
 .icon-box__ctn {
@@ -41,71 +21,95 @@
 
 .icon-box__title {
   font-size: 30rpx;
-
 }
 
 .icon-box__desc {
-  margin-top: 6rpx;
   font-size: 22rpx;
-  color: #888888;
+
+  margin-top: 6rpx;
+
+  color: #888;
 }
 
 .icon-avatar {
   display: inline-block;
-  vertical-align: middle;
+
   width: 80rpx;
   height: 80rpx;
   margin-right: 16rpx;
-  border-radius: 50%
+
+  vertical-align: middle;
+
+  border-radius: 50%;
 }
-.hash_title{
+
+.hash_title {
   font-size: 20rpx;
+
   position: absolute;
   right: 0;
 }
-.hash_icon{
+
+.hash_icon {
+  display: inline-block;
+
   width: 22rpx;
   height: 22rpx;
-  display: inline-block;
+
   vertical-align: middle;
 }
-.weui-grids{
-  border: none;
+
+.weui-grids {
   padding: 0 30rpx;
-}
-.weui-grid{
+
   border: none;
-  padding: 0;
-  margin-bottom: 6rpx;
-  padding-right: 6rpx;
 }
-.weui-grid__icon{
+
+.weui-grid {
+  margin-bottom: 6rpx;
+  padding: 0;
+  padding-right: 6rpx;
+
+  border: none;
+}
+
+.weui-grid__icon {
   width: 226rpx;
   height: 226rpx;
 }
-.weui-article__p{
-  padding: 10rpx 30rpx;
+
+.weui-article__p {
   font-size: 26rpx;
+
   margin-bottom: 0;
+  padding: 10rpx 30rpx;
 }
-.comment_btn_bar{
+
+.comment_btn_bar {
   padding: 0 30rpx;
 }
-.like-container{
-  vertical-align: middle;
+
+.like-container {
   margin-right: 60rpx;
   margin-bottom: 30rpx;
-}
-.comment-container{
+
   vertical-align: middle;
 }
-.weui-icon{
+
+.comment-container {
+  vertical-align: middle;
+}
+
+.weui-icon {
+  display: inline-block;
+
   width: 24rpx;
   height: 24rpx;
-  display: inline-block;
   margin-right: 10rpx;
 }
-.like_num{
+
+.like_num {
   font-size: 22rpx;
+
   vertical-align: middle;
 }

@@ -1,5 +1,8 @@
 /**app.wxss**/
 @import "weui.wxss";
+page , .weui-cells{
+  background-color: #fffcf5;
+}
 .container {
   position: fixed;
   height: 100%;

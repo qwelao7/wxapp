@@ -1,9 +1,7 @@
 <!--index.wxml-->
 <scroll-view scroll-y class="container">
-
-  <block>
+  <!--<view style="margin-bottom: 105rpx">-->
     <view>
-
       <view class="pd-30">
         <view class="icon-box">
           <image class="icon-avatar" src="{{content.headPicName}}"></image>
@@ -19,33 +17,43 @@
           </view>
         </view>
       </view>
+      <block wx:if="{{content.body==''||content.body==null||content.body==undefined}}">
+        <view class="weui-grids" wx:if="{{content.annexs}}.length>0">
+          <block wx:for="{{content.annexs}}" wx:key="*this" wx:for-index="index" wx:for-item="item">
+            <view class="weui-grid">
+              <image class="weui-grid__icon" src="{{item}}" catchtap="previewImg"
+                     data-index="{{index}}"/>
+            </view>
+          </block>
+        </view>
 
-      <view class="weui-grids" wx:if="{{content.annexs}}.length>0">
-        <block wx:for="{{content.annexs}}" wx:key="*this" wx:for-index="index" wx:for-item="item">
-          <view class="weui-grid">
-            <image class="weui-grid__icon" src="{{item}}" catchtap="previewImg"
-                   data-index="{{index}}"/>
-          </view>
-        </block>
-      </view>
+        <view class="weui-article__p black">
+          {{content.topicContent}}
+        </view>
+      </block>
 
-      <view class="weui-article__p black">
-        {{content.topicContent}}
-      </view>
+      <block wx:if="{{content.body!=''}}">
+        <view class="pd-30">
+          <wxparser rich-text="{{content.body}}"/>
+        </view>
+      </block>
+
 
       <view class="list-spacing"></view>
     </view>
-    <view class="weui-cells weui-cells_after-title">
+
+    <view class="weui-cells weui-cells_after-title" bindtap="tapPraiseList" hover-stay-time="200">
       <view url="" class="weui-cell weui-cell_access">
         <view class="weui-cell__bd gray fs-26">
           <text class="praise-number">共{{content.topicPraiseNumber}}人点赞</text>
-          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
-          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
-          <image src="http://pub.huilaila.net/dfclub/icon/hot1.png" class="praise-img" ></image>
+          <block wx:for="{{likelist}}">
+            <image src="{{item.headPicName}}" class="praise-img"></image>
+          </block>
         </view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </view>
     </view>
+
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd gray fs-26">
@@ -53,20 +61,38 @@
         </view>
       </view>
     </view>
-    <block>
+
+    <block wx:for="{{commentlist}}" wx:key="*this">
       <view class="comment-list">
         <view class="icon-box">
-          <image class="icon-avatar" src="{{content.headPicName}}"></image>
+          <image class="icon-avatar" src="{{item.headPicName}}"></image>
           <view class="icon-box__ctn">
             <view class="icon-comment__title  gray">
-              {{content.userName}}
+              {{item.userName}}
+              <block wx:if="{{item.toUserId!=''&&item.toUserId!=nullitem.toUserId!=undefined}}">
+                回复 {{item.toUserName}}
+              </block>
             </view>
-            <view class="icon-comment__desc black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea error facilis minus rem. Alias atque commodi debitis eius eum ex explicabo illo nam, neque nulla quae rem rerum vero!</view>
+            <view class="icon-comment__desc black">
+              {{item.msgContent}}
+            </view>
           </view>
         </view>
       </view>
     </block>
-
-  </block>
+  <!--</view>-->
+  <!--底部点赞评论tabBar-->
+  <!--<view class="tab_bar_container">-->
+    <!--<view class="weui-flex tab_bar">-->
+      <!--<view class="weui-flex__item tab_bar_item tab_bar_left">-->
+        <!--<image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/like_3.png"></image>-->
+        <!--<text>点赞</text>-->
+      <!--</view>-->
+      <!--<view class="weui-flex__item tab_bar_item">-->
+        <!--<image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/comment_2.png"></image>-->
+        <!--评论-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</view>-->
 
 </scroll-view>

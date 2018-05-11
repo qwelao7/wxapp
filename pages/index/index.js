@@ -58,64 +58,60 @@ Page({
     })
   },
   getList: function (message) {
-    let that = this
+    let that = this,
+        url = 'newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
         title: message,
       });
     }
-    wx.request({
-      url: 'https://signin.afguanjia.com/club/newThings?page=' + that.data.page,
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        if (message != "") {
-          wx.hideLoading()
-        }
-        wx.stopPullDownRefresh()
-        let contentlistTem = that.data.contentlist
-        if (res.data.code === 200) {
-          if (that.data.page == 1) {
-            contentlistTem = []
+    util.get(url)
+        .then(res => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
           }
-          let contentlist = JSON.parse(res.data.data)
-          console.dir(contentlist)
-          if (contentlist.length < that.data.pageSize) {
-            that.setData({
-              contentlist: contentlistTem.concat(contentlist),
-              hasMoreData: false
-            })
+          wx.stopPullDownRefresh()
+          let contentlistTem = that.data.contentlist
+          if (res.status === 100) {
+            if (that.data.page == 1) {
+              contentlistTem = []
+            }
+            let contentlist = res.data.resultList
+            console.dir(contentlist)
+            if (contentlist.length < that.data.pageSize) {
+              that.setData({
+                contentlist: contentlistTem.concat(contentlist),
+                hasMoreData: false
+              })
+            } else {
+              that.setData({
+                contentlist: contentlistTem.concat(contentlist),
+                hasMoreData: true,
+                page: that.data.page + 1
+              })
+            }
           } else {
-            that.setData({
-              contentlist: contentlistTem.concat(contentlist),
-              hasMoreData: true,
-              page: that.data.page + 1
+            wx.showToast({
+              title: res.data.msg,
             })
           }
-        } else {
-          wx.showToast({
-            title: res.data.data.msg,
-          })
-        }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        if (message != "") {
-          wx.hideLoading()
-        }
-        wx.showToast({
-          title: '加载数据失败',
         })
-      }
-    })
+        .catch(e => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        })
   },
 
   onLoad: function (options) {
     let _this = this
     _this.getList('正在加载数据...')
-    util.get('/club/newThings')
-        .then(res => {})
-        .then(res=>{})
   },
 
 

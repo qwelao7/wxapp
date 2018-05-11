@@ -13,10 +13,7 @@
             </view>
             <view class="icon-box__desc">{{items.inTimeTag}}</view>
           </view>
-          <view class="hash_title">
-            <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
-            {{items.topicTag}}
-          </view>
+
         </view>
       </view>
       <view class="weui-grids" wx:if="{{items.annexs}}.length>0">

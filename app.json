@@ -4,6 +4,7 @@
     "pages/towns/towns",
     "pages/events/events",
     "pages/index/index_detail/index_detail",
+    "pages/index/index_detail_praise/index_detail_praise",
     "pages/index/index_group/index_group",
     "pages/index/index_banner/index_banner",
     "pages/towns/town_detail/town_detail",
