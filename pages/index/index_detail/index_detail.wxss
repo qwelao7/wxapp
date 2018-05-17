@@ -135,9 +135,9 @@ image {
 .praise-img {
   display: inline-block;
 
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: -20rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: -25rpx;
 
   vertical-align: middle;
 
@@ -145,9 +145,25 @@ image {
 }
 
 .weui-cells_after-title {
-  margin-bottom: -2rpx;
+  /*margin-bottom: -2rpx;*/
 
   background-color: #fffcf5;
+
+}
+
+.weui-cells:after {
+  bottom: 0;
+  border-bottom: none;
+}
+
+.weui-cells:before {
+  top: 0;
+  border-top: none;
+}
+
+.weui-cell {
+  height: 100rpx;
+  padding: 0 30rpx;
 }
 
 .praise-number {

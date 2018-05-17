@@ -25,9 +25,11 @@ Page({
   },
 
   tapPraiseList: function () {
-    wx.navigateTo({
-      url: '../index_detail_praise/index_detail_praise?neighborId=' + this.data.content.neighborId
-    })
+    if(this.data.content.topicPraiseNumber){
+      wx.navigateTo({
+        url: '../index_detail_praise/index_detail_praise?neighborId=' + this.data.content.neighborId
+      })
+    }
   },
 
   onLoad: function (options) {
@@ -59,6 +61,7 @@ Page({
           console.log(e)
         })
     _this.getCommentList('正在加载数据...')
+    console.log(_this.data)
   },
 
   getCommentList: function (message) {
@@ -83,18 +86,26 @@ Page({
               commentlistTem = []
             }
             let commentlist = res.data.resultList
-            if (commentlist.length < that.data.commentPageSize) {
+            if(commentlist == '' || commentlist == null || commentlist == undefined){
               that.setData({
-                commentlist: commentlistTem.concat(commentlist),
+                commentlist: commentlistTem,
                 hasMoreData: false
               })
-            } else {
-              that.setData({
-                commentlist: commentlistTem.concat(commentlist),
-                hasMoreData: true,
-                page: that.data.page + 1
-              })
+            }else{
+              if (commentlist.length < that.data.commentPageSize) {
+                that.setData({
+                  commentlist: commentlistTem.concat(commentlist),
+                  hasMoreData: false
+                })
+              } else {
+                that.setData({
+                  commentlist: commentlistTem.concat(commentlist),
+                  hasMoreData: true,
+                  page: that.data.page + 1
+                })
+              }
             }
+
           } else {
             wx.showToast({
               title: res.msg,

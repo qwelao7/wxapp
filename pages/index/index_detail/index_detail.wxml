@@ -43,7 +43,7 @@
     </view>
 
     <view class="weui-cells weui-cells_after-title" bindtap="tapPraiseList" hover-stay-time="200">
-      <view url="" class="weui-cell weui-cell_access">
+      <view url="" class="weui-cell weui-cell_access" style="border: none!important;">
         <view class="weui-cell__bd gray fs-26">
           <text class="praise-number">共{{content.topicPraiseNumber}}人点赞</text>
           <block wx:for="{{likelist}}">
@@ -70,7 +70,7 @@
             <view class="icon-comment__title  gray">
               {{item.userName}}
               <block wx:if="{{item.toUserId!=''&&item.toUserId!=nullitem.toUserId!=undefined}}">
-                回复 {{item.toUserName}}
+                <text>回复 {{item.toUserName}}</text>
               </block>
             </view>
             <view class="icon-comment__desc black">

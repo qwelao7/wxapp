@@ -1,4 +1,7 @@
 <!--index.wxml-->
 <scroll-view scroll-y class="container">
-    <image style="width: 100%;display: block" mode="widthFix" src="{{showImg}}" bindload="imgLoad"></image>
+  <block wx:for="{{showImg}}">
+    <image style="width: 100%;display: block" mode="widthFix" src="{{item}}" wx:if="{{index==0}}" bindload="imgLoad"></image>
+    <image style="width: 100%;display: block" mode="widthFix" src="{{item}}" wx:if="{{index!=0}}"></image>
+  </block>
 </scroll-view>

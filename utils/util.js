@@ -181,6 +181,64 @@ const getHeader = () => {
   }
 }
 
+function login () {
+  return new Promise((resolve, reject) => {
+    // 先调用 wx.login 获取到 code
+    wx.login({
+      success: res => {
+        // 再调用 wx.getUserInfo 获取到用户的一些信息 （一些基本信息，以及生成UnionID 所用到的信息 比如 rawData, signature, encryptedData, iv）
+        wx.getUserInfo({
+          // 若获取不到用户信息 （最大可能是用户授权不允许，也有可能是网络请求失败，但该情况很少）
+          fail: (e) => {
+            reject(e)
+          },
+          success: ({rawData, signature, encryptedData, iv}) => {
+            let param = {
+              code: res.code,
+              rawData,
+              signature,
+              encryptedData,
+              iv
+            }
+            // 若有邀请ID
+            try {
+              let invite = wx.getStorageSync('invite')
+              if (invite) {
+                param.invite = invite
+              }
+            } catch (e) {
+            }
+            // 登录操作
+            http({
+              url: 'login',
+              params: param,
+              method: 'post'
+            }).then(res => {
+              // 该为我们后端的逻辑 若code > 0为登录成功，其他情况皆为异常 （视自身情况而定）
+              if (res.code > 0) {
+                // 保存用户信息
+                wx.setStorage({
+                  key: 'userinfo',
+                  data: res.data
+                })
+                wx.setStorage({
+                  key: "token",
+                  data: res.message,
+                  success: () => {
+                    resolve(res)
+                  }
+                })
+              } else {
+                reject(res)
+              }
+            }).catch(error => reject(error))
+          }
+        })
+      }
+    })
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   toZhDigit: toZhDigit,
@@ -213,5 +271,5 @@ module.exports = {
       params,
       method: 'delete'
     })
-  }
+  },
 }

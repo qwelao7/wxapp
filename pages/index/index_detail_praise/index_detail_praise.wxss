@@ -3,3 +3,16 @@
 
   background-color: #fffcf5;
 }
+
+.weui-cell {
+  height: 100 rpx;
+}
+
+.praise-img {
+  margin-right: 20rpx;
+  vertical-align: middle;
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+  border-radius: 50%;
+}

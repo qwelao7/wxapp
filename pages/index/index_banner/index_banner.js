@@ -5,21 +5,26 @@ const app = getApp()
 Page({
   data: {
     imgs: [
-      'http://pub.huilaila.net/dfclub/index/index_detail02.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_detail01.jpg'
+      ['http://pub.huilaila.net/dfclub/index/index_detail02.jpg'],
+      ['http://pub.huilaila.net/dfclub/index/index_detail01.jpg'],
+      [
+        'http://pub.huilaila.net/dfclub/index/index_detail03_1.jpg',
+        'http://pub.huilaila.net/dfclub/index/index_detail03_2.jpg',
+        'http://pub.huilaila.net/dfclub/index/index_detail03_3.jpg'
+      ]
     ],
     showImg: ''
   },
 
   onLoad: function (options) {
     /**
-     *加载页面后，显示loading，图片加载完成后隐藏loading
+     *加载页面后，显示loading，首张图片加载完成后隐藏loading
      */
     wx.showLoading({
       title: "加载中...",
     })
     let _this = this,
-        img = this.data.imgs[options.id];
+        img = _this.data.imgs[options.id];
     _this.setData({
       'showImg': img
     });
@@ -28,15 +33,15 @@ Page({
   /**
    *图片加载完成后，隐藏loading
    */
-  imgLoad:function(e){
+  imgLoad: function (e) {
     wx.hideLoading()
   },
 
-  onShareAppMessage: function (res,options) {
+  onShareAppMessage: function (res, options) {
     return {
       title: '东方小镇Club',
       desc: '东方小镇Club',
-      path: '/pages/index/index_banner/index_banner?id='+options.id,
+      path: '/pages/index/index_banner/index_banner?id=' + options.id,
       success: function (res) {
         // 转发成功
         wx.showModal({

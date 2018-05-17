@@ -4,7 +4,7 @@
     <block wx:for="{{praiselist}}">
     <view class="weui-cell">
       <view class="weui-cell__hd">
-        <image src="{{item.headPicName}}" style="margin-right: 20rpx;vertical-align: middle;width:26px; height: 26px;display: inline-block;border-radius: 50%"></image>
+        <image src="{{item.headPicName}}" class="praise-img" style=""></image>
       </view>
       <view class="weui-cell__bd fs-28">{{item.userName}}</view>
     </view>
