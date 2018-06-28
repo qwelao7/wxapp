@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+
+  background-color: #fffcf5;
+}
+
+.index-banner {
+  width: 100%;
+  height: 375rpx;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 375rpx;
+}
+
+.icon-box {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.icon-box__ctn {
+  flex-shrink: 100;
+}
+
+.icon-box__title {
+  font-size: 30rpx;
+}
+
+.icon-box__desc {
+  font-size: 22rpx;
+
+  margin-top: 6rpx;
+
+  color: #888;
+}
+
+.icon-avatar {
+  display: inline-block;
+
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 16rpx;
+
+  vertical-align: middle;
+
+  border-radius: 50%;
+}
+
+.hash_title {
+  font-size: 20rpx;
+
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hash_icon {
+  display: inline-block;
+
+  width: 22rpx;
+  height: 22rpx;
+
+  vertical-align: middle;
+}
+
+.weui-grids {
+  padding: 0 30rpx;
+
+  border: none;
+}
+
+.weui-grid {
+  margin-bottom: 6rpx;
+  padding: 0;
+  padding-right: 6rpx;
+
+  border: none;
+}
+
+.weui-grid__icon {
+  width: 226rpx;
+  height: 226rpx;
+}
+
+.weui-grid__icon_single {
+  width: 100%;
+  height: 294rpx;
+}
+
+.weui-article__p {
+  font-size: 26rpx;
+
+  margin-bottom: 0;
+  padding: 10rpx 30rpx;
+}
+
+.comment_btn_bar {
+  padding: 0 30rpx;
+}
+
+.like-container {
+  margin-right: 60rpx;
+  margin-bottom: 30rpx;
+
+  vertical-align: middle;
+}
+
+.comment-container {
+  vertical-align: middle;
+}
+
+.weui-icon {
+  display: inline-block;
+
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.like_num {
+  font-size: 22rpx;
+
+  vertical-align: middle;
+}

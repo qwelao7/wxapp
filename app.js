@@ -12,23 +12,25 @@ App({
     // wx.setStorageSync('logs', logs)
 
 
-    // qcloud.setLoginUrl(config.service.loginUrl);
-    // wx.getSetting({
-    //   success: function (res) {
-    //     console.log(2)
-    //     // 判断是否已授权
-    //     if (res.authSetting['scope.userInfo']) {
-    //       wx.getUserInfo({
-    //         success: function (res) {
-    //           console.log(res)
-    //         }
-    //       })
-    //     }else{
-    //       console.log('44')
-    //       util.doLogin()
-    //     }
-    //   }
-    // })
+    qcloud.setLoginUrl(config.service.loginUrl);
+    wx.getSetting({
+      success: function (res) {
+        console.log(2)
+        // 判断是否已授权
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res)
+            }
+          })
+        }else{
+          console.log('44')
+          wx.navigateTo({
+            url: '/pages/authorize/authorize'
+          })
+        }
+      }
+    })
 
 
     // 登录

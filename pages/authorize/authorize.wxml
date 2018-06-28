@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view scroll-y class="container">
+
+ <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权登陆</button>
+
+</view>
