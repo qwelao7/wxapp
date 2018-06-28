@@ -73,6 +73,14 @@ Page({
         });
       }
     }
+  },
+  doLogin: function () {
+    util.doLogin()
+  },
+  tapImg: function () {
+    wx.navigateTo({
+      url: 'video_detail/video_detail'
+    })
   }
 
 })

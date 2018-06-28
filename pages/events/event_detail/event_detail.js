@@ -12,5 +12,10 @@ Page({
       // 'url': url
       'url':'https://signin.huilaila.net/index.html'
     })
+  },
+  tapImg:function () {
+    wx.navigateTo({
+      url: '../../index/index_banner/index_banner?id=2'
+    })
   }
 })

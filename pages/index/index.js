@@ -12,7 +12,7 @@ Page({
     contentlist: [],
     bannerImgs: [
       'http://pub.huilaila.net/dfclub/index/index_02.jpg',
-      'http://pub.huilaila.net/dfclub/index/index_01.jpg',
+      'http://pub.huilaila.net/dfclub/index/index_04.jpeg',
       'http://pub.huilaila.net/dfclub/index/index_03.jpg'
     ],
   },

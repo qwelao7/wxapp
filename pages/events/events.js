@@ -4,42 +4,42 @@ const util = require('../../utils/util.js')
 Page({
   data: {
     events: [],
-    class:[
+    class: [
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/01_2.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/01_2.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/02_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/02_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/03_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/03_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/04_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/04_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/05_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/05_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/06_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/06_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/07_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/07_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/08_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/08_1.png'
       },
       {
-        url:'',
-        img:'http://pub.huilaila.net/dfclub/syllabus/09_1.png'
+        url: '',
+        img: 'http://pub.huilaila.net/dfclub/syllabus/09_1.png'
       },
     ]
   },
@@ -133,5 +133,10 @@ Page({
         });
       }
     }
+  },
+  tapImg: function () {
+    wx.navigateTo({
+      url: 'event_detail/event_detail'
+    })
   }
 })

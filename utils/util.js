@@ -1,3 +1,9 @@
+const qcloud = require('./wafer2-client-sdk/index');
+const config = require('../config')
+const app = getApp()
+
+
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -14,9 +20,9 @@ const formatTime = date => {
  * time 时间戳
  */
 const formatMonth = time => {
-  var date;
+  let date;
   date = new Date(time * 1000);
-  var year = date.getFullYear(),
+  const year = date.getFullYear(),
       month = date.getMonth() + 1,
       day = date.getDate();
   return year + '-' + month;
@@ -154,7 +160,17 @@ const http = ({url = '', params = {}, ...other} = {}) => {
         console.dir(res.data)
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data)
-        } else {
+        }
+        // else if (res.statusCode === 401) {
+        //   // 401 为鉴权失败 很大可能是token过期
+        //   // 重新登录 并且重复请求
+        //   login().then(res => {
+        //     http({url, params, ...other}).then(res => {
+        //       resolve(res)
+        //     })
+        //   })
+        // }
+        else {
           reject(res)
         }
       }
@@ -171,7 +187,7 @@ const getUrl = url => {
 
 const getHeader = () => {
   try {
-    var token = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token')
     if (token) {
       return {'token': token}
     }
@@ -180,6 +196,72 @@ const getHeader = () => {
     return {}
   }
 }
+
+function doLogin () {
+  const session = qcloud.Session.get()
+  if (session) {
+    // 第二次登录
+    // 或者本地已经有登录态
+    // 可使用本函数更新登录态
+    qcloud.loginWithCode({
+      success: res => {
+        this.setData({userInfo: res, logged: true})
+        showSuccess('登录成功')
+      },
+      fail: err => {
+        console.error(err)
+        showModel('登录错误', err.message)
+      }
+    })
+  } else {
+    // 首次登录
+    qcloud.login({
+      success: res => {
+        this.setData({userInfo: res, logged: true})
+        showSuccess('登录成功')
+      },
+      fail: err => {
+        console.error(err)
+        showModel('登录错误', err.message)
+      }
+    })
+  }
+}
+
+function getPhoneNumber (e) {
+
+  // console.log(e.detail.errMsg)
+  // console.log(e.detail.iv)
+  // console.log(e.detail.encryptedData)
+
+  qcloud.request({
+    // 要请求的地址
+    url: config.service.mobileUrl,
+
+    header: {"X-WX-Encrypted-Data": e.detail.encryptedData, 'X-WX-IV': e.detail.iv},
+
+    // 请求之前是否登陆，如果该项指定为 true，会在请求之前进行登录
+    login: false,
+
+    success (result) {
+      if (result.data.status == 100) {
+        showSuccess('请求成功完成');
+        qcloud.Session.set(result.data)
+        console.log('request success', result)
+      }
+
+    },
+
+    fail (error) {
+      showModel('请求失败', error);
+      console.log('request fail', error);
+    },
+    complete () {
+      console.log('request complete');
+    }
+  });
+}
+
 
 function login () {
   return new Promise((resolve, reject) => {
@@ -200,14 +282,14 @@ function login () {
               encryptedData,
               iv
             }
-            // 若有邀请ID
-            try {
-              let invite = wx.getStorageSync('invite')
-              if (invite) {
-                param.invite = invite
-              }
-            } catch (e) {
-            }
+            // // 若有邀请ID
+            // try {
+            //   let invite = wx.getStorageSync('invite')
+            //   if (invite) {
+            //     param.invite = invite
+            //   }
+            // } catch (e) {
+            // }
             // 登录操作
             http({
               url: 'login',
@@ -239,10 +321,39 @@ function login () {
   })
 }
 
+// 显示繁忙提示
+const showBusy = text => wx.showToast({
+  title: text,
+  icon: 'loading',
+  duration: 10000
+})
+
+// 显示成功提示
+const showSuccess = text => wx.showToast({
+  title: text,
+  icon: 'success'
+})
+
+// 显示失败提示
+const showModel = (title, content) => {
+  wx.hideToast();
+
+  wx.showModal({
+    title,
+    content: JSON.stringify(content),
+    showCancel: false
+  });
+}
+
 module.exports = {
   formatTime: formatTime,
   toZhDigit: toZhDigit,
   formatMonth: formatMonth,
+  showBusy: showBusy,
+  showSuccess: showSuccess,
+  showModel: showModel,
+  login: login,
+  doLogin: doLogin,
   baseURL,
   get (url, params = {}) {
     return http({

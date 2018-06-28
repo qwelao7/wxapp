@@ -3,12 +3,16 @@
     "pages/index/index",
     "pages/towns/towns",
     "pages/events/events",
+    "pages/videos/videos",
+    "pages/publish/publish",
     "pages/index/index_detail/index_detail",
     "pages/index/index_detail_praise/index_detail_praise",
     "pages/index/index_group/index_group",
     "pages/index/index_banner/index_banner",
     "pages/towns/town_detail/town_detail",
-    "pages/events/event_detail/event_detail"
+    "pages/events/event_detail/event_detail",
+    "pages/videos/video_detail/video_detail",
+    "pages/publish/publish_detail/publish_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +27,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "生活·秀",
         "iconPath": "img/index_2.png",
         "selectedIconPath": "img/index_1.png"
       },
@@ -34,8 +38,14 @@
         "selectedIconPath": "img/town_1.png"
       },
       {
+        "pagePath": "pages/videos/videos",
+        "text": "视秀",
+        "iconPath": "img/videos_2.png",
+        "selectedIconPath": "img/videos_1.png"
+      },
+      {
         "pagePath": "pages/events/events",
-        "text": "课表",
+        "text": "活动",
         "iconPath": "img/syllabus_2.png",
         "selectedIconPath": "img/syllabus_1.png"
       }

@@ -1,0 +1,5 @@
+<view class="section tc">
+  <video style="width: 100%;height:100vh;" id="myVideo" direction='0' autoplay
+         src="http://vod.huilaila.net/fabf9c54d42442128fa3c2e722282ed6/de7a9a72dba64857828a414b6341caff-aedf9b33d42a0289a72bdd73bf13e572-ld.mp4"
+        controls></video>
+</view>

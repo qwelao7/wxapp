@@ -2,7 +2,7 @@
 <scroll-view scroll-y class="container">
 
   <!--顶部banner轮播图-->
-  <swiper interval="3000" duration="500" circular="true" indicator-dots="true" class="index-banner">
+  <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
     <block wx:for="{{bannerImgs}}" wx:key="*this">
       <swiper-item>
         <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
@@ -38,12 +38,12 @@
           </view>
           <view wx:if="{{items.annexs.length<=1}}">
             <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}" catchtap="previewImg"
-                   data-indexs="{{indexs}}" data-index="{{index}}"/>
+                   data-indexs="{{indexs}}" data-index="{{index}}" mode="aspectFill"/>
           </view>
         </block>
         <block wx:if="{{items.body!==''}}" wx:for="{{items.annexs}}"
                wx:key="*this" wx:for-index="index" wx:for-item="item">
-            <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}"/>
+          <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}"/>
         </block>
       </view>
 

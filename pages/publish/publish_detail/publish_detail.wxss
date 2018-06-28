@@ -1,0 +1,17 @@
+.town-container {
+  background-image: url('http://pub.huilaila.net/dfclub/towns/bg1.jpg');
+  background-size: 100% 100%;
+}
+
+.btn-container {
+  width: 400rpx;
+  margin-top: 30%;
+}
+
+.town-btn {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  margin-top: 30rpx;
+}
