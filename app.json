@@ -39,12 +39,6 @@
         "selectedIconPath": "img/town_1.png"
       },
       {
-        "pagePath": "pages/videos/videos",
-        "text": "视秀",
-        "iconPath": "img/videos_2.png",
-        "selectedIconPath": "img/videos_1.png"
-      },
-      {
         "pagePath": "pages/events/events",
         "text": "活动",
         "iconPath": "img/syllabus_2.png",
