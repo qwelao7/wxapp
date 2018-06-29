@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "授权登录",
+  "navigationBarTitleText": "微信授权登录",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50
 }
