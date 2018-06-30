@@ -9,7 +9,7 @@
       </swiper-item>
     </block>
   </swiper>
-
+<button bindtap="tapM">手机号绑定测试按钮</button>
   <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
     <view bindtap="tapList" data-listid="{{indexs}}">
 

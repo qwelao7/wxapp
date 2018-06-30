@@ -3,7 +3,6 @@ const config = require('../config')
 const app = getApp()
 
 
-
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -161,15 +160,6 @@ const http = ({url = '', params = {}, ...other} = {}) => {
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data)
         }
-        // else if (res.statusCode === 401) {
-        //   // 401 为鉴权失败 很大可能是token过期
-        //   // 重新登录 并且重复请求
-        //   login().then(res => {
-        //     http({url, params, ...other}).then(res => {
-        //       resolve(res)
-        //     })
-        //   })
-        // }
         else {
           reject(res)
         }
@@ -187,13 +177,26 @@ const getUrl = url => {
 
 const getHeader = () => {
   try {
-    const token = wx.getStorageSync('token')
+    const session = qcloud.Session.get()
+    const token = session.token
     if (token) {
       return {'token': token}
     }
     return {}
   } catch (e) {
     return {}
+  }
+}
+const isMobile = () => {
+  try {
+    const session = qcloud.Session.get()
+    const token = session.token
+    if (token) {
+      return true
+    }
+    return false
+  } catch (e) {
+    return false
   }
 }
 
@@ -228,99 +231,6 @@ function doLogin () {
   }
 }
 
-function getPhoneNumber (e) {
-
-  // console.log(e.detail.errMsg)
-  // console.log(e.detail.iv)
-  // console.log(e.detail.encryptedData)
-
-  qcloud.request({
-    // 要请求的地址
-    url: config.service.mobileUrl,
-
-    header: {"X-WX-Encrypted-Data": e.detail.encryptedData, 'X-WX-IV': e.detail.iv},
-
-    // 请求之前是否登陆，如果该项指定为 true，会在请求之前进行登录
-    login: false,
-
-    success (result) {
-      if (result.data.status == 100) {
-        showSuccess('请求成功完成');
-        qcloud.Session.set(result.data)
-        console.log('request success', result)
-      }
-
-    },
-
-    fail (error) {
-      showModel('请求失败', error);
-      console.log('request fail', error);
-    },
-    complete () {
-      console.log('request complete');
-    }
-  });
-}
-
-
-function login () {
-  return new Promise((resolve, reject) => {
-    // 先调用 wx.login 获取到 code
-    wx.login({
-      success: res => {
-        // 再调用 wx.getUserInfo 获取到用户的一些信息 （一些基本信息，以及生成UnionID 所用到的信息 比如 rawData, signature, encryptedData, iv）
-        wx.getUserInfo({
-          // 若获取不到用户信息 （最大可能是用户授权不允许，也有可能是网络请求失败，但该情况很少）
-          fail: (e) => {
-            reject(e)
-          },
-          success: ({rawData, signature, encryptedData, iv}) => {
-            let param = {
-              code: res.code,
-              rawData,
-              signature,
-              encryptedData,
-              iv
-            }
-            // // 若有邀请ID
-            // try {
-            //   let invite = wx.getStorageSync('invite')
-            //   if (invite) {
-            //     param.invite = invite
-            //   }
-            // } catch (e) {
-            // }
-            // 登录操作
-            http({
-              url: 'login',
-              params: param,
-              method: 'post'
-            }).then(res => {
-              // 该为我们后端的逻辑 若code > 0为登录成功，其他情况皆为异常 （视自身情况而定）
-              if (res.code > 0) {
-                // 保存用户信息
-                wx.setStorage({
-                  key: 'userinfo',
-                  data: res.data
-                })
-                wx.setStorage({
-                  key: "token",
-                  data: res.message,
-                  success: () => {
-                    resolve(res)
-                  }
-                })
-              } else {
-                reject(res)
-              }
-            }).catch(error => reject(error))
-          }
-        })
-      }
-    })
-  })
-}
-
 // 显示繁忙提示
 const showBusy = text => wx.showToast({
   title: text,
@@ -331,7 +241,14 @@ const showBusy = text => wx.showToast({
 // 显示成功提示
 const showSuccess = text => wx.showToast({
   title: text,
-  icon: 'success'
+  icon: 'success',
+  success: function () {
+    setTimeout(function () {
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 1000)
+  }
 })
 
 // 显示失败提示
@@ -352,8 +269,8 @@ module.exports = {
   showBusy: showBusy,
   showSuccess: showSuccess,
   showModel: showModel,
-  login: login,
   doLogin: doLogin,
+  isMobile: isMobile,
   baseURL,
   get (url, params = {}) {
     return http({

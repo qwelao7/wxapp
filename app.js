@@ -15,7 +15,6 @@ App({
     qcloud.setLoginUrl(config.service.loginUrl);
     wx.getSetting({
       success: function (res) {
-        console.log(2)
         // 判断是否已授权
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
@@ -23,15 +22,13 @@ App({
               console.log(res)
             }
           })
-        }else{
-          console.log('44')
+        } else {
           wx.navigateTo({
             url: '/pages/authorize/authorize'
           })
         }
       }
     })
-
 
     // 登录
     // wx.login({
@@ -91,5 +88,6 @@ App({
   },
   globalData: {
     userInfo: null,
+    serverError: false
   }
 })

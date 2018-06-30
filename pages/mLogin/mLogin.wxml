@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view scroll-y class="container">
 <image src="../../img/logo.png" mode="widthFix" style="width: 60%;margin: 100rpx auto"></image>
- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权登陆</button>
+ <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权登陆</button>
+
 </view>

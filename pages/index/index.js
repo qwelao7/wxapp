@@ -39,6 +39,18 @@ Page({
       url: 'index_detail/index_detail'
     })
   },
+  
+  tapM: function () {
+    if(util.isMobile()===true){
+      wx.showToast({
+        title: '绑定用户'
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
 
   previewImg: function (e) {
     let _this = this,
