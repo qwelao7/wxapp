@@ -76,7 +76,7 @@ Page({
 
   getList: function (message) {
     let that = this,
-        url = 'newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
+        url = 'club/newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
