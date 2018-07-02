@@ -54,7 +54,7 @@
       </view>
     </view>
 
-    <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cells weui-cells_after-title" bindtap="tapComment">
       <view class="weui-cell">
         <view class="weui-cell__bd gray fs-26">
           共{{content.topicCommentNumber}}人评论
@@ -90,7 +90,7 @@
         <text wx:if="{{content.isPraise===0}}">点 赞</text>
         <text wx:if="{{content.isPraise===1}}">已 赞</text>
       </view>
-      <view class="weui-flex__item tab_bar_item">
+      <view class="weui-flex__item tab_bar_item" bindtap="tapComment">
         <image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/comment_2.png"></image>
         评 论
       </view>

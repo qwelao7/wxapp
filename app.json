@@ -11,6 +11,7 @@
     "pages/index/index_detail_praise/index_detail_praise",
     "pages/index/index_group/index_group",
     "pages/index/index_banner/index_banner",
+    "pages/index/index_comment/index_comment",
     "pages/towns/town_detail/town_detail",
     "pages/events/event_category/event_category",
     "pages/events/event_detail/event_detail",

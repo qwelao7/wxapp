@@ -57,7 +57,7 @@
           <image wx-if="{{items.isPraise===1}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_2.png"></image>
           <text class="gray like_num">{{items.topicPraiseNumber}}</text>
         </view>
-        <view class="placeholder comment-container" catchtap="tapComment">
+        <view class="placeholder comment-container" catchtap="tapComment" data-neighborid="{{items.neighborId}}">
           <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/comment_1.png"></image>
           <text class="gray like_num">{{items.topicCommentNumber}}</text>
         </view>

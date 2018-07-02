@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view  class="container">
+  <textarea placeholder="请输入评论..." focus="{{focus}}" class="comment_area" name="textarea" bindblur="blur"></textarea>
+  <view class="tab_bar_container">
+    <view class="weui-flex tab_bar">
+      <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="tapSubmit">
+        <text class="publish_text">发 表 评 论</text>
+      </view>
+    </view>
+  </view>
+</view>

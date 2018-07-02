@@ -32,7 +32,8 @@ Page({
       })
     }
   },
-  tapLike: function (e) {
+
+  tapLike: function () {
     let _this = this
     if (util.isMobile() === true) {
       let postId = _this.data.content.neighborId
@@ -76,6 +77,20 @@ Page({
     }
   },
 
+  tapComment: function () {
+    if (util.isMobile() === true) {
+      let neighborId = this.data.content.neighborId
+      wx.navigateTo({
+        url: '/pages/index/index_comment/index_comment?neighborId=' + neighborId
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+
+
   onLoad: function (options) {
     let _this = this,
         content = wx.getStorageSync('indexList'),
@@ -88,6 +103,7 @@ Page({
       // 是否显示功能
       wxShow: app.globalData.wxShow
     })
+    console.log('content', content)
     util.get(praiseUrl)
         .then(res => {
           if (res.status == 100) {
@@ -108,6 +124,14 @@ Page({
         })
     _this.getCommentList('正在加载数据...')
     console.log('data', _this.data)
+  },
+
+  onShow: function () {
+    this.onLoad()
+  },
+
+  onUnload: function () {
+    wx.removeStorageSync('indexList')
   },
 
   getCommentList: function (message) {

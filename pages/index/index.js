@@ -44,9 +44,9 @@ Page({
   tapLike: function (e) {
     let _this = this
     if (util.isMobile() === true) {
-      let postId = e.currentTarget.dataset.neighborid
+      let neighborId = e.currentTarget.dataset.neighborid
       let indexs = e.currentTarget.dataset.indexs
-      let url = 'praises/' + postId
+      let url = 'praises/' + neighborId
       let contentTemp = _this.data.contentlist
       if (contentTemp[indexs].isPraise === 0) {
         util.post(url)
@@ -88,8 +88,9 @@ Page({
 
   tapComment: function (e) {
     if (util.isMobile() === true) {
-      wx.showToast({
-        title: '绑定用户'
+      let neighborId = e.currentTarget.dataset.neighborid
+      wx.navigateTo({
+        url: '/pages/index/index_comment/index_comment?neighborId=' + neighborId
       })
     } else {
       wx.navigateTo({
@@ -189,6 +190,10 @@ Page({
       wxShow: app.globalData.wxShow
     })
     _this.getList('正在加载数据...')
+  },
+
+  onShow: function () {
+    this.onLoad()
   },
 
   /**
