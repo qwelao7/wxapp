@@ -37,10 +37,29 @@ Page({
         util.post('comments', params)
             .then(res => {
               console.log(res)
+              if (res.status === 100) {
+                wx.ShowToast({
+                  icon: 'success',
+                  title: '发布成功',
+                  success: function () {
+                    setTimeout(function () {
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    }, 1000)
+
+                  }
+                })
+              } else {
+                wx.ShowToast({
+                  icon: 'none',
+                  title: res.msg
+                })
+              }
             })
-      }else{
+      } else {
         wx.showToast({
-          icon:'none',
+          icon: 'none',
           title: '评论内容不能为空'
         })
       }
