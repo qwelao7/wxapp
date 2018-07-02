@@ -1,0 +1,13 @@
+<!--logs.wxml-->
+<scroll-view scroll-y class="container">
+  <view class="event_container" bindtap="tapEvent">
+    <image class="event_banner" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530504832848&di=52b197359cbb512747c9393194650af7&imgtype=0&src=http%3A%2F%2Fwww.vvfeng.com%2Fdata%2Fupload2%2Fueditor%2F20170815%2F5992a70f6ab32.jpg"></image>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">春风大典</view>
+      <view class="weui-cell__ft">
+        <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
+        桃李春风
+      </view>
+    </view>
+  </view>
+</scroll-view>

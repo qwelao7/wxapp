@@ -9,7 +9,7 @@
   </swiper>
 
   <view style="margin-bottom: 20px">
-    <view class="weui-cells weui-cells_after-title" hover-stay-time="200">
+    <view class="weui-cells weui-cells_after-title" hover-stay-time="200" bindtap="tapMore">
       <view url="" class="weui-cell weui-cell_access">
         <view class="weui-cell__bd gray fs-26">
           <text class="event_category">▍活动预告</text>
@@ -18,12 +18,12 @@
       </view>
     </view>
       <scroll-view class="event_list" scroll-x>
-        <div class="event-container">
+        <view class="event-container" bindtap="tapImg">
           <image class="event_img"
                  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530504832848&di=52b197359cbb512747c9393194650af7&imgtype=0&src=http%3A%2F%2Fwww.vvfeng.com%2Fdata%2Fupload2%2Fueditor%2F20170815%2F5992a70f6ab32.jpg"></image>
           <text class="event_title">海豚计划</text>
           <text class="event_project">#宝华桃李春风</text>
-        </div>
+        </view>
       </scroll-view>
   </view>
 </scroll-view>

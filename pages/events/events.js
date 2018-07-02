@@ -9,35 +9,6 @@ Page({
       'http://pub.huilaila.net/dfclub/index/index_03.jpg'
     ]
   },
-  tapMonth: function (e) {
-    let tapIndex = e.currentTarget.dataset.month
-    let temp = this.data.events;
-    if (temp[tapIndex].isShow === true) {
-      temp[tapIndex].isShow = false
-    } else {
-      for (let value of temp) {
-        if (value.isShow === true) {
-          value.isShow = false
-        }
-      }
-      temp[tapIndex].isShow = true
-    }
-    this.setData({
-      'events': temp
-    })
-  },
-  tapEvent: function (e) {
-    let monthIndex = e.currentTarget.dataset.month,
-        weekIndex = e.currentTarget.dataset.week,
-        eventIndex = e.currentTarget.dataset.event
-    if (this.data.events[monthIndex].week_data[weekIndex].data[eventIndex].eventUrl) {
-      wx.setStorageSync('eventUrl', this.data.events[monthIndex].week_data[weekIndex].data[eventIndex].eventUrl);
-      wx.navigateTo({
-        url: 'event_detail/event_detail'
-      })
-    }
-
-  },
   tapImg: function () {
     wx.navigateTo({
       url: 'event_detail/event_detail'
@@ -67,7 +38,11 @@ Page({
     //   }
     // })
   },
-
+  tapMore: () => {
+    wx.navigateTo({
+      url: 'event_category/event_category'
+    })
+  },
 
   onShareAppMessage: function (res) {
     return {
