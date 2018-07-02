@@ -1,16 +1,29 @@
-
 <scroll-view scroll-y class="container">
-  <image style="width: 100%;display: block" mode="widthFix"
-         src="http://pub.huilaila.net/dfclub/fake/fake-05.jpg" bindtap="tapImg"></image>
-  <!--<image style="width: 100%;display: block" mode="widthFix"-->
-         <!--src="http://pub.huilaila.net/dfclub/syllabus/top.jpg"></image>-->
-    <!--<view class="weui-grids">-->
-      <!--<block wx:for="{{class}}" wx:key="*this">-->
-        <!--<view url="" class="weui-grid">-->
-          <!--<image class="weui-grid__icon" src="{{item.img}}"/>-->
-        <!--</view>-->
-      <!--</block>-->
-    <!--</view>-->
-  <!--<image style="width: 100%;display: block" mode="widthFix"-->
-         <!--src="http://pub.huilaila.net/dfclub/syllabus/bottom.jpg" bindtap="tapQR"></image>-->
+  <!--顶部banner轮播图-->
+  <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
+    <block wx:for="{{bannerImgs}}" wx:key="*this">
+      <swiper-item>
+        <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view style="margin-bottom: 20px">
+    <view class="weui-cells weui-cells_after-title" hover-stay-time="200">
+      <view url="" class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd gray fs-26">
+          <text class="event_category">▍活动预告</text>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more">more</view>
+      </view>
+    </view>
+      <scroll-view class="event_list" scroll-x>
+        <div class="event-container">
+          <image class="event_img"
+                 src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530504832848&di=52b197359cbb512747c9393194650af7&imgtype=0&src=http%3A%2F%2Fwww.vvfeng.com%2Fdata%2Fupload2%2Fueditor%2F20170815%2F5992a70f6ab32.jpg"></image>
+          <text class="event_title">海豚计划</text>
+          <text class="event_project">#宝华桃李春风</text>
+        </div>
+      </scroll-view>
+  </view>
 </scroll-view>

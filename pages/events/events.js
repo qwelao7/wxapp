@@ -3,44 +3,10 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    events: [],
-    class: [
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/01_2.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/02_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/03_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/04_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/05_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/06_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/07_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/08_1.png'
-      },
-      {
-        url: '',
-        img: 'http://pub.huilaila.net/dfclub/syllabus/09_1.png'
-      },
+    bannerImgs: [
+      'http://pub.huilaila.net/dfclub/index/index_02.jpg',
+      'http://pub.huilaila.net/dfclub/index/index_04.jpeg',
+      'http://pub.huilaila.net/dfclub/index/index_03.jpg'
     ]
   },
   tapMonth: function (e) {
@@ -75,12 +41,6 @@ Page({
   tapImg: function () {
     wx.navigateTo({
       url: 'event_detail/event_detail'
-    })
-  },
-  tapQR: function () {
-    wx.previewImage({
-      current: 'http://pub.huilaila.net/dfclub/syllabus/qrcode01.jpg', // 当前显示图片的http链接
-      urls: ['http://pub.huilaila.net/dfclub/syllabus/qrcode01.jpg'] // 需要预览的图片http链接列表
     })
   },
   onLoad: function () {
