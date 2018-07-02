@@ -139,7 +139,8 @@ const toZhDigit = (digit) => {
   }
 }
 
-const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
+// const baseURL = 'https://signin.afguanjia.com/' // 后台API地址
+const baseURL = 'https://signin.afguanjia.com/weapptest/' // 后台API地址
 
 const http = ({url = '', params = {}, ...other} = {}) => {
   wx.showLoading({

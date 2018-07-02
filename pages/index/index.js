@@ -25,6 +25,7 @@ Page({
   },
 
   tapGroup: function (e) {
+    console.log('111', this)
     let groupId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'index_group/index_group?id=' + groupId
@@ -39,13 +40,69 @@ Page({
       url: 'index_detail/index_detail'
     })
   },
-  
-  tapM: function () {
-    if(util.isMobile()===true){
+  // 点赞按钮
+  tapLike: function (e) {
+    let _this = this
+    if (util.isMobile() === true) {
+      let postId = e.currentTarget.dataset.neighborid
+      let indexs = e.currentTarget.dataset.indexs
+      let url = 'praises/' + postId
+      let contentTemp = _this.data.contentlist
+      if (contentTemp[indexs].isPraise === 0) {
+        util.post(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp[indexs].isPraise = 1
+                contentTemp[indexs].topicPraiseNumber = parseInt(contentTemp[indexs].topicPraiseNumber) + 1
+                _this.setData({
+                  contentlist: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg
+                })
+              }
+            })
+      } else {
+        util.myDelete(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp[indexs].isPraise = 0
+                contentTemp[indexs].topicPraiseNumber = parseInt(contentTemp[indexs].topicPraiseNumber) - 1
+                _this.setData({
+                  contentlist: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg
+                })
+              }
+            })
+      }
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+
+  tapComment: function (e) {
+    if (util.isMobile() === true) {
       wx.showToast({
         title: '绑定用户'
       })
-    }else{
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+  tapM: function () {
+    if (util.isMobile() === true) {
+      wx.showToast({
+        title: '绑定用户'
+      })
+    } else {
       wx.navigateTo({
         url: '/pages/mLogin/mLogin'
       })
@@ -76,7 +133,7 @@ Page({
 
   getList: function (message) {
     let that = this,
-        url = 'newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
+        url = 'club/newThings?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
@@ -128,6 +185,9 @@ Page({
 
   onLoad: function (options) {
     let _this = this
+    _this.setData({
+      wxShow: app.globalData.wxShow
+    })
     _this.getList('正在加载数据...')
   },
 

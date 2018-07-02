@@ -88,6 +88,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    serverError: false
+    serverError: false,
+    wxShow: true
   }
 })

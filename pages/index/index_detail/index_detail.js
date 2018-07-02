@@ -13,6 +13,7 @@ Page({
     isHiddenToast: true,
     commentlist: [],
     likelist: [],
+    isPraise: 0
   },
 
   previewImg: function (e) {
@@ -25,9 +26,52 @@ Page({
   },
 
   tapPraiseList: function () {
-    if(this.data.content.topicPraiseNumber){
+    if (this.data.content.topicPraiseNumber) {
       wx.navigateTo({
         url: '../index_detail_praise/index_detail_praise?neighborId=' + this.data.content.neighborId
+      })
+    }
+  },
+  tapLike: function (e) {
+    let _this = this
+    if (util.isMobile() === true) {
+      let postId = _this.data.content.neighborId
+      let url = 'praises/' + postId
+      let contentTemp = _this.data.content
+      if (contentTemp.isPraise === 0) {
+        util.post(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp.isPraise = 1
+                contentTemp.topicPraiseNumber = parseInt(contentTemp.topicPraiseNumber) + 1
+                _this.setData({
+                  content: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg
+                })
+              }
+            })
+      } else {
+        util.myDelete(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp.isPraise = 0
+                contentTemp.topicPraiseNumber = parseInt(contentTemp.topicPraiseNumber) - 1
+                _this.setData({
+                  content: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg
+                })
+              }
+            })
+      }
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
       })
     }
   },
@@ -40,7 +84,9 @@ Page({
     body = body.replace(/<style(([\s\S])*?)<\/style>/g, '')
     content.body = body
     _this.setData({
-      content: content
+      content: content,
+      // 是否显示功能
+      wxShow: app.globalData.wxShow
     })
     util.get(praiseUrl)
         .then(res => {
@@ -61,7 +107,7 @@ Page({
           console.log(e)
         })
     _this.getCommentList('正在加载数据...')
-    console.log(_this.data)
+    console.log('data', _this.data)
   },
 
   getCommentList: function (message) {
@@ -86,12 +132,12 @@ Page({
               commentlistTem = []
             }
             let commentlist = res.data.resultList
-            if(commentlist == '' || commentlist == null || commentlist == undefined){
+            if (commentlist == '' || commentlist == null || commentlist == undefined) {
               that.setData({
                 commentlist: commentlistTem,
                 hasMoreData: false
               })
-            }else{
+            } else {
               if (commentlist.length < that.data.commentPageSize) {
                 that.setData({
                   commentlist: commentlistTem.concat(commentlist),

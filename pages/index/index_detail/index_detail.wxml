@@ -82,17 +82,19 @@
     </block>
   <!--</view>-->
   <!--底部点赞评论tabBar-->
-  <!--<view class="tab_bar_container">-->
-    <!--<view class="weui-flex tab_bar">-->
-      <!--<view class="weui-flex__item tab_bar_item tab_bar_left">-->
-        <!--<image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/like_3.png"></image>-->
-        <!--<text>点赞</text>-->
-      <!--</view>-->
-      <!--<view class="weui-flex__item tab_bar_item">-->
-        <!--<image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/comment_2.png"></image>-->
-        <!--评论-->
-      <!--</view>-->
-    <!--</view>-->
-  <!--</view>-->
+  <view class="tab_bar_container" wx:if="{{wxShow}}">
+    <view class="weui-flex tab_bar">
+      <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="tapLike">
+        <image class="tab_bar_icon" wx:if="{{content.isPraise===0}}" src="http://pub.huilaila.net/dfclub/icon/like_3.png"></image>
+        <image class="tab_bar_icon" wx:if="{{content.isPraise===1}}" src="http://pub.huilaila.net/dfclub/icon/like_2.png"></image>
+        <text wx:if="{{content.isPraise===0}}">点 赞</text>
+        <text wx:if="{{content.isPraise===1}}">已 赞</text>
+      </view>
+      <view class="weui-flex__item tab_bar_item">
+        <image class="tab_bar_icon" src="http://pub.huilaila.net/dfclub/icon/comment_2.png"></image>
+        评 论
+      </view>
+    </view>
+  </view>
 
 </scroll-view>

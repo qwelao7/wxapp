@@ -9,7 +9,7 @@
       </swiper-item>
     </block>
   </swiper>
-<button bindtap="tapM">手机号绑定测试按钮</button>
+<!--<button bindtap="tapM">手机号绑定测试按钮</button>-->
   <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
     <view bindtap="tapList" data-listid="{{indexs}}">
 
@@ -51,12 +51,13 @@
         {{items.topicContent}}
       </view>
 
-      <view class="weui-flex comment_btn_bar">
-        <view class="placeholder like-container">
-          <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_1.png"></image>
+      <view class="weui-flex comment_btn_bar" wx:if="{{wxShow}}">
+        <view class="placeholder like-container" catchtap="tapLike" data-neighborid="{{items.neighborId}}" data-indexs="{{indexs}}">
+          <image wx-if="{{items.isPraise===0}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_1.png"></image>
+          <image wx-if="{{items.isPraise===1}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_2.png"></image>
           <text class="gray like_num">{{items.topicPraiseNumber}}</text>
         </view>
-        <view class="placeholder comment-container">
+        <view class="placeholder comment-container" catchtap="tapComment">
           <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/comment_1.png"></image>
           <text class="gray like_num">{{items.topicCommentNumber}}</text>
         </view>

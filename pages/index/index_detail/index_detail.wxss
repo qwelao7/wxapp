@@ -5,6 +5,7 @@ image {
 .container {
   background-color: #fffcf5;
   position: relative;
+  padding-bottom: 105rpx;
 }
 
 .bannerImg {
@@ -201,7 +202,7 @@ image {
 
 .tab_bar_item {
   height: 55rpx;
-  margin: 25rpx 0;
+  padding: 25rpx 0;
 }
 
 .tab_bar_icon {
