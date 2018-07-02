@@ -13,8 +13,6 @@ image {
   height: 375rpx;
 }
 
-
-
 .icon-box {
   position: relative;
 
