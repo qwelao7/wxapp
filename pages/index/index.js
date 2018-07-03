@@ -27,8 +27,9 @@ Page({
   tapGroup: function (e) {
     console.log('111', this)
     let groupId = e.currentTarget.dataset.id;
+    wx.setStorageSync('groupId', groupId);
     wx.navigateTo({
-      url: 'index_group/index_group?id=' + groupId
+      url: 'index_group/index_group'
     })
   },
 
@@ -100,6 +101,7 @@ Page({
       })
     }
   },
+
   tapM: function () {
     if (util.isMobile() === true) {
       wx.showToast({

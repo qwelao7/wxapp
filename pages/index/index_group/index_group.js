@@ -20,6 +20,66 @@ Page({
     })
   },
 
+  tapLike: function (e) {
+    let _this = this
+    if (util.isMobile() === true) {
+      let neighborId = e.currentTarget.dataset.neighborid
+      let indexs = e.currentTarget.dataset.indexs
+      let url = 'praises/' + neighborId
+      let contentTemp = _this.data.contentlist
+      if (contentTemp[indexs].isPraise === 0) {
+        util.post(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp[indexs].isPraise = 1
+                contentTemp[indexs].topicPraiseNumber = parseInt(contentTemp[indexs].topicPraiseNumber) + 1
+                _this.setData({
+                  contentlist: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+              }
+            })
+      } else {
+        util.myDelete(url)
+            .then(res => {
+              if (res.status === 100) {
+                contentTemp[indexs].isPraise = 0
+                contentTemp[indexs].topicPraiseNumber = parseInt(contentTemp[indexs].topicPraiseNumber) - 1
+                _this.setData({
+                  contentlist: contentTemp
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+              }
+            })
+      }
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+
+  tapComment: function (e) {
+    if (util.isMobile() === true) {
+      let neighborId = e.currentTarget.dataset.neighborid
+      wx.navigateTo({
+        url: '/pages/index/index_comment/index_comment?neighborId=' + neighborId
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+
   previewImg: function (e) {
     let _this = this,
         indexs = e.currentTarget.dataset.indexs,
@@ -99,13 +159,20 @@ Page({
         })
   },
 
-  onLoad: function (options) {
-    let _this = this,
-        groupId = options.id
+  onLoad: function () {
+    let _this = this
+    let groupId = wx.getStorageSync('groupId');
     _this.setData({
       groupId: groupId
     })
     _this.getList('正在加载数据...', groupId)
+  },
+
+  onShow: function () {
+    this.onLoad()
+  },
+  onUnload: function () {
+    wx.removeStorageSync('groupId')
   },
 
   /**
