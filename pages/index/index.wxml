@@ -1,69 +1,72 @@
 <!--index.wxml-->
-<scroll-view scroll-y class="container">
+<view>
+  <image src="../../img/publish_1.png" wx:if="{{wxShow}}" class="publish_icon" bindtap="tapPublish"></image>
+  <scroll-view scroll-y class="container">
 
-  <!--顶部banner轮播图-->
-  <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
-    <block wx:for="{{bannerImgs}}" wx:key="*this">
-      <swiper-item>
-        <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
-      </swiper-item>
-    </block>
-  </swiper>
-<!--<button bindtap="tapM">手机号绑定测试按钮</button>-->
-  <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
-    <view bindtap="tapList" data-listid="{{indexs}}">
+    <!--顶部banner轮播图-->
+    <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
+      <block wx:for="{{bannerImgs}}" wx:key="*this">
+        <swiper-item>
+          <image class="bannerImg" src="{{item}}" bindtap="tapBanner" data-id="{{index}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--<button bindtap="tapM">手机号绑定测试按钮</button>-->
+    <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
+      <view bindtap="tapList" data-listid="{{indexs}}">
 
-      <view class="pd-30">
-        <view class="icon-box">
-          <image class="icon-avatar" src="{{items.headPicName}}"></image>
-          <view class="icon-box__ctn">
-            <view class="icon-box__title">
-              {{items.userName}}
+        <view class="pd-30">
+          <view class="icon-box">
+            <image class="icon-avatar" src="{{items.headPicName}}"></image>
+            <view class="icon-box__ctn">
+              <view class="icon-box__title">
+                {{items.userName}}
+              </view>
+              <view class="icon-box__desc">{{items.inTimeTag}}</view>
             </view>
-            <view class="icon-box__desc">{{items.inTimeTag}}</view>
-          </view>
-          <view class="hash_title" data-id="{{items.groupId}}" catchtap="tapGroup">
-            <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
-            {{items.topicTag}}
+            <view class="hash_title" data-id="{{items.groupId}}" catchtap="tapGroup">
+              <image class="hash_icon" src="http://pub.huilaila.net/dfclub/icon/hash_tag1.png"></image>
+              {{items.topicTag}}
+            </view>
           </view>
         </view>
-      </view>
 
-      <view class="weui-grids" wx:if="{{items.annexs}}.length>0">
-        <block wx:if="{{items.body==''||items.body==null||items.body==undefined}}" wx:for="{{items.annexs}}"
-               wx:key="*this" wx:for-index="index" wx:for-item="item">
-          <view wx:if="{{items.annexs.length>1}}" class="weui-grid">
-            <image class="weui-grid__icon" lazy-load="true" src="{{item}}" catchtap="previewImg"
-                   data-indexs="{{indexs}}" data-index="{{index}}"/>
-          </view>
-          <view wx:if="{{items.annexs.length<=1}}">
-            <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}" catchtap="previewImg"
-                   data-indexs="{{indexs}}" data-index="{{index}}" mode="aspectFill"/>
-          </view>
-        </block>
-        <block wx:if="{{items.body!==''}}" wx:for="{{items.annexs}}"
-               wx:key="*this" wx:for-index="index" wx:for-item="item">
-          <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}"/>
-        </block>
-      </view>
-
-      <view class="weui-article__p black">
-        {{items.topicContent}}
-      </view>
-
-      <view class="weui-flex comment_btn_bar" wx:if="{{wxShow}}">
-        <view class="placeholder like-container" catchtap="tapLike" data-neighborid="{{items.neighborId}}" data-indexs="{{indexs}}">
-          <image wx-if="{{items.isPraise===0}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_1.png"></image>
-          <image wx-if="{{items.isPraise===1}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_2.png"></image>
-          <text class="gray like_num">{{items.topicPraiseNumber}}</text>
+        <view class="weui-grids" wx:if="{{items.annexs}}.length>0">
+          <block wx:if="{{items.body==''||items.body==null||items.body==undefined}}" wx:for="{{items.annexs}}"
+                 wx:key="*this" wx:for-index="index" wx:for-item="item">
+            <view wx:if="{{items.annexs.length>1}}" class="weui-grid">
+              <image class="weui-grid__icon" lazy-load="true" src="{{item}}" catchtap="previewImg"
+                     data-indexs="{{indexs}}" data-index="{{index}}"/>
+            </view>
+            <view wx:if="{{items.annexs.length<=1}}">
+              <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}" catchtap="previewImg"
+                     data-indexs="{{indexs}}" data-index="{{index}}" mode="aspectFill"/>
+            </view>
+          </block>
+          <block wx:if="{{items.body!==''}}" wx:for="{{items.annexs}}"
+                 wx:key="*this" wx:for-index="index" wx:for-item="item">
+            <image class="weui-grid__icon_single" lazy-load="true" src="{{item}}"/>
+          </block>
         </view>
-        <view class="placeholder comment-container" catchtap="tapComment" data-neighborid="{{items.neighborId}}">
-          <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/comment_1.png"></image>
-          <text class="gray like_num">{{items.topicCommentNumber}}</text>
-        </view>
-      </view>
-      <view class="list-spacing"></view>
-    </view>
-  </block>
 
-</scroll-view>
+        <view class="weui-article__p black">
+          {{items.topicContent}}
+        </view>
+
+        <view class="weui-flex comment_btn_bar" wx:if="{{wxShow}}">
+          <view class="placeholder like-container" catchtap="tapLike" data-neighborid="{{items.neighborId}}" data-indexs="{{indexs}}">
+            <image wx-if="{{items.isPraise===0}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_1.png"></image>
+            <image wx-if="{{items.isPraise===1}}" class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/like_2.png"></image>
+            <text class="gray like_num">{{items.topicPraiseNumber}}</text>
+          </view>
+          <view class="placeholder comment-container" catchtap="tapComment" data-neighborid="{{items.neighborId}}">
+            <image class="weui-icon" src="http://pub.huilaila.net/dfclub/icon/comment_1.png"></image>
+            <text class="gray like_num">{{items.topicCommentNumber}}</text>
+          </view>
+        </view>
+        <view class="list-spacing"></view>
+      </view>
+    </block>
+
+  </scroll-view>
+</view>

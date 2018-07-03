@@ -5,111 +5,90 @@ const config = require('../../config')
 
 Page({
   data: {
-    showPublish: false
-    // url: 'town_detail/town_detail',
-    // towns: [
-    //   {
-    //     name: '濮塘·桃李',
-    //     imgUrl: 'http://pub.huilaila.net/dfclub/towns/putang.png',
-    //     subTitle: '南京南 濮塘风景区 农旅度假小镇'
-    //   },
-    //   {
-    //     name: '宝华桃李春风',
-    //     imgUrl: 'http://pub.huilaila.net/dfclub/towns/baohua.png',
-    //     subTitle: '南京东 宝华山景区 故乡小镇'
-    //   },
-    //   {
-    //     name: '协鑫春风江南',
-    //     imgUrl: 'http://pub.huilaila.net/dfclub/towns/xiexin.png',
-    //     subTitle: '南京东 秦淮源 农耕科技小镇',
-    //   },
-    //   {
-    //     name: '绿城·南京桃花源',
-    //     imgUrl: 'http://pub.huilaila.net/dfclub/towns/taohuayuan.png',
-    //     subTitle: '汤山国家级旅游度假区内 东方生活综合体'
-    //   },
-    //   {
-    //     name: '枣林·桃李',
-    //     imgUrl: 'http://pub.huilaila.net/dfclub/towns/zaolin.png',
-    //     subTitle: '宁扬中心 双博园内 园博小镇'
-    //   },
-    // ],
-    // imgs: [
-    //   'http://pub.huilaila.net/dfclub/towns/towns_full01.jpg',
-    //   'http://pub.huilaila.net/dfclub/towns/towns_full02.jpg',
-    //   'http://pub.huilaila.net/dfclub/towns/towns_full03.jpg',
-    //   'http://pub.huilaila.net/dfclub/towns/towns_full04.jpg',
-    //   'http://pub.huilaila.net/dfclub/towns/towns_full05.jpg'
-    // ]
+    imgList: [],
+    defCommunityId: '',
+    focus: true,
+    array: [
+      {
+        communityId: 'd18ddf02-484a-11e8-9faf-48d539affdb4',
+        name: '濮塘桃李春风'
+      },
+      {
+        communityId: 'bcbb9597-3eba-11e8-9faf-48d539affdb4',
+        name: '协鑫春风江南'
+      },
+      {
+        communityId: '046ba2c8-328c-11e8-9faf-48d539affdb4',
+        name: '南京桃花源'
+      },
+      {
+        communityId: '585e764f-328c-11e8-9faf-48d539affdb4',
+        name: '宝华桃李春风'
+      },
+      {
+        communityId: '66dfa671-4392-11e8-9faf-48d539affdb4',
+        name: '枣林桃里'
+      }
+    ],
   },
-  // tapTown: function (e) {
-  //   let goTo = this.data.url + '?id=' + e.currentTarget.id;
-  //   wx.navigateTo({
-  //     url: goTo
-  //   })
-  // },
-  // onLoad: function () {
-  // },
-  // onShareAppMessage: function (res) {
-  //   return {
-  //     title: '东方小镇Club',
-  //     desc: '小镇列表',
-  //     path: '/pages/towns/towns',
-  //     success: function (res) {
-  //       // 转发成功
-  //       wx.showModal({
-  //         content: '分享成功！',
-  //         showCancel: false,
-  //         success: function (res) {
-  //         }
-  //       });
-  //     },
-  //     fail: function (res) {
-  //       // 转发失败
-  //       wx.showModal({
-  //         content: '分享失败！请重新尝试',
-  //         showCancel: false,
-  //         success: function (res) {
-  //         }
-  //       });
-  //     }
-  //   }
-  // },
-  // doLogin: function () {
-  //   const session = qcloud.Session.get()
-  //   qcloud.setLoginUrl(config.service.loginUrl);
-  //   if (session) {
-  //     // 第二次登录
-  //     // 或者本地已经有登录态
-  //     // 可使用本函数更新登录态
-  //     qcloud.loginWithCode({
-  //       success: res => {
-  //         this.setData({ userInfo: res, logged: true })
-  //         util.showSuccess('登录成功')
-  //       },
-  //       fail: err => {
-  //         console.error(err)
-  //         util.showModel('登录错误', err.message)
-  //       }
-  //     })
-  //   } else {
-  //     // 首次登录
-  //     qcloud.login({
-  //       success: res => {
-  //         this.setData({ userInfo: res, logged: true })
-  //         util.showSuccess('登录成功')
-  //       },
-  //       fail: err => {
-  //         console.error(err)
-  //         util.showModel('登录错误', err.message)
-  //       }
-  //     })
-  //   }
-  // }
-  tapImg: function () {
-    wx.navigateTo({
-      url: 'publish_detail/publish_detail'
+  blur: function (e) {
+    this.setData({
+      value: e.detail.value
     })
-  }
+  },
+  chooseImages: function () {
+    let _this = this;
+    let count = this.imgList.length;
+    let leftCount = 9 - count;
+    this.$wechat.chooseImage({
+      count: leftCount, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        _this.imgList = _this.imgList.concat(res.tempFilePaths); // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+      }
+    });
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    var index = e.detail.value;
+    this.data.defCommunityId = this.data.array[index].communityId;
+    console.log('defCommunityId', this.data.defCommunityId)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  publish: function () {
+    let _this = this
+    this.setData({
+      focus: false
+    })
+    setTimeout(function () {
+
+      if (_this.data.value) {
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: '评论内容不能为空'
+        })
+      }
+
+    }, 100)
+    wx.uploadFile({
+      url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+      filePath: tempFilePaths[0],
+      name: 'file',
+      formData: {
+        'user': 'test'
+      },
+      success: function (res) {
+        var data = res.data
+        //do something
+      }
+    })
+  },
+  onLoad: function () {
+
+  },
 
 })

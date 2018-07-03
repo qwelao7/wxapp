@@ -16,6 +16,17 @@ Page({
       'http://pub.huilaila.net/dfclub/index/index_03.jpg'
     ],
   },
+  tapPublish: function () {
+    if (util.isMobile() === true) {
+      wx.navigateTo({
+        url: '/pages/publish/publish'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
 
   tapBanner: function (e) {
     let bannerId = e.currentTarget.dataset.id;
@@ -61,7 +72,7 @@ Page({
               } else {
                 wx.showToast({
                   title: res.msg,
-                  icon:'none'
+                  icon: 'none'
                 })
               }
             })
@@ -77,7 +88,7 @@ Page({
               } else {
                 wx.showToast({
                   title: res.msg,
-                  icon:'none'
+                  icon: 'none'
                 })
               }
             })

@@ -1,7 +1,24 @@
-<!--<view class="container">-->
-  <!--<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="doLogin">获取用户信息</button>-->
-<!--</view>-->
 <scroll-view scroll-y class="container">
-  <image style="width: 100%;display: block" mode="widthFix"
-         src="http://pub.huilaila.net/dfclub/fake/fake-08.jpg" bindtap="tapImg"></image>
+
+  <picker bindchange="bindPickerChange" value="{{index}}" range-key="name" range="{{array}}">
+    <view class="weui-panel__hd">发布项目</view>
+    <view class="weui-cells weui-cells_after-title" hover-stay-time="200">
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{array[index].name?array[index].name:'请选择'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+  </picker>
+
+  <textarea placeholder="请输入..." focus="{{focus}}" placeholder-style="color:#999;font-size:15px;" class="comment_area" name="textarea" bindblur="blur" maxlength="255"></textarea>
+  <view style="padding: 0 30px">
+
+  </view>
+  <view class="tab_bar_container">
+    <view class="weui-flex tab_bar">
+      <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="tapSubmit">
+        <text class="publish_text">发 布</text>
+      </view>
+    </view>
+  </view>
 </scroll-view>

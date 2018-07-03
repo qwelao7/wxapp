@@ -131,3 +131,11 @@
 
   vertical-align: middle;
 }
+.publish_icon{
+  width: 81rpx;
+  height: 81rpx;
+  position: fixed;
+  right: 20rpx;
+  bottom: 200rpx;
+  z-index: 1000000;
+}
