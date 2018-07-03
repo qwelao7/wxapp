@@ -59,7 +59,8 @@ Page({
                 })
               } else {
                 wx.showToast({
-                  title: res.msg
+                  title: res.msg,
+                  icon:'none'
                 })
               }
             })
@@ -74,7 +75,8 @@ Page({
                 })
               } else {
                 wx.showToast({
-                  title: res.msg
+                  title: res.msg,
+                  icon:'none'
                 })
               }
             })
