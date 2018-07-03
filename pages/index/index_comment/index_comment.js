@@ -30,18 +30,20 @@ Page({
 
     setTimeout(function () {
       if (_this.data.value) {
-        let params = {
-          neighborId: _this.data.neighborId,
-          message: _this.data.value
-        }
-        util.post('comments', params)
+        let url = 'comments?neighborId=' + _this.data.neighborId + '&message=' + _this.data.value
+        util.post(url)
             .then(res => {
               console.log(res)
               if (res.status === 100) {
-                wx.ShowToast({
+                wx.showToast({
                   icon: 'success',
                   title: '发布成功',
                   success: function () {
+                    let indexList = wx.getStorageSync('indexList');
+                    if (indexList) {
+                      indexList.topicCommentNumber = parseInt(indexList.topicCommentNumber) + 1
+                      wx.setStorageSync('indexList', indexList);
+                    }
                     setTimeout(function () {
                       wx.navigateBack({
                         delta: 1
@@ -51,7 +53,7 @@ Page({
                   }
                 })
               } else {
-                wx.ShowToast({
+                wx.showToast({
                   icon: 'none',
                   title: res.msg
                 })

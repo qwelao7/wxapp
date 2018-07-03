@@ -22,7 +22,7 @@ Page({
 
   getActivityLiveList: function (message) {
     let that = this,
-      url='activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+        url = 'activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
@@ -58,7 +58,7 @@ Page({
   },
   getActivityOldList: function (message) {
     let that = this,
-        url='activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+        url = 'activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
@@ -94,7 +94,7 @@ Page({
   },
   getActivityNewList: function (message) {
     let that = this,
-        url='activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+        url = 'activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
@@ -191,11 +191,11 @@ Page({
   },
 
   toCategoryList: function (e) {
-    var id = '',name = '',that = this;
+    var id = '', name = '', that = this;
     id = e.currentTarget.dataset.id;
-    wx.setStorageSync("categoryId",id);
+    wx.setStorageSync("categoryId", id);
     name = that.data.categoryList[id];
-    wx.setStorageSync("categoryName",name);
+    wx.setStorageSync("categoryName", name);
     wx.navigateTo({
       url: 'event_category/event_category'
     })
