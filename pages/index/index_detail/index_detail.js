@@ -40,6 +40,7 @@ Page({
       let url = 'praises/' + postId
       let contentTemp = _this.data.content
       if (contentTemp.isPraise === 0) {
+        // 未点赞，进行点赞操作
         util.post(url)
             .then(res => {
               if (res.status === 100) {
@@ -50,11 +51,13 @@ Page({
                 })
               } else {
                 wx.showToast({
+                  icon:'none',
                   title: res.msg
                 })
               }
             })
       } else {
+        // 已点赞，进行取消点赞操作
         util.myDelete(url)
             .then(res => {
               if (res.status === 100) {
@@ -112,12 +115,14 @@ Page({
             })
           } else {
             wx.showToast({
+              icon:'none',
               title: res.msg,
             })
           }
         })
         .catch(e => {
           wx.showToast({
+            icon:'none',
             title: '加载点赞数据失败',
           })
           console.log(e)
