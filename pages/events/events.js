@@ -7,13 +7,128 @@ Page({
       'http://pub.huilaila.net/dfclub/index/index_02.jpg',
       'http://pub.huilaila.net/dfclub/index/index_04.jpeg',
       'http://pub.huilaila.net/dfclub/index/index_03.jpg'
-    ]
+    ],
+    activityLiveList: [],
+    activityOldList: [],
+    activityNewList: [],
+    pageSize: 6,
+    page: 1,
+    categoryList: {
+      '0': "活动预告",
+      '1': "活动回顾"
+    }
   },
-  tapImg: function () {
-    wx.navigateTo({
-      url: 'event_detail/event_detail'
-    })
+
+
+  getActivityLiveList: function (message) {
+    let that = this,
+      url='activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+    wx.showNavigationBarLoading()
+    if (message != "") {
+      wx.showLoading({
+        title: message,
+      });
+    }
+    util.get(url)
+        .then(res => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.stopPullDownRefresh()
+          if (res.status === 100) {
+            that.setData({
+              activityLiveList: res.data
+            })
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+        })
+        .catch(e => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        })
   },
+  getActivityOldList: function (message) {
+    let that = this,
+        url='activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+    wx.showNavigationBarLoading()
+    if (message != "") {
+      wx.showLoading({
+        title: message,
+      });
+    }
+    util.get(url)
+        .then(res => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.stopPullDownRefresh()
+          if (res.status === 100) {
+            that.setData({
+              activityOldList: res.data
+            })
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+        })
+        .catch(e => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        })
+  },
+  getActivityNewList: function (message) {
+    let that = this,
+        url='activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+    wx.showNavigationBarLoading()
+    if (message != "") {
+      wx.showLoading({
+        title: message,
+      });
+    }
+    util.get(url)
+        .then(res => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.stopPullDownRefresh()
+          if (res.status === 100) {
+            that.setData({
+              activityNewList: res.data
+            })
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+        })
+        .catch(e => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        })
+  },
+
   onLoad: function () {
     let _this = this;
     // wx.request({
@@ -37,11 +152,9 @@ Page({
     //     console.log(_this.data.events)
     //   }
     // })
-  },
-  tapMore: () => {
-    wx.navigateTo({
-      url: 'event_category/event_category'
-    })
+    _this.getActivityLiveList("加载数据失败");
+    _this.getActivityOldList("加载数据失败");
+    _this.getActivityNewList("加载数据失败");
   },
 
   onShareAppMessage: function (res) {
@@ -69,9 +182,22 @@ Page({
       }
     }
   },
-  tapImg: function () {
+
+  toActivityInfo: function (e) {
+    wx.setStorageSync('activityId', e.currentTarget.dataset.id);
     wx.navigateTo({
       url: 'event_detail/event_detail'
+    })
+  },
+
+  toCategoryList: function (e) {
+    var id = '',name = '',that = this;
+    id = e.currentTarget.dataset.id;
+    wx.setStorageSync("categoryId",id);
+    name = that.data.categoryList[id];
+    wx.setStorageSync("categoryName",name);
+    wx.navigateTo({
+      url: 'event_category/event_category'
     })
   }
 })

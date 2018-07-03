@@ -13,7 +13,7 @@ Page({
       title: '数据加载中',
     });
     let _this = this,
-        url = 'praiseList?curPage=1&pageSize=100&neighborId=' + options.neighborId
+        url = 'club/praiseList?curPage=1&pageSize=100&neighborId=' + options.neighborId
     util.get(url)
         .then(res => {
           wx.hideLoading()

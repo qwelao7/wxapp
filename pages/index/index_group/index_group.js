@@ -44,7 +44,7 @@ Page({
 
   getList: function (message, groupId) {
     let that = this,
-        url = 'newThings?curPage=' + that.data.page + '&communityId=' + groupId
+        url = 'club/newThings?curPage=' + that.data.page + '&communityId=' + groupId
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({

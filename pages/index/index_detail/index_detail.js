@@ -95,7 +95,7 @@ Page({
     let _this = this,
         content = wx.getStorageSync('indexList'),
         body = content.body,
-        praiseUrl = 'praiseList?curPage=1&pageSize=10&neighborId=' + content.neighborId
+        praiseUrl = 'club/praiseList?curPage=1&pageSize=10&neighborId=' + content.neighborId
     body = body.replace(/<style(([\s\S])*?)<\/style>/g, '')
     content.body = body
     _this.setData({
@@ -142,7 +142,7 @@ Page({
         title: message,
       });
     }
-    let commentUrl = 'commentList?curPage=' + that.data.commentPage + '&pageSize=' + that.data.commentPageSize + '&neighborId=' + that.data.content.neighborId
+    let commentUrl = 'club/commentList?curPage=' + that.data.commentPage + '&pageSize=' + that.data.commentPageSize + '&neighborId=' + that.data.content.neighborId
     util.get(commentUrl)
         .then(res => {
           wx.hideNavigationBarLoading()
