@@ -105,13 +105,16 @@
 }
 
 .like-container {
-  margin-right: 60rpx;
-  margin-bottom: 30rpx;
+  padding-right: 60rpx;
+  padding-bottom: 30rpx;
 
   vertical-align: middle;
 }
 
 .comment-container {
+  padding-right: 60rpx;
+  padding-bottom: 30rpx;
+
   vertical-align: middle;
 }
 
