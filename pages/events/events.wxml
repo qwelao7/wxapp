@@ -1,4 +1,4 @@
-<scroll-view scroll-y class="container">
+<scroll-view scroll-y class="container" xmlns:wx="http://www.w3.org/1999/xhtml">
   <!--顶部banner轮播图-->
   <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
     <block wx:for="{{activityLiveList}}" wx:key="*this">
@@ -14,11 +14,11 @@
         <view class="weui-cell__bd gray fs-26">
           <text class="event_category">▍活动预告</text>
         </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="0" bindtap="toCategoryList">more</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="2" bindtap="toCategoryList">more</view>
       </view>
     </view>
-      <scroll-view class="event_list" scroll-x  wx:for="{{activityNewList}}" wx:key="index">
-        <div class="event-container" data-id="{{item.id}}" bindtap="toActivityInfo">
+      <scroll-view class="event_list" scroll-x  >
+        <div class="event-container" data-id="{{item.id}}" bindtap="toActivityInfo" wx:for="{{activityNewList}}" wx:key="index">
           <image class="event_img"
                  src="{{item.picUrl}}"></image>
           <text class="event_title">{{item.title}}</text>
@@ -32,11 +32,11 @@
         <view class="weui-cell__bd gray fs-26">
           <text class="event_category">▍活动回顾</text>
         </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="1" bindtap="toCategoryList">more</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="3" bindtap="toCategoryList">more</view>
       </view>
     </view>
-    <scroll-view class="event_list" scroll-x  wx:for="{{activityNewList}}" wx:key="index">
-      <div class="event-container" data-id="{{item.id}}" bindtap="toActivityInfo">
+    <scroll-view class="event_list" scroll-x>
+      <div class="event-container" data-id="{{item.id}}" bindtap="toActivityInfo" wx:for="{{activityOldList}}" wx:key="index">
         <image class="event_img"
                src="{{item.picUrl}}"></image>
         <text class="event_title">{{item.title}}</text>

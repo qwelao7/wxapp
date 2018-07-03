@@ -1,6 +1,6 @@
 <!--logs.wxml-->
-<scroll-view scroll-y class="container" wx:for="{{contentlist}}" wx:key="index">
-  <view class="event_container" bindtap="tapEvent" data-id="{{item.id}}">
+<scroll-view scroll-y class="container" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="event_container" bindtap="tapEvent" data-id="{{item.id}}" wx:for="{{contentlist}}" wx:key="index">
     <image class="event_banner" src="{{item.picUrl}}"></image>
     <view class="weui-cell">
       <view class="weui-cell__bd">{{item.title}}</view>

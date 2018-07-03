@@ -73,7 +73,7 @@ Page({
     });
     this.setData({
       'id': id,
-      'url':'https://signin.huilaila.net/index.html'
+      'url':'http://pub.huilaila.net/dfclub/index/index_02.jpg'
     });
     _this.getList("正在加载数据...");
   },
