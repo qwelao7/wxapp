@@ -1,6 +1,6 @@
 <scroll-view scroll-y class="container" xmlns:wx="http://www.w3.org/1999/xhtml">
   <!--顶部banner轮播图-->
-  <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner">
+  <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" class="index-banner" style="display: {{liveDisable}}">
     <block wx:for="{{activityLiveList}}" wx:key="*this">
       <swiper-item>
         <image class="bannerImg" src="{{item.picUrl}}" bindtap="toActivityInfo" data-id="{{item.id}}"></image>
@@ -8,7 +8,7 @@
     </block>
   </swiper>
 
-  <view style="margin-bottom: 20px">
+  <view style="margin-bottom: 20px; display: {{newDisable}}">
     <view class="weui-cells weui-cells_after-title" hover-stay-time="200">
       <view url="" class="weui-cell weui-cell_access">
         <view class="weui-cell__bd gray fs-26">
@@ -26,7 +26,7 @@
         </div>
       </scroll-view>
   </view>
-  <view style="margin-bottom: 20px">
+  <view style="margin-bottom: 20px; display: {{oldDisable}}">
     <view class="weui-cells weui-cells_after-title" hover-stay-time="200">
       <view url="" class="weui-cell weui-cell_access">
         <view class="weui-cell__bd gray fs-26">

@@ -7,18 +7,15 @@ Page({
     id: '',
     activityInfo: {}
   },
-  onLoad: function () {
+  onLoad: function (options) {
     let _this = this,
-        id = wx.getStorageSync('activityId');
+        id = options.activityId;
 
     _this.setData({
       'id': id,
       'url': 'https://signin.huilaila.net/index.html'
     });
     _this.getActivityInfo("正在加载数据");
-  },
-  onUnload: function () {
-    wx.removeStorageSync('activityId');
   },
   // tapImg:function () {
   //   wx.navigateTo({

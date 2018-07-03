@@ -14,22 +14,27 @@ Page({
     pageSize: 6,
     page: 1,
     categoryList: {
-      '0': "活动预告",
-      '1': "活动回顾"
-    }
+      '2': "活动预告",
+      '3': "活动回顾"
+    },
+    liveDisable: 'block',
+    oldDisable: 'block',
+    newDisable: 'block',
   },
 
 
-  getActivityLiveList: function (message) {
+  getActivityList: function (message) {
     let that = this,
-        url = 'activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+      url_1='activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
+      url_2='activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
+      url_3='activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
         title: message,
       });
     }
-    util.get(url)
+    util.get(url_1)
         .then(res => {
           wx.hideNavigationBarLoading()
           if (message != "") {
@@ -39,7 +44,12 @@ Page({
           if (res.status === 100) {
             that.setData({
               activityLiveList: res.data
-            })
+            });
+            if(res.data.length = 0){
+              that.setData({
+                liveDisable: 'none'
+              });
+            }
           } else {
             wx.showToast({
               title: res.msg,
@@ -54,64 +64,20 @@ Page({
           wx.showToast({
             title: '加载数据失败',
           })
-        })
-  },
-  getActivityOldList: function (message) {
-    let that = this,
-        url = 'activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
-    wx.showNavigationBarLoading()
-    if (message != "") {
-      wx.showLoading({
-        title: message,
-      });
-    }
-    util.get(url)
+        });
+
+    util.get(url_2)
         .then(res => {
-          wx.hideNavigationBarLoading()
-          if (message != "") {
-            wx.hideLoading()
-          }
-          wx.stopPullDownRefresh()
-          if (res.status === 100) {
-            that.setData({
-              activityOldList: res.data
-            })
-          } else {
-            wx.showToast({
-              title: res.msg,
-            })
-          }
-        })
-        .catch(e => {
-          wx.hideNavigationBarLoading()
-          if (message != "") {
-            wx.hideLoading()
-          }
-          wx.showToast({
-            title: '加载数据失败',
-          })
-        })
-  },
-  getActivityNewList: function (message) {
-    let that = this,
-        url = 'activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
-    wx.showNavigationBarLoading()
-    if (message != "") {
-      wx.showLoading({
-        title: message,
-      });
-    }
-    util.get(url)
-        .then(res => {
-          wx.hideNavigationBarLoading()
-          if (message != "") {
-            wx.hideLoading()
-          }
           wx.stopPullDownRefresh()
           if (res.status === 100) {
             that.setData({
               activityNewList: res.data
-            })
+            });
+            if(res.data.length = 0){
+              that.setData({
+                newDisable: 'none'
+              });
+            }
           } else {
             wx.showToast({
               title: res.msg,
@@ -119,10 +85,30 @@ Page({
           }
         })
         .catch(e => {
-          wx.hideNavigationBarLoading()
-          if (message != "") {
-            wx.hideLoading()
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        });
+
+    util.get(url_3)
+        .then(res => {
+          wx.stopPullDownRefresh()
+          if (res.status === 100) {
+            that.setData({
+              activityOldList: res.data
+            });
+            if(res.data.length = 0){
+              that.setData({
+                oldDisable: 'none'
+              });
+            }
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
           }
+        })
+        .catch(e => {
           wx.showToast({
             title: '加载数据失败',
           })
@@ -152,9 +138,7 @@ Page({
     //     console.log(_this.data.events)
     //   }
     // })
-    _this.getActivityLiveList("加载数据失败");
-    _this.getActivityOldList("加载数据失败");
-    _this.getActivityNewList("加载数据失败");
+    _this.getActivityList("加载数据失败");
   },
 
   onShareAppMessage: function (res) {
@@ -184,20 +168,17 @@ Page({
   },
 
   toActivityInfo: function (e) {
-    wx.setStorageSync('activityId', e.currentTarget.dataset.id);
     wx.navigateTo({
-      url: 'event_detail/event_detail'
+      url: 'event_detail/event_detail?activityId='+e.currentTarget.dataset.id
     })
   },
 
   toCategoryList: function (e) {
-    var id = '', name = '', that = this;
+    var id = '',name = '',that = this;
     id = e.currentTarget.dataset.id;
-    wx.setStorageSync("categoryId", id);
     name = that.data.categoryList[id];
-    wx.setStorageSync("categoryName", name);
     wx.navigateTo({
-      url: 'event_category/event_category'
+      url: 'event_category/event_category?categoryId='+id+'&categoryName='+name
     })
   }
 })

@@ -4,6 +4,7 @@
 }
 .container{
   height: 100%;
+  position: relative;
 }
 .event_container{
   width: 100%;

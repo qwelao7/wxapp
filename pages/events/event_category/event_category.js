@@ -6,9 +6,9 @@ Page({
     url:'',
     id: '',
     page: 1,
-    pageSize: 10,
+    pageSize: 3,
     contentlist: [],
-    hasMoreData: false
+    hasMoreData: false,
   },
 
   getList: function (message) {
@@ -63,30 +63,24 @@ Page({
         })
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
     let _this = this,
-        id = wx.getStorageSync('categoryId');
+        id = options.categoryId;
 
     // 动态设置标题
     wx.setNavigationBarTitle({
-      title: wx.getStorageSync('categoryName')
+      title: options.categoryName
     });
-    this.setData({
+    _this.setData({
       'id': id,
       'url':'http://pub.huilaila.net/dfclub/index/index_02.jpg'
     });
     _this.getList("正在加载数据...");
   },
 
-  onUnload: function(){
-    wx.removeStorageSync('categoryId');
-    wx.removeStorageSync('categoryName');
-  },
-
   tapEvent:function (e) {
-    wx.setStorageSync('activityId',e.currentTarget.dataset.id);
     wx.navigateTo({
-      url: '../event_detail/event_detail'
+      url: '../event_detail/event_detail?activityId='+e.currentTarget.dataset.id
     })
   },
   /**
