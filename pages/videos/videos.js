@@ -12,7 +12,7 @@ Page({
   data: {
     scrollH: 0,
     imgWidth: 0,
-    loadingCount: 0,
+    // loadingCount: 0,
     images: [],
     col1: [],
     col2: []
@@ -59,7 +59,7 @@ Page({
 
     imageObj.height = imgHeight;
 
-    let loadingCount = this.data.loadingCount - 1;
+    // let loadingCount = this.data.loadingCount - 1;
     let col1 = this.data.col1;
     let col2 = this.data.col2;
 
@@ -71,12 +71,18 @@ Page({
       col2.push(imageObj);
     }
 
-    if (!loadingCount) {
-      data.images = [];
-    }
+    // let data = {
+    //   loadingCount: loadingCount,
+    //   col1: col1,
+    //   col2: col2
+    // };
+    //
+    // if (!loadingCount) {
+    //   data.images = [];
+    // }
 
     this.setData({
-      loadingCount: loadingCount,
+      // loadingCount: loadingCount,
       col1: col1,
       col2: col2
     });
