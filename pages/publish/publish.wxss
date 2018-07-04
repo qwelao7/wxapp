@@ -1,5 +1,6 @@
 .container {
   background-color: #fffcf5;
+  height: 100%;
 }
 
 .tab_bar_container {
@@ -38,4 +39,27 @@
   margin-top: 20rpx;
   padding:10rpx 30rpx 0rpx;
   font-size: 15px;
+}
+.img_container{
+  width: calc(33.33333vw - 10px);
+  height: calc(33.33333vw - 10px);
+  display: inline-block;
+  position: relative;
+}
+.publish_img{
+  width: 80%;
+  height: 80%;
+  padding: 10%;
+}
+.add_img{
+  display: inline-block;
+  width: calc(33.33333vw - 10px);
+  height: calc(33.33333vw - 10px);
+}
+.delete_icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

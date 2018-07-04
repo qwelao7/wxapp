@@ -2,6 +2,10 @@ const qcloud = require('./wafer2-client-sdk/index');
 const config = require('../config')
 const app = getApp()
 
+//const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
+const baseURL = 'https://signin.afguanjia.com/weapptest/'
+const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
+
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -139,9 +143,8 @@ const toZhDigit = (digit) => {
   }
 }
 
-//const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
-const baseURL = 'https://signin.afguanjia.com/weapptest/'
-const http = ({url = '', params = {}, ...other} = {}) => {
+
+const http = ({url = '', params = {}, header = {}, ...other} = {}) => {
   wx.showLoading({
     title: '正在加载数据...'
   })
@@ -151,7 +154,7 @@ const http = ({url = '', params = {}, ...other} = {}) => {
     wx.request({
       url: getUrl(url),
       data: params,
-      header: getHeader(),
+      header: getHeader(header),
       ...other,
       complete: (res) => {
         wx.hideLoading()
@@ -175,14 +178,18 @@ const getUrl = url => {
   return url
 }
 
-const getHeader = () => {
+const getHeader = header => {
   try {
     const session = qcloud.Session.get()
     const token = session.token
+    let getHeader = header
     if (token) {
-      return {'token': token}
+      getHeader.token = token
     }
-    return {}
+    if (header.defCommunityId) {
+      getHeader.defCommunityId = header.defCommunityId
+    }
+    return getHeader
   } catch (e) {
     return {}
   }
@@ -272,31 +279,36 @@ module.exports = {
   doLogin: doLogin,
   isMobile: isMobile,
   baseURL,
-  get (url, params = {}) {
-    return http({
-      url,
-      params
-    })
-  },
-  post (url, params = {}) {
+  uploadURL,
+  get (url, params = {}, header = {},) {
     return http({
       url,
       params,
+      header
+    })
+  },
+  post (url, params = {}, header = {},) {
+    return http({
+      url,
+      params,
+      header,
       method: 'post'
     })
   },
-  put (url, params = {}) {
+  put (url, params = {}, header = {},) {
     return http({
       url,
       params,
+      header,
       method: 'put'
     })
   },
   // 这里不能使用 delete, delete为关键字段
-  myDelete (url, params = {}) {
+  myDelete (url, params = {}, header = {},) {
     return http({
       url,
       params,
+      header,
       method: 'delete'
     })
   },

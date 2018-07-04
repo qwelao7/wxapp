@@ -51,7 +51,7 @@ Page({
                 })
               } else {
                 wx.showToast({
-                  icon:'none',
+                  icon: 'none',
                   title: res.msg
                 })
               }
@@ -94,11 +94,11 @@ Page({
   },
 
 
-  onLoad: function (options) {
+  onLoad: function () {
     let _this = this,
         content = wx.getStorageSync('indexList'),
         body = content.body,
-        praiseUrl = 'club/praiseList?curPage=1&pageSize=10&neighborId=' + content.neighborId
+        praiseUrl = 'posts/' + content.neighborId + '/praises?curPage=1&pageSize=10'
     body = body.replace(/<style(([\s\S])*?)<\/style>/g, '')
     content.body = body
     _this.setData({
@@ -115,14 +115,14 @@ Page({
             })
           } else {
             wx.showToast({
-              icon:'none',
+              icon: 'none',
               title: res.msg,
             })
           }
         })
         .catch(e => {
           wx.showToast({
-            icon:'none',
+            icon: 'none',
             title: '加载点赞数据失败',
           })
           console.log(e)
@@ -132,6 +132,9 @@ Page({
   },
 
   onShow: function () {
+    this.setData({
+      commentPage: 1
+    })
     this.onLoad()
   },
 
@@ -147,7 +150,7 @@ Page({
         title: message,
       });
     }
-    let commentUrl = 'club/commentList?curPage=' + that.data.commentPage + '&pageSize=' + that.data.commentPageSize + '&neighborId=' + that.data.content.neighborId
+    let commentUrl = 'posts/' + that.data.content.neighborId + '/comments?curPage=' + that.data.commentPage + '&pageSize=' + that.data.commentPageSize
     util.get(commentUrl)
         .then(res => {
           wx.hideNavigationBarLoading()
@@ -176,8 +179,9 @@ Page({
                 that.setData({
                   commentlist: commentlistTem.concat(commentlist),
                   hasMoreData: true,
-                  page: that.data.page + 1
+                  commentPage: that.data.commentPage + 1
                 })
+                console.log(that.data.commentPage)
               }
             }
 

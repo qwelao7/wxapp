@@ -6,11 +6,6 @@ const appVersion = "2.9.8"
 
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
 
     qcloud.setLoginUrl(config.service.loginUrl);
     wx.getSetting({

@@ -10,15 +10,21 @@
     </view>
   </picker>
 
-  <textarea placeholder="请输入..." focus="{{focus}}" placeholder-style="color:#999;font-size:15px;" class="comment_area" name="textarea" bindblur="blur" maxlength="255"></textarea>
-  <view style="padding: 0 30px">
-
+  <textarea placeholder="请输入..." focus="{{focus}}" placeholder-style="color:#999;font-size:15px;" class="comment_area"
+            name="textarea" bindblur="blur" maxlength="255"></textarea>
+  <view style="padding: 0 30rpx 155rpx">
+    <view wx:for="{{imgList}}" wx:key="*this" wx:for-index="index" wx:for-item="item" class="img_container">
+      <image class="publish_img" src="{{item}}"></image>
+      <image class="delete_icon" src="../../img/image_delete.png" data-index="{{index}}" catchtap="deleteImage"></image>
+    </view>
+    <image wx:if="{{imgList.length<9}}" src="../../img/image_add.png" bindtap="chooseImages" class="add_img"></image>
   </view>
   <view class="tab_bar_container">
     <view class="weui-flex tab_bar">
-      <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="tapSubmit">
+      <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="publish">
         <text class="publish_text">发 布</text>
       </view>
     </view>
   </view>
 </scroll-view>
+

@@ -136,6 +136,6 @@
   height: 81rpx;
   position: fixed;
   right: 20rpx;
-  bottom: 200rpx;
+  bottom: 75rpx;
   z-index: 1000000;
 }
