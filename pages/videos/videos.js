@@ -21,7 +21,6 @@ Page({
   onLoad: function () {
     wx.getSystemInfo({
       success: (res) => {
-        console.log(111)
         let ww = res.windowWidth;
         let wh = res.windowHeight;
         let imgWidth = ww * 0.48;
@@ -36,6 +35,7 @@ Page({
         console.log(this.data.images)
       }
     })
+
   },
 
   onImageLoad: function (e) {
@@ -71,17 +71,15 @@ Page({
       col2.push(imageObj);
     }
 
-    let data = {
-      loadingCount: loadingCount,
-      col1: col1,
-      col2: col2
-    };
-
     if (!loadingCount) {
       data.images = [];
     }
 
-    this.setData(data);
+    this.setData({
+      loadingCount: loadingCount,
+      col1: col1,
+      col2: col2
+    });
   },
 
   loadImages: function () {
