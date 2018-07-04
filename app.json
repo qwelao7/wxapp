@@ -35,6 +35,12 @@
         "selectedIconPath": "img/index_1.png"
       },
       {
+        "pagePath": "pages/videos/videos",
+        "text": "乐活·秀",
+        "iconPath": "img/videos_2.png",
+        "selectedIconPath": "img/videos_1.png"
+      },
+      {
         "pagePath": "pages/towns/towns",
         "text": "小镇",
         "iconPath": "img/town_2.png",

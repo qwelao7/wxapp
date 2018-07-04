@@ -15,6 +15,7 @@ Page({
       'http://pub.huilaila.net/dfclub/index/index_04.jpeg',
       'http://pub.huilaila.net/dfclub/index/index_03.jpg'
     ],
+    wxShow: true
   },
   tapPublish: function () {
     if (util.isMobile() === true) {
@@ -197,14 +198,32 @@ Page({
             title: '加载数据失败',
           })
         })
+
   },
 
   onLoad: function (options) {
     let _this = this
+    // util.get('weapp/audit?name=club&version=' + util.appVersion)
+    //     .then(res => {
+    //       if (res.status === 100) {
+    //         if (res.data.length > 0 && res.data[0].switchValue === 0) {
+    //           app.globalData.wxShow = false
+    //         } else if (res.data.length > 0 && res.data.switchValue === 1) {
+    //           app.globalData.wxShow = true
+    //         }
+    //       }
+    //     })
+    //     .catch(e => {
+    //       wx.isShowToast({
+    //         icon: 'none',
+    //         title: '版本配置获取失败'
+    //       })
+    //     })
+
+    _this.getList('正在加载数据...')
     _this.setData({
       wxShow: app.globalData.wxShow
     })
-    _this.getList('正在加载数据...')
   },
 
   onShow: function () {

@@ -2,6 +2,9 @@ const qcloud = require('./wafer2-client-sdk/index');
 const config = require('../config')
 const app = getApp()
 
+
+const appVersion = "2.9.8"
+
 //const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
 const baseURL = 'https://signin.afguanjia.com/weapptest/'
 const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
@@ -269,6 +272,9 @@ const showModel = (title, content) => {
   });
 }
 
+
+
+
 module.exports = {
   formatTime: formatTime,
   toZhDigit: toZhDigit,
@@ -280,6 +286,7 @@ module.exports = {
   isMobile: isMobile,
   baseURL,
   uploadURL,
+  appVersion,
   get (url, params = {}, header = {},) {
     return http({
       url,
