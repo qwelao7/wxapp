@@ -10,6 +10,7 @@ let col2H = 0;
 Page({
 
   data: {
+    wxShow: true,
     scrollH: 0,
     imgWidth: 0,
     // loadingCount: 0,
@@ -34,6 +35,9 @@ Page({
         this.loadImages();
         console.log(this.data.images)
       }
+    })
+    this.setData({
+      wxShow: app.globalData.wxShow
     })
 
   },
@@ -90,13 +94,13 @@ Page({
 
   loadImages: function () {
     let images = [
-      { pic: "http://pub.huilaila.net/dfclub/baohua/1.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/baohua/2.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/fake/fake-08.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/baohua/4.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/baohua/5.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/baohua/6.jpg", height: 0 },
-      { pic: "http://pub.huilaila.net/dfclub/baohua/7.jpg", height: 0 },
+      {pic: "http://pub.huilaila.net/dfclub/baohua/1.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/baohua/2.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/fake/fake-08.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/baohua/4.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/baohua/5.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/baohua/6.jpg", height: 0},
+      {pic: "http://pub.huilaila.net/dfclub/baohua/7.jpg", height: 0},
     ];
 
     let baseId = "img-" + (+new Date());
