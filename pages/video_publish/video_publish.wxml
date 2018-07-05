@@ -14,11 +14,12 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_access">
         <input class="input" name="userName" placeholder="请输入..."
-               bindinput="userNameInput"/>
+               bindchange="contentInput"/>
       </view>
     </view>
   </view>
-  <image src="../../img/video_publish.png" class="publish_icon"></image>
+  <image src="../../img/video_publish.png" class="publish_icon" wx:if="{{show}}" bindtap="bindGetVideoButtonTap"></image>
+  <video src="{{src}}" wx:if="{{!show}}" style="margin: 30rpx;display: block;width: 200rpx;height: 200rpx"></video>
   <view class="tab_bar_container">
     <view class="weui-flex tab_bar">
       <view class="weui-flex__item tab_bar_item tab_bar_left" bindtap="publish">

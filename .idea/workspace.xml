@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd0f509-c25e-4d9c-b552-d0bb84e3ae3d" name="Default" comment="视频发布页面&#10;转码按钮&#10;点赞列表页面修复">
-      <change afterPath="$PROJECT_DIR$/img/transcoding.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/video_publish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/Base64.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/crypto/crypto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/crypto/hmac.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/crypto/sha1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/aliyun-vod-upload/uploadAliyun.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index_detail/index_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index_detail/index_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/publish/publish.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/publish/publish.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/videos.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/videos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/video_publish/video_publish.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/video_publish/video_publish.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/video_publish/video_publish.wxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,92 +24,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="video_publish.wxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+            <state relative-caret-position="276">
+              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#view#0;n#view#0;n#scroll-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#video#0;n#scroll-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publish.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/publish/publish.wxml">
+      <file leaf-file-name="video_publish.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="9" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="27" selection-end-column="9" />
+            <state relative-caret-position="86">
+              <caret line="87" column="134" selection-start-line="87" selection-start-column="134" selection-end-line="87" selection-end-column="134" />
               <folding>
-                <element signature="n#style#0;n#view#0;n#scroll-view#0;n#!!top" expanded="true" />
+                <element signature="e#455#548#0" />
+                <element signature="e#556#649#0" />
+                <element signature="e#657#749#0" />
+                <element signature="e#757#850#0" />
+                <element signature="e#858#949#0" />
+                <element signature="e#983#1042#0" />
+                <element signature="e#1002#1037#0" />
+                <element signature="e#1539#1600#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publish.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="128" column="47" lean-forward="true" selection-start-line="128" selection-start-column="47" selection-end-line="128" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/util.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index_detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="118" column="29" lean-forward="true" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video_publish.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video_publish.wxss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="955">
-              <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -225,23 +160,23 @@
         <option value="$PROJECT_DIR$/pages/publish/publish.wxml" />
         <option value="$PROJECT_DIR$/pages/videos/videos.json" />
         <option value="$PROJECT_DIR$/pages/videos/videos.wxml" />
-        <option value="$PROJECT_DIR$/pages/videos/videos.wxss" />
         <option value="$PROJECT_DIR$/pages/index/index_comment/index_comment.wxss" />
         <option value="$PROJECT_DIR$/pages/publish/publish.wxss" />
         <option value="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxml" />
         <option value="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/videos/videos.js" />
         <option value="$PROJECT_DIR$/pages/video_publish/video_publish.json" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.js" />
         <option value="$PROJECT_DIR$/pages/video_publish/video_publish.wxss" />
-        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.wxml" />
-        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.js" />
         <option value="$PROJECT_DIR$/pages/publish/publish.js" />
         <option value="$PROJECT_DIR$/utils/util.js" />
         <option value="$PROJECT_DIR$/pages/index/index_detail/index_detail.js" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
+        <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.wxml" />
+        <option value="$PROJECT_DIR$/pages/videos/videos.wxss" />
+        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.js" />
       </list>
     </option>
   </component>
@@ -257,10 +192,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1440" />
-    <option name="y" value="23" />
-    <option name="width" value="1877" />
-    <option name="height" value="1177" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="800" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -272,43 +207,30 @@
         <subPane>
           <expand>
             <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="dfclub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfclub_wxapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="dfclub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfclub_wxapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="dfclub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfclub_wxapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="index_detail_praise" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="publish" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="video_publish" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="dfclub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfclub_wxapp" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfclub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfclub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="aliyun-vod-upload" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -345,6 +267,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,117 +317,6 @@
       <recent name="$PROJECT_DIR$/pages/towns/town_detail" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="片刻之前" ActionInfo="更新(_U)">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="从服务器更新" />
-        <option name="myStatusName" value="在服务器上改变的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="更新的" />
-          <option name="myStatusName" value="更改的" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/pages/events/event_detail/event_detail.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/pages/events/event_detail/event_detail.json</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="创建的" />
-          <option name="myStatusName" value="创建的" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="删除的" />
-          <option name="myStatusName" value="删除的" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="恢复的" />
-          <option name="myStatusName" value="将被恢复" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="修改的" />
-        <option name="myStatusName" value="修改的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="跳过的" />
-        <option name="myStatusName" value="跳过的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="合并冲突" />
-        <option name="myStatusName" value="将被合并冲突" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="已合并树冲突" />
-        <option name="myStatusName" value="已合并树冲突" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="合并属性冲突" />
-        <option name="myStatusName" value="将被合并属性冲突" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="合并的" />
-        <option name="myStatusName" value="将被合并" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="不在仓库" />
-        <option name="myStatusName" value="不在仓库" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="本地添加的" />
-        <option name="myStatusName" value="本地添加的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="本地移除的" />
-        <option name="myStatusName" value="本地移除的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="交换的" />
-        <option name="myStatusName" value="交换的" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -515,6 +328,49 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -817,44 +673,57 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="360716000" />
+    <option name="totallyTimeSpent" value="370989000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1877" height="1177" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.13685344" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="调试" order="13" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50161636" side_tool="true" weight="0.3604541" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3282876" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
-      <window_info id="Structure" order="1" sideWeight="0.50249374" side_tool="true" weight="0.15785764" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4983836" weight="0.3604541" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.1325431" />
-      <window_info id="Structure" order="1" sideWeight="0.50249374" side_tool="true" weight="0.15785764" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3282876" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32917705" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010776" side_tool="true" weight="0.22800379" />
+      <window_info anchor="bottom" id="JRebel Console" order="7" side_tool="true" weight="0.32890856" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="调试" order="13" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
+      <window_info anchor="bottom" id="JRebel Executor" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3259587" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989224" weight="0.3604541" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.22733161" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.50249374" side_tool="true" weight="0.15785764" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010776" side_tool="true" weight="0.22800379" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="调试" order="13" />
+      <window_info id="Structure" order="1" sideWeight="0.50249374" side_tool="true" weight="0.15785764" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989224" weight="0.3604541" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.1325431" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3282876" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32917705" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -933,23 +802,72 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+    <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="82" column="11" lean-forward="true" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
+        <state relative-caret-position="-1189">
+          <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+          <folding>
+            <element signature="e#172#791#0" />
+            <element signature="e#814#873#0" />
+            <element signature="e#903#1508#0" />
+            <element signature="e#1538#1694#0" />
+            <element signature="e#1729#2000#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/town_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/town_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/mLogin/mLogin.js">
+    <entry file="file://$PROJECT_DIR$/pages/index/index_comment/index_comment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+        <state relative-caret-position="438">
+          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/publish/publish.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/publish/publish.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2484">
+          <caret line="139" column="10" selection-start-line="139" selection-start-column="10" selection-end-line="139" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1009,19 +927,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/publish_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/publish_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/publish_2.png" />
-    <entry file="file://$PROJECT_DIR$/img/syllabus_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/syllabus_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/videos/videos.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1029,37 +935,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/avatar_default.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../wx_xcx/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../wx_xcx/app.js" />
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="746">
           <caret line="133" selection-start-line="133" selection-end-line="140" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -1080,9 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1097,15 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.wxss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1117,77 +985,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-          <folding>
-            <element signature="n#scroll-view#0;n#view#0;n#!!top" />
-            <element signature="n#style#0;n#view#3;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="98" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
-          <folding>
-            <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/videos_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/videos_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/video_publish.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="955">
           <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1201,27 +1005,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="128" column="47" lean-forward="true" selection-start-line="128" selection-start-column="47" selection-end-line="128" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1235,20 +1022,166 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.wxss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/video_detail/video_detail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="143" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/aliyun-vod-upload/uploadAliyun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1324">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/image_delete.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/transcoding.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1209">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1871">
+          <caret line="48" column="45" lean-forward="true" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="98" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        <state relative-caret-position="276">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#view#0;n#view#0;n#scroll-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#video#0;n#scroll-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="125" column="43" lean-forward="true" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+          <folding>
+            <element signature="e#172#791#0" />
+            <element signature="e#814#873#0" />
+            <element signature="e#903#1508#0" />
+            <element signature="e#1538#1694#0" />
+            <element signature="e#1729#2000#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/events/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1650">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/authorize/authorize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1458">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="183" column="6" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/mLogin/mLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+        <state relative-caret-position="378">
+          <caret line="188" column="14" lean-forward="true" selection-start-line="186" selection-start-column="11" selection-end-line="188" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="87" column="134" selection-start-line="87" selection-start-column="134" selection-end-line="87" selection-end-column="134" />
+          <folding>
+            <element signature="e#455#548#0" />
+            <element signature="e#556#649#0" />
+            <element signature="e#657#749#0" />
+            <element signature="e#757#850#0" />
+            <element signature="e#858#949#0" />
+            <element signature="e#983#1042#0" />
+            <element signature="e#1002#1037#0" />
+            <element signature="e#1539#1600#0" />
+          </folding>
         </state>
       </provider>
     </entry>
