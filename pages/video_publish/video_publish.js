@@ -37,9 +37,7 @@ Page({
     let _this = this
     this.setData({
       focus: false
-    })
-    setTimeout(function () {
-
+    },()=>{
       if ((_this.data.value !== '') && (_this.data.content !== '')) {
         if (_this.data.src === '') {
           wx.showToast({
@@ -113,7 +111,10 @@ Page({
         })
       }
 
-    }, 100)
+
+    })
+
+
 
   },
   onLoad: function () {
