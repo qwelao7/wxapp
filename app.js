@@ -22,7 +22,7 @@ App({
         }
       }
     })
-    util.get('weapp/audit?name=club&version=' + util.appVersion)
+    util.get('weapp/audit?name=club&version=' + config.appVersion)
         .then(res => {
           console.log('wxShow', res)
           if (res.status === 100) {

@@ -106,7 +106,7 @@ Page({
   },
   onLoad: function () {
     this.setData({
-      array: util.pickerInfo
+      array: config.pickerInfo
     })
   },
 

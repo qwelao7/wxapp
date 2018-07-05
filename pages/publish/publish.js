@@ -72,7 +72,7 @@ Page({
           let uploadImgCount = 0;
           for (let i = 0, h = _this.data.imgList.length; i < h; i++) {
             wx.uploadFile({
-              url: util.uploadURL,
+              url: config.uploadURL,
               filePath: _this.data.imgList[i],
               name: 'file',
               formData: {
@@ -164,126 +164,10 @@ Page({
       }
 
     })
-    // setTimeout(function () {
-    //
-    //   if (_this.data.value) {
-    //     if (_this.data.imgList.length) {
-    //       // 如果有图片
-    //       wx.showToast({
-    //         icon: 'loading',
-    //         title: '上传图片中...'
-    //       })
-    //       let uploadImgCount = 0;
-    //       for (let i = 0, h = _this.data.imgList.length; i < h; i++) {
-    //         wx.uploadFile({
-    //           url: util.uploadURL,
-    //           filePath: _this.data.imgList[i],
-    //           name: 'file',
-    //           formData: {
-    //             'type': 'nei'
-    //           },
-    //           header: {
-    //             "Content-Type": "multipart/form-data"
-    //           },
-    //           success: function (response) {
-    //             let res = JSON.parse(response.data)
-    //             if (res.status === 100) {
-    //               console.log(111111)
-    //               uploadImgCount++;
-    //               let temp = _this.data.uploadList
-    //               temp.push(res.data)
-    //               _this.setData({
-    //                 uploadList: temp
-    //               })
-    //               //如果是最后一张,则隐藏等待中，发起发布新鲜事请求
-    //               if (uploadImgCount == _this.data.imgList.length) {
-    //                 wx.hideToast();
-    //                 console.log('uploadList', _this.data.uploadList)
-    //                 let url = 'posts?topicType=6&topicContent=' + _this.data.value + '&communityId=' + _this.data.defCommunityId + '&imageUrls=' + JSON.stringify(_this.data.uploadList)
-    //                 util.post(url)
-    //                     .then(res => {
-    //                       if (res.status === 100) {
-    //                         wx.showToast({
-    //                           icon: 'success',
-    //                           title: '发布成功'
-    //                         })
-    //                         setTimeout(function () {
-    //                           wx.navigateBack({
-    //                             delta: 1
-    //                           })
-    //                         }, 1000)
-    //                       } else {
-    //                         wx.showToast({
-    //                           title: res.msg
-    //                         })
-    //                       }
-    //                     })
-    //               }
-    //             }
-    //           },
-    //           fail: function (res) {
-    //             wx.hideToast();
-    //             wx.showModal({
-    //               title: '错误提示',
-    //               content: '上传图片失败',
-    //               showCancel: false,
-    //               success: function (res) {
-    //               }
-    //             })
-    //           }
-    //         });
-    //       }
-    //
-    //     } else {
-    //       // 没有图片
-    //       wx.showToast({
-    //         icon: 'loading',
-    //         title: '发布中...'
-    //       })
-    //       let url = 'posts?topicType=6&topicContent=' + _this.data.value + '&communityId=' + _this.data.defCommunityId
-    //       util.post(url)
-    //           .then(res => {
-    //             if (res.status === 100) {
-    //               wx.showToast({
-    //                 icon: 'success',
-    //                 title: '发布成功'
-    //               })
-    //               setTimeout(function () {
-    //                 wx.navigateBack({
-    //                   delta: 1
-    //                 })
-    //               }, 1000)
-    //             } else {
-    //               wx.showToast({
-    //                 title: res.msg
-    //               })
-    //             }
-    //           })
-    //     }
-    //   } else {
-    //     wx.showToast({
-    //       icon: 'none',
-    //       title: '内容不能为空'
-    //     })
-    //   }
-    //
-    // }, 100)
-    // wx.uploadFile({
-    //   url: util.uploadURL, //仅为示例，非真实的接口地址
-    //   filePath: _this.data.imgList[0],
-    //   name: 'file',
-    //   formData: {
-    //     'type': 'nei'
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //     //do something
-    //   }
-    // })
   },
   onLoad: function () {
     this.setData({
-      array: util.pickerInfo
+      array: config.pickerInfo
     })
   },
 
