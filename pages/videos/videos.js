@@ -60,8 +60,10 @@ Page({
             }
             that.loadImages(contentlist);
           } else {
+            console.log(res)
             wx.showToast({
               title: res.msg,
+              icon:'none'
             })
           }
         })
@@ -96,6 +98,15 @@ Page({
     })
 
   },
+
+  // onShow: function () {
+  //   let _this = this
+  //   this.setData({
+  //     page: 1
+  //   }, () => {
+  //     _this.onLoad()
+  //   })
+  // },
 
   tapPublish: function () {
     if (util.isMobile() === true) {

@@ -82,7 +82,7 @@ Page({
                               }, function (res) {
                                 console.log(res);
                                 wx.showToast({
-                                  icon: 'success',
+                                  icon: 'none',
                                   title: '上传失败'
                                 });
                               })

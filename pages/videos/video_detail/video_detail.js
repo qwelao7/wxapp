@@ -14,7 +14,6 @@ Page({
   },
   onLoad: function (options) {
     console.log(options)
-    console.log(this.videoContext('myVideo'))
     this.setData({
       src: options.url
     })
