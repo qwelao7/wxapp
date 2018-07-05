@@ -61,9 +61,9 @@ Page({
           if (message != "") {
             wx.hideLoading()
           }
-          wx.showToast({
-            title: '加载数据失败',
-          })
+          // wx.showToast({
+          //   title: '加载数据失败',
+          // })
         });
 
     util.get(url_2)
@@ -86,9 +86,9 @@ Page({
           }
         })
         .catch(e => {
-          wx.showToast({
-            title: '加载数据失败',
-          })
+          // wx.showToast({
+          //   title: '加载数据失败',
+          // })
         });
 
     util.get(url_3)
