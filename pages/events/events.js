@@ -17,9 +17,9 @@ Page({
       '2': "活动预告",
       '3': "活动回顾"
     },
-    liveDisable: 'block',
-    oldDisable: 'block',
-    newDisable: 'block',
+    liveDisable: false,
+    oldDisable: false,
+    newDisable: false,
   },
 
 
@@ -45,9 +45,9 @@ Page({
             that.setData({
               activityLiveList: res.data
             });
-            if(res.data.length = 0){
+            if(res.data.length > 0){
               that.setData({
-                liveDisable: 'none'
+                liveDisable: true
               });
             }
           } else {
@@ -70,12 +70,13 @@ Page({
         .then(res => {
           wx.stopPullDownRefresh()
           if (res.status === 100) {
+            console.log(res)
             that.setData({
               activityNewList: res.data
             });
-            if(res.data.length = 0){
+            if(res.data.length > 0){
               that.setData({
-                newDisable: 'none'
+                newDisable: true
               });
             }
           } else {
@@ -94,12 +95,13 @@ Page({
         .then(res => {
           wx.stopPullDownRefresh()
           if (res.status === 100) {
+            console.log('history',res.data)
             that.setData({
               activityOldList: res.data
             });
-            if(res.data.length = 0){
+            if(res.data.length > 0){
               that.setData({
-                oldDisable: 'none'
+                oldDisable: true
               });
             }
           } else {

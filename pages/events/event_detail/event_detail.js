@@ -40,11 +40,13 @@ Page({
           }
           wx.stopPullDownRefresh()
           if (res.status === 100) {
+            let imgList=JSON.parse(res.data.content)
             wx.setNavigationBarTitle({
-              title: res.data.title
+              title: res.data.title,
             });
             that.setData({
-              activityInfo: res.data
+              activityInfo: res.data,
+              imgList:imgList
             })
           } else {
             wx.showToast({
