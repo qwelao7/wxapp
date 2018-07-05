@@ -14,7 +14,7 @@
         <view class="weui-cell__bd gray fs-26">
           <text class="event_category">▍活动预告</text>
         </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="2" bindtap="toCategoryList">more</view>
+        <!--<view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="2" bindtap="toCategoryList">more</view>-->
       </view>
     </view>
       <scroll-view class="event_list" scroll-x  >
@@ -32,7 +32,7 @@
         <view class="weui-cell__bd gray fs-26">
           <text class="event_category">▍活动回顾</text>
         </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="3" bindtap="toCategoryList">more</view>
+        <!--<view class="weui-cell__ft weui-cell__ft_in-access event_category_more" data-id="3" bindtap="toCategoryList">more</view>-->
       </view>
     </view>
     <scroll-view class="event_list" scroll-x>
