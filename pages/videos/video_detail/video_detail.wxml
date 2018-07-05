@@ -1,5 +1,5 @@
 <view class="section tc">
-  <video style="width: 100%;height:100vh;" id="myVideo" direction='0' autoplay
+  <video style="width: 100%;height:100vh;" id="myVideo" autoplay
          src="{{src}}"
         controls></video>
 </view>

@@ -14,6 +14,7 @@ Page({
   },
   onLoad: function (options) {
     console.log(options)
+    console.log(this.videoContext('myVideo'))
     this.setData({
       src: options.url
     })
@@ -23,6 +24,10 @@ Page({
 
   },
   inputValue: '',
+
+  // whenEnded:function(){
+  //   this.videoContext('myVideo').exitFullscreen()
+  // },
 
   bindInputBlur: function (e) {
     this.inputValue = e.detail.value

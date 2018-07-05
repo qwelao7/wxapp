@@ -47,63 +47,64 @@ Page({
             title: '请选择视频'
           })
         } else {
-          util.post('http://192.168.200.207:3350/aliyun/video')
-            .then(res => {
-              if (res.status === 100){
-                let data = res.data;
-                console.log(data);
-                const UploadAuthObj = JSON.parse(Base64.decode(data.uploadAuth));
-                const UploadAddressObj = JSON.parse(Base64.decode(data.UploadAddress));
-                _this.setData({
-                  video: data.videoId
-                });
-                env.accessKeyId = UploadAuthObj.AccessKeyId;
-                env.accessKeySecret = UploadAuthObj.AccessKeySecret;
-                env.securityToken = UploadAuthObj.SecurityToken;
-                env.aliyunFileKey = UploadAddressObj.FileName;
-                let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoId=' + _this.data.video;
-                util.post(url)
-                  .then(res => {
-                    if (res.status === 100) {
-                      uploadFile(_this.data.src, "", "",
-                        function (res) {
-                          console.log("上传成功");
-                          wx.showToast({
-                            icon: 'success',
-                            title: '发布成功'
-                          });
-                          setTimeout(function () {
-                            wx.hideToast()
-                            wx.navigateBack({
-                              delta: 1
-                            })
-                          }, 1000)
-                        }, function (res) {
+          let url = config.baseURL + 'aliyun/video'
+          util.post(url)
+              .then(res => {
+                if (res.status === 100) {
+                  let data = res.data;
+                  console.log(data);
+                  const UploadAuthObj = JSON.parse(Base64.decode(data.uploadAuth));
+                  const UploadAddressObj = JSON.parse(Base64.decode(data.UploadAddress));
+                  _this.setData({
+                    video: data.videoId
+                  });
+                  env.accessKeyId = UploadAuthObj.AccessKeyId;
+                  env.accessKeySecret = UploadAuthObj.AccessKeySecret;
+                  env.securityToken = UploadAuthObj.SecurityToken;
+                  env.aliyunFileKey = UploadAddressObj.FileName;
+                  let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoId=' + _this.data.video;
+                  util.post(url)
+                      .then(res => {
+                        if (res.status === 100) {
+                          uploadFile(_this.data.src, "", "",
+                              function (res) {
+                                console.log("上传成功");
+                                wx.showToast({
+                                  icon: 'success',
+                                  title: '发布成功'
+                                });
+                                setTimeout(function () {
+                                  wx.hideToast()
+                                  wx.navigateBack({
+                                    delta: 1
+                                  })
+                                }, 1000)
+                              }, function (res) {
+                                console.log(res);
+                                wx.showToast({
+                                  icon: 'success',
+                                  title: '上传失败'
+                                });
+                              })
+                        } else {
                           console.log(res);
-                            wx.showToast({
-                              icon: 'success',
-                              title: '上传失败'
-                            });
-                        })
-                    } else {
-                      console.log(res);
-                      wx.showToast({
-                        title: res.msg
-                      })
-                    }
-                  }).catch(e=>{
+                          wx.showToast({
+                            title: res.msg
+                          })
+                        }
+                      }).catch(e => {
                     wx.showToast({
                       title: "发布失败",
                     })
-                })
-              }
-            })
-            .catch(e=>{
-              console.log(e);
-              wx.showToast({
-                title: "上传失败",
+                  })
+                }
               })
-            })
+              .catch(e => {
+                console.log(e);
+                wx.showToast({
+                  title: "上传失败",
+                })
+              })
         }
       } else {
         wx.showToast({

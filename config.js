@@ -1,5 +1,12 @@
-// 此处主机域名修改成腾讯云解决方案分配的域名
-let host = 'signin.afguanjia.com/weapptest';
+/**
+ *此处主机域名修改成腾讯云解决方案分配的域名
+ */
+// 生产环境host
+let host = 'signin.afguanjia.com/club/';
+
+//测试环境host
+// let host = 'signin.afguanjia.com';
+
 
 let config = {
 
@@ -30,15 +37,15 @@ let config = {
   /**
    * 生产环境地址
    */
-//const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
-//const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
+baseURL : 'https://signin.afguanjia.com/club/',// 后台API地址
+uploadURL : 'https://app-img.huilaila.net:7888/xcx/upload',
 
 
   /**
    * 测试环境地址
    */
-  baseURL: 'https://signin.afguanjia.com/weapptest/',
-  uploadURL: 'http://192.168.1.55:7888/xcx/upload',
+  // baseURL: 'https://signin.afguanjia.com/',
+  // uploadURL: 'http://192.168.1.55:7888/xcx/upload',
 
 
   /**
