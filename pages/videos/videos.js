@@ -99,14 +99,25 @@ Page({
 
   },
 
-  // onShow: function () {
-  //   let _this = this
-  //   this.setData({
-  //     page: 1
-  //   }, () => {
-  //     _this.onLoad()
-  //   })
-  // },
+  onShow: function () {
+    let _this = this
+    col1H=0;
+    col2H=0;
+
+    this.setData({
+      wxShow: true,
+      scrollH: 0,
+      imgWidth: 0,
+      col1: [],
+      col2: [],
+      page: 1,
+      pageSize: 20,
+      contentlist: [],
+      hasMoreData: false,
+    }, () => {
+      _this.onLoad()
+    })
+  },
 
   tapPublish: function () {
     if (util.isMobile() === true) {
@@ -175,6 +186,9 @@ Page({
     for (let i = 0; i < images.length; i++) {
       images[i].id = baseId + "-" + i;
       images[i].height = 0;
+      if(images[i].annexs === []){
+        images[i].annexs.push("../../img/transcoding.jpg")
+      }
     }
 
     this.setData({
@@ -211,9 +225,11 @@ Page({
   toVideoInfo: function (e) {
     console.log(e)
     if(this.data.wxShow === true){
-      wx.navigateTo({
-        url: './video_detail/video_detail?url='+e.currentTarget.dataset.url
-      })
+      if(e.currentTarget.dataset.url !== undefined){
+        wx.navigateTo({
+          url: './video_detail/video_detail?url='+e.currentTarget.dataset.url
+        })
+      }
     }
   }
 
