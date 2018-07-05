@@ -16,6 +16,57 @@ const baseURL = 'https://signin.afguanjia.com/weapptest/'
 const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
 
 
+// picker的项目名和communityId列表
+
+
+// 生产环境
+// const pickerInfo = [
+//   {
+//     communityId: '9832d325-51d8-11e8-9faf-48d539affdb4',
+//     name: '濮塘·桃里'
+//   },
+//   {
+//     communityId: 'ee8f78d0-51d7-11e8-9faf-48d539affdb4',
+//     name: '协鑫春风江南'
+//   },
+//   {
+//     communityId: '046ba2c8-328c-11e8-9faf-48d539affdb4',
+//     name: '南京桃花源'
+//   },
+//   {
+//     communityId: '585e764f-328c-11e8-9faf-48d539affdb4',
+//     name: '宝华桃李春风'
+//   },
+//   {
+//     communityId: 'a4352cc4-51c9-11e8-9faf-48d539affdb4',
+//     name: '园博村·桃李春风'
+//   }
+// ]
+// 测试环境
+const pickerInfo = [
+  {
+    communityId: 'd18ddf02-484a-11e8-9faf-48d539affdb4',
+    name: '濮塘·桃里'
+  },
+  {
+    communityId: 'bcbb9597-3eba-11e8-9faf-48d539affdb4',
+    name: '协鑫春风江南'
+  },
+  {
+    communityId: '046ba2c8-328c-11e8-9faf-48d539affdb4',
+    name: '南京桃花源'
+  },
+  {
+    communityId: '585e764f-328c-11e8-9faf-48d539affdb4',
+    name: '宝华桃李春风'
+  },
+  {
+    communityId: '66dfa671-4392-11e8-9faf-48d539affdb4',
+    name: '园博村·桃李春风'
+  }
+]
+
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -203,6 +254,8 @@ const getHeader = header => {
     return {}
   }
 }
+
+// 判断是否已经手机号登陆
 const isMobile = () => {
   try {
     const session = qcloud.Session.get()
@@ -215,6 +268,16 @@ const isMobile = () => {
     return false
   }
 }
+
+// 获取当前用户信息
+const userInfo = () => {
+  try {
+    return qcloud.Session.get()
+  } catch (e) {
+    return {}
+  }
+}
+
 
 function doLogin () {
   const session = qcloud.Session.get()
@@ -279,8 +342,6 @@ const showModel = (title, content) => {
 }
 
 
-
-
 module.exports = {
   formatTime: formatTime,
   toZhDigit: toZhDigit,
@@ -293,6 +354,8 @@ module.exports = {
   baseURL,
   uploadURL,
   appVersion,
+  pickerInfo,
+  userInfo: userInfo,
   get (url, params = {}, header = {},) {
     return http({
       url,
