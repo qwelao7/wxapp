@@ -15,9 +15,64 @@ Page({
     scrollH: 0,
     imgWidth: 0,
     // loadingCount: 0,
-    images: [],
     col1: [],
-    col2: []
+    col2: [],
+    page: 1,
+    pageSize: 3,
+    contentlist: [],
+    hasMoreData: false,
+  },
+
+  getList: function (message) {
+    let that = this,
+        url = 'activities/category/'+that.data.id+'?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+    wx.showNavigationBarLoading();
+    if (message != "") {
+      wx.showLoading({
+        title: message,
+      });
+    }
+    util.get(url)
+        .then(res => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.stopPullDownRefresh()
+          let contentlistTem = that.data.contentlist
+          if (res.status === 100) {
+            if (that.data.page == 1) {
+              contentlistTem = []
+            }
+            let contentlist = res.data;
+            console.dir(contentlist)
+            if (contentlist.length < that.data.pageSize) {
+              that.setData({
+                contentlist: contentlistTem.concat(contentlist),
+                hasMoreData: false
+              })
+            } else {
+              that.setData({
+                contentlist: contentlistTem.concat(contentlist),
+                hasMoreData: true,
+                page: that.data.page + 1
+              })
+            }
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+        })
+        .catch(e => {
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
+          wx.showToast({
+            title: '加载数据失败',
+          })
+        })
   },
 
   onLoad: function () {
@@ -32,9 +87,9 @@ Page({
           scrollH: scrollH,
           imgWidth: imgWidth
         });
-
-        this.loadImages();
-        console.log(this.data.images)
+        // this.getList("正在加载数据...");
+        this.loadImages(this.data.contentlist);
+        console.log(this.data.contentlist)
       }
     })
     this.setData({
@@ -63,7 +118,7 @@ Page({
     let scale = imgWidth / oImgW;        //比例计算
     let imgHeight = oImgH * scale;      //自适应高度
 
-    let images = this.data.images;
+    let images = this.data.contentlist;
     let imageObj = null;
 
     for (let i = 0; i < images.length; i++) {
@@ -105,7 +160,7 @@ Page({
     });
   },
 
-  loadImages: function () {
+  loadImages: function (list) {
     let images = [
       {pic: "http://pub.huilaila.net/dfclub/baohua/1.jpg", height: 0},
       {pic: "http://pub.huilaila.net/dfclub/baohua/2.jpg", height: 0},
@@ -153,4 +208,26 @@ Page({
     }
   },
 
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    let that = this;
+    that.data.page = 1
+    that.getList('正在刷新数据')
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    let that = this;
+    if (that.data.hasMoreData) {
+      that.getList('加载更多数据')
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
+  },
 })
