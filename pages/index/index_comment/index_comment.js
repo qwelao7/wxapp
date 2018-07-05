@@ -26,9 +26,7 @@ Page({
     let _this = this
     this.setData({
       focus: false
-    })
-
-    setTimeout(function () {
+    }, () => {
       if (_this.data.value) {
         let url = 'comments?neighborId=' + _this.data.neighborId + '&message=' + _this.data.value
         util.post(url)
@@ -66,7 +64,7 @@ Page({
         })
       }
 
-    }, 100)
+    })
   },
 
   onShareAppMessage: function (res, options) {

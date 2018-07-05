@@ -50,8 +50,8 @@
       {
         "pagePath": "pages/events/events",
         "text": "活动",
-        "iconPath": "img/syllabus_2.png",
-        "selectedIconPath": "img/syllabus_1.png"
+        "iconPath": "img/events_2.png",
+        "selectedIconPath": "img/events_1.png"
       }
     ],
     "position": "bottom"
