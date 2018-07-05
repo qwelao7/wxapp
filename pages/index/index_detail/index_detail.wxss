@@ -6,6 +6,7 @@ image {
   background-color: #fffcf5;
   position: relative;
   padding-bottom: 105rpx;
+  height: 100%;
 }
 
 .bannerImg {

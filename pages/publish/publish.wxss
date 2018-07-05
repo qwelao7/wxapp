@@ -1,6 +1,7 @@
 .container {
   background-color: #fffcf5;
   height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab_bar_container {

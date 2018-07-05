@@ -135,7 +135,9 @@ Page({
     this.setData({
       commentPage: 1
     })
-    this.onLoad()
+    setTimeout(function () {
+      this.onLoad()
+    },1000)
   },
 
   onUnload: function () {

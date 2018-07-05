@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const qcloud = require('../../utils/wafer2-client-sdk/index');
 const config = require('../../config')
+const app = getApp()
 
 
 let col1H = 0;
