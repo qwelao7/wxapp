@@ -73,6 +73,7 @@ Page({
                             title: '发布成功'
                           });
                           setTimeout(function () {
+                            wx.hideToast()
                             wx.navigateBack({
                               delta: 1
                             })

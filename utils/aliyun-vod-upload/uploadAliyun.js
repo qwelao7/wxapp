@@ -19,6 +19,10 @@ const uploadFile = function (filePath, fileW, objectId, successCB, errorCB) {
   }
 
   console.log('上传视频…');
+  wx.showToast({
+    icon:'loading',
+    title:'上传中...'
+  })
   //const aliyunFileKey = fileW+filePath.replace('wxfile://', '')；
   //const aliyunFileKey = fileW + '' + (new Date().getTime()) + '_' + objectId + '.mp4';
   const aliyunFileKey = env.aliyunFileKey
