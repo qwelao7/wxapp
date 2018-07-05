@@ -1,6 +1,6 @@
 <!--index.wxml-->
-<scroll-view scroll-y class="container">
-  <!--<view style="margin-bottom: 105rpx">-->
+  <scroll-view scroll-y class="container">
+    <!--<view style="margin-bottom: 105rpx">-->
     <view>
       <view class="pd-30">
         <view class="icon-box">
@@ -61,26 +61,32 @@
         </view>
       </view>
     </view>
-
-    <block wx:for="{{commentlist}}" wx:key="*this">
-      <view class="comment-list">
-        <view class="icon-box">
-          <image class="icon-avatar" src="{{item.headPicName}}"></image>
-          <view class="icon-box__ctn">
-            <view class="icon-comment__title  gray">
-              {{item.userName}}
-              <block wx:if="{{item.toUserId!=''&&item.toUserId!=nullitem.toUserId!=undefined}}">
-                <text>回复 {{item.toUserName}}</text>
-              </block>
-            </view>
-            <view class="icon-comment__desc black">
-              {{item.msgContent}}
+    <view style="padding-bottom: 155rpx">
+      <block wx:for="{{commentlist}}" wx:key="*this">
+        <view class="comment-list">
+          <view class="icon-box">
+            <image class="icon-avatar" src="{{item.headPicName}}"></image>
+            <view class="icon-box__ctn">
+              <view class="icon-comment__title  gray">
+                {{item.userName}}
+                <block wx:if="{{item.toUserId!=''&&item.toUserId!=nullitem.toUserId!=undefined}}">
+                  <text>回复 {{item.toUserName}}</text>
+                </block>
+              </view>
+              <view class="icon-comment__desc black">
+                {{item.msgContent}}
+              </view>
             </view>
           </view>
         </view>
-      </view>
-    </block>
-  <!--</view>-->
+      </block>
+    </view>
+
+    <!--</view>-->
+
+
+  </scroll-view>
+
   <!--底部点赞评论tabBar-->
   <view class="tab_bar_container" wx:if="{{wxShow}}">
     <view class="weui-flex tab_bar">
@@ -96,5 +102,3 @@
       </view>
     </view>
   </view>
-
-</scroll-view>

@@ -35,7 +35,7 @@ App({
           }
         })
         .catch(e => {
-          wx.isShowToast({
+          wx.showToast({
             icon: 'none',
             title: '版本配置获取失败'
           })

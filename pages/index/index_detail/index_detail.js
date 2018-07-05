@@ -132,11 +132,12 @@ Page({
   },
 
   onShow: function () {
+    let _this=this
     this.setData({
       commentPage: 1
     })
     setTimeout(function () {
-      this.onLoad()
+      _this.onLoad()
     },1000)
   },
 

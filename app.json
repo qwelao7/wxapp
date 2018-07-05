@@ -5,6 +5,7 @@
     "pages/events/events",
     "pages/videos/videos",
     "pages/publish/publish",
+    "pages/video_publish/video_publish",
     "pages/authorize/authorize",
     "pages/mLogin/mLogin",
     "pages/index/index_detail/index_detail",

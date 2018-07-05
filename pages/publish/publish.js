@@ -158,6 +158,25 @@ Page({
             icon: 'loading',
             title: '发布中...'
           })
+          let url = 'posts?topicType=6&topicContent=' + _this.data.value + '&communityId=' + _this.data.defCommunityId
+          util.post(url)
+              .then(res => {
+                if (res.status === 100) {
+                  wx.showToast({
+                    icon: 'success',
+                    title: '发布成功'
+                  })
+                  setTimeout(function () {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }, 1000)
+                } else {
+                  wx.showToast({
+                    title: res.msg
+                  })
+                }
+              })
         }
       } else {
         wx.showToast({

@@ -5,7 +5,7 @@ image {
 .container {
   background-color: #fffcf5;
   position: relative;
-  padding-bottom: 105rpx;
+  /*padding-bottom: 105rpx;*/
   height: 100%;
 }
 

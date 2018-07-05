@@ -13,10 +13,11 @@ Page({
       title: '数据加载中',
     });
     let _this = this,
-        url = 'club/praiseList?curPage=1&pageSize=100&neighborId=' + options.neighborId
+        url = 'posts/' + options.neighborId + '/praises?curPage=1&pageSize=100'
     util.get(url)
         .then(res => {
           wx.hideLoading()
+          console.log(url)
           if (res.status == 100) {
             _this.setData({
               praiselist: res.data.resultList
@@ -35,6 +36,7 @@ Page({
           }
           wx.showToast({
             title: '加载点赞列表失败',
+            icon:'none'
           })
           console.log(e)
         })

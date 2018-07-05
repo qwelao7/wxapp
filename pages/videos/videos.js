@@ -43,6 +43,18 @@ Page({
 
   },
 
+  tapPublish: function () {
+    if (util.isMobile() === true) {
+      wx.navigateTo({
+        url: '/pages/video_publish/video_publish'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/mLogin/mLogin'
+      })
+    }
+  },
+
   onImageLoad: function (e) {
     let imageId = e.currentTarget.id;
     let oImgW = e.detail.width;         //图片原始宽度
