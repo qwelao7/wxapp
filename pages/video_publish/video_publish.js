@@ -79,7 +79,10 @@ Page({
                           }, 1000)
                         }, function (res) {
                           console.log(res);
-                          console.log("上传失败")
+                            wx.showToast({
+                              icon: 'success',
+                              title: '上传失败'
+                            });
                         })
                     } else {
                       console.log(res);

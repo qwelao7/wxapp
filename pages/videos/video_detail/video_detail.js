@@ -12,8 +12,11 @@ Page({
   data: {
     src: '',
   },
-  onLoad: function () {
-
+  onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      src: options.url
+    })
   },
   onReady: function (res) {
     this.videoContext = wx.createVideoContext('myVideo')

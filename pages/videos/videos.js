@@ -118,17 +118,16 @@ Page({
     let imgHeight = oImgH * scale;      //自适应高度
 
     let images = this.data.contentlist;
-    let imageObj = {};
+    let imageObj = null;
 
     for (let i = 0; i < images.length; i++) {
       let img = images[i];
       if (img.id === imageId) {
         imageObj = img;
-        imageObj.height = imgHeight;
         break;
       }
     }
-
+    imageObj.height = imgHeight;
     // let loadingCount = this.data.loadingCount - 1;
     let col1 = this.data.col1;
     let col2 = this.data.col2;
@@ -150,7 +149,6 @@ Page({
     // if (!loadingCount) {
     //   data.images = [];
     // }
-
     this.setData({
       // loadingCount: loadingCount,
       col1: col1,
@@ -172,7 +170,6 @@ Page({
       loadingCount: images.length,
       contentlist: images
     });
-    console.log(images)
   },
   onShareAppMessage: function (res) {
     return {
@@ -199,6 +196,15 @@ Page({
       }
     }
   },
+
+  toVideoInfo: function (e) {
+    console.log(e)
+    if(this.data.wxShow === true){
+      wx.navigateTo({
+        url: './video_detail/video_detail?url='+e.currentTarget.dataset.url
+      })
+    }
+  }
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
