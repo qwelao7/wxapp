@@ -35,6 +35,7 @@ Page({
 
   tapLike: function () {
     let _this = this
+    let userInfo = util.userInfo()
     if (util.isMobile() === true) {
       let postId = _this.data.content.neighborId
       let url = 'praises/' + postId
@@ -51,14 +52,22 @@ Page({
                 })
                 wx.setStorageSync('indexList', contentTemp);
                 let likeTemp = _this.data.likelist
-                let userInfo = wx.getStorageSync('userInfo');
-                likeTemp.unshift({
-                  headPicName: userInfo.avatarUrl,
-                  userName: userInfo.nickName
-                })
+                if (likeTemp === '' || likeTemp === null || likeTemp === undefined) {
+                  likeTemp = []
+                  likeTemp.push({
+                    headPicName: userInfo.avatar,
+                    userId: userInfo.userId
+                  })
+                } else {
+                  likeTemp.unshift({
+                    headPicName: userInfo.avatar,
+                    userId: userInfo.userId
+                  })
+                }
                 _this.setData({
                   likelist: likeTemp
                 })
+                console.log(_this.data.likelist)
               } else {
                 wx.showToast({
                   icon: 'none',
@@ -77,16 +86,16 @@ Page({
                   content: contentTemp
                 })
                 wx.setStorageSync('indexList', contentTemp)
-                let userInfo = wx.getStorageSync('userInfo')
                 let likeTemp = _this.data.likelist
                 likeTemp.forEach((item, index) => {
-                  if (item.userName === userInfo.nickName) {
+                  if (item.userId === userInfo.userId) {
                     likeTemp.splice(index, 1)
                   }
                 })
                 _this.setData({
                   likelist: likeTemp
                 })
+                console.log(_this.data.likelist)
               } else {
                 wx.showToast({
                   title: res.msg

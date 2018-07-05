@@ -207,7 +207,7 @@ Page({
     })
     _this.getList('正在加载数据...')
   },
-
+  
   onShow: function () {
     this.onLoad()
   },
