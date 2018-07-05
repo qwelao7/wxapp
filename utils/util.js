@@ -5,7 +5,13 @@ const app = getApp()
 
 const appVersion = "2.9.8"
 
+
+// 生产环境地址
 //const baseURL = 'https://signin.afguanjia.com/club/' // 后台API地址
+// const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
+
+
+// 测试环境地址
 const baseURL = 'https://signin.afguanjia.com/weapptest/'
 const uploadURL = 'http://192.168.1.55:7888/xcx/upload'
 

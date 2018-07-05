@@ -49,6 +49,16 @@ Page({
                 _this.setData({
                   content: contentTemp
                 })
+                wx.setStorageSync('indexList', contentTemp);
+                let likeTemp = _this.data.likelist
+                let userInfo = wx.getStorageSync('userInfo');
+                likeTemp.unshift({
+                  headPicName: userInfo.avatarUrl,
+                  userName: userInfo.nikeName
+                })
+                _this.setData({
+                  likeList: likeTemp
+                })
               } else {
                 wx.showToast({
                   icon: 'none',
@@ -65,6 +75,17 @@ Page({
                 contentTemp.topicPraiseNumber = parseInt(contentTemp.topicPraiseNumber) - 1
                 _this.setData({
                   content: contentTemp
+                })
+                wx.setStorageSync('indexList', contentTemp)
+                let userInfo = wx.getStorageSync('userInfo')
+                let likeTemp = _this.data.likelist
+                likeTemp.forEach((item, index) => {
+                  if (item.userName === userInfo.nickName) {
+                    likeTemp.splice(index, 1)
+                  }
+                })
+                _this.setData({
+                  likeList: likeTemp
                 })
               } else {
                 wx.showToast({
@@ -113,6 +134,7 @@ Page({
             _this.setData({
               likelist: res.data.resultList
             })
+            console.log('likeList', _this.data.likelist)
           } else {
             wx.showToast({
               icon: 'none',
@@ -132,13 +154,15 @@ Page({
   },
 
   onShow: function () {
-    let _this=this
+    let _this = this
     this.setData({
       commentPage: 1
-    })
-    setTimeout(function () {
+    }, () => {
       _this.onLoad()
-    },1000)
+    })
+    // setTimeout(function () {
+    //   _this.onLoad()
+    // }, 1000)
   },
 
   onUnload: function () {

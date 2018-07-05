@@ -6,12 +6,7 @@ Page({
   data: {
     imgs: [
       ['http://pub.huilaila.net/dfclub/index/index_detail02.jpg'],
-      ['http://pub.huilaila.net/dfclub/index/index_detail01.jpg'],
-      [
-        'http://pub.huilaila.net/dfclub/index/index_detail03_1.jpg',
-        'http://pub.huilaila.net/dfclub/index/index_detail03_2.jpg',
-        'http://pub.huilaila.net/dfclub/index/index_detail03_3.jpg'
-      ]
+      ['http://pub.huilaila.net/dfclub/index/index_detail04.jpeg']
     ],
     showImg: ''
   },
