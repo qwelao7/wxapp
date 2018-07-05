@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfd0f509-c25e-4d9c-b552-d0bb84e3ae3d" name="Default" comment="切换环境">
+    <list default="true" id="cfd0f509-c25e-4d9c-b552-d0bb84e3ae3d" name="Default" comment="切换环境,隐藏更多活动按钮">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,45 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="videos.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxml">
+      <file leaf-file-name="videos.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/videos/videos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-              <folding>
-                <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="videos.wxss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="37" column="25" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.wxss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/events/events.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="862">
-              <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+            <state relative-caret-position="417">
+              <caret line="214" column="30" lean-forward="true" selection-start-line="214" selection-start-column="30" selection-end-line="214" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -141,7 +106,6 @@
         <option value="$PROJECT_DIR$/utils/wafer2-client-sdk/lib/request.js" />
         <option value="$PROJECT_DIR$/pages/mLogin/mLogin.js" />
         <option value="$PROJECT_DIR$/pages/events/event_category/event_category.json" />
-        <option value="$PROJECT_DIR$/pages/events/events.wxml" />
         <option value="$PROJECT_DIR$/pages/events/event_category/event_category.wxss" />
         <option value="$PROJECT_DIR$/pages/events/event_category/event_category.wxml" />
         <option value="$PROJECT_DIR$/pages/events/event_category/event_category.js" />
@@ -162,7 +126,6 @@
         <option value="$PROJECT_DIR$/pages/index/index_comment/index_comment.wxss" />
         <option value="$PROJECT_DIR$/pages/publish/publish.wxss" />
         <option value="$PROJECT_DIR$/pages/index/index_detail/index_detail.wxss" />
-        <option value="$PROJECT_DIR$/pages/videos/videos.js" />
         <option value="$PROJECT_DIR$/pages/video_publish/video_publish.json" />
         <option value="$PROJECT_DIR$/pages/index/index_detail_praise/index_detail_praise.js" />
         <option value="$PROJECT_DIR$/pages/video_publish/video_publish.wxss" />
@@ -175,13 +138,15 @@
         <option value="$PROJECT_DIR$/pages/publish/publish.js" />
         <option value="$PROJECT_DIR$/utils/util.js" />
         <option value="$PROJECT_DIR$/pages/index/index_detail/index_detail.js" />
-        <option value="$PROJECT_DIR$/pages/index/index.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.js" />
-        <option value="$PROJECT_DIR$/pages/videos/video_detail/video_detail.js" />
         <option value="$PROJECT_DIR$/pages/videos/video_detail/video_detail.wxml" />
         <option value="$PROJECT_DIR$/pages/events/events.wxss" />
         <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/pages/events/events.wxml" />
+        <option value="$PROJECT_DIR$/pages/video_publish/video_publish.js" />
+        <option value="$PROJECT_DIR$/pages/videos/video_detail/video_detail.js" />
+        <option value="$PROJECT_DIR$/pages/index/index.js" />
+        <option value="$PROJECT_DIR$/pages/videos/videos.js" />
       </list>
     </option>
   </component>
@@ -230,7 +195,26 @@
               <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="index_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="publish" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfClub_wxapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="video_publish" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dfClub_wxapp" type="b2602c69:ProjectViewProjectNode" />
@@ -837,15 +821,28 @@
       <option name="project" value="LOCAL" />
       <updated>1530796572261</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="切换环境,隐藏更多活动按钮">
+      <created>1530797805306</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1530797805306</updated>
+    </task>
+    <task id="LOCAL-00044" summary="切换环境,隐藏更多活动按钮">
+      <created>1530801858217</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1530801858217</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="385310000" />
+    <option name="totallyTimeSpent" value="387691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1877" height="1177" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750623" visible="true" weight="0.13685344" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -924,7 +921,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2.6.1" />
     <MESSAGE value="2.8.1 util网络请求方法" />
     <MESSAGE value="2.8.3 reformat code" />
     <MESSAGE value="2.8.7 banner update" />
@@ -949,7 +945,8 @@
     <MESSAGE value="配置文件config.js" />
     <MESSAGE value="新鲜事详情点赞修改" />
     <MESSAGE value="切换环境" />
-    <option name="LAST_COMMIT_MESSAGE" value="切换环境" />
+    <MESSAGE value="切换环境,隐藏更多活动按钮" />
+    <option name="LAST_COMMIT_MESSAGE" value="切换环境,隐藏更多活动按钮" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1148,34 +1145,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1196,61 +1169,9 @@
     <entry file="file://$PROJECT_DIR$/pages/events/event_detail/event_detail.wxss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3952">
-          <caret line="209" column="2" selection-start-line="209" selection-start-column="2" selection-end-line="209" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/video_detail/video_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="29" column="7" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/video_detail/video_detail.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="25" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/events/events.wxss">
@@ -1264,6 +1185,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
           <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/events/events.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/video_detail/video_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index_detail/index_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="170" column="6" lean-forward="true" selection-start-line="165" selection-start-column="4" selection-end-line="170" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/publish/publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video_publish/video_publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/video_detail/video_detail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#view#0;n#view#0;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#view#0;n#view#1;n#view#0;n#scroll-view#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="217" column="4" lean-forward="true" selection-start-line="210" selection-start-column="2" selection-end-line="217" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/videos/videos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="214" column="30" lean-forward="true" selection-start-line="214" selection-start-column="30" selection-end-line="214" selection-end-column="30" />
         </state>
       </provider>
     </entry>

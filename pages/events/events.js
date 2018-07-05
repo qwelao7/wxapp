@@ -42,14 +42,17 @@ Page({
           }
           wx.stopPullDownRefresh()
           if (res.status === 100) {
-            that.setData({
-              activityLiveList: res.data
-            });
-            if(res.data.length > 0){
+            if(res.data){
               that.setData({
-                liveDisable: true
+                activityLiveList: res.data
               });
+              if(res.data.length > 0){
+                that.setData({
+                  liveDisable: true
+                });
+              }
             }
+
           } else {
             wx.showToast({
               title: res.msg,
@@ -61,23 +64,25 @@ Page({
           if (message != "") {
             wx.hideLoading()
           }
-          // wx.showToast({
-          //   title: '加载数据失败',
-          // })
+          wx.showToast({
+            title: '加载数据失败',
+          })
         });
 
     util.get(url_2)
         .then(res => {
           wx.stopPullDownRefresh()
           if (res.status === 100) {
-            console.log(res)
-            that.setData({
-              activityNewList: res.data
-            });
-            if(res.data.length > 0){
+            if(res.data){
+              console.log(res)
               that.setData({
-                newDisable: true
+                activityNewList: res.data
               });
+              if(res.data.length > 0){
+                that.setData({
+                  newDisable: true
+                });
+              }
             }
           } else {
             wx.showToast({
@@ -86,9 +91,9 @@ Page({
           }
         })
         .catch(e => {
-          // wx.showToast({
-          //   title: '加载数据失败',
-          // })
+          wx.showToast({
+            title: '加载数据失败',
+          })
         });
 
     util.get(url_3)
