@@ -61,31 +61,38 @@ Page({
                 env.accessKeySecret = UploadAuthObj.AccessKeySecret;
                 env.securityToken = UploadAuthObj.SecurityToken;
                 env.aliyunFileKey = UploadAddressObj.FileName;
-                uploadFile(_this.data.src, "", "",
-                  function (res) {
-                    console.log("上传成功")
-                    let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoId=' + _this.data.video;
-                    util.post(url)
-                      .then(res => {
-                        if (res.status === 100) {
+                let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoId=' + _this.data.video;
+                util.post(url)
+                  .then(res => {
+                    if (res.status === 100) {
+                      uploadFile(_this.data.src, "", "",
+                        function (res) {
+                          console.log("上传成功");
                           wx.showToast({
                             icon: 'success',
                             title: '发布成功'
-                          })
+                          });
                           setTimeout(function () {
                             wx.navigateBack({
                               delta: 1
                             })
                           }, 1000)
-                        } else {
-                          console.log(res)
-                          wx.showToast({
-                            title: res.msg
-                          })
-                        }
+                        }, function (res) {
+                          console.log(res);
+                          console.log("上传失败")
+                        })
+                    } else {
+                      console.log(res);
+                      wx.showToast({
+                        title: res.msg
                       })
-                  })
-                }
+                    }
+                  }).catch(e=>{
+                    wx.showToast({
+                      title: "发布失败",
+                    })
+                })
+              }
             })
             .catch(e=>{
               console.log(e);

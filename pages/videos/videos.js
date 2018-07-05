@@ -18,14 +18,14 @@ Page({
     col1: [],
     col2: [],
     page: 1,
-    pageSize: 3,
+    pageSize: 20,
     contentlist: [],
     hasMoreData: false,
   },
 
   getList: function (message) {
     let that = this,
-        url = 'activities/category/'+that.data.id+'?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+        url = 'club/video?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading();
     if (message != "") {
       wx.showLoading({
@@ -44,7 +44,7 @@ Page({
             if (that.data.page == 1) {
               contentlistTem = []
             }
-            let contentlist = res.data;
+            let contentlist = res.data.resultList;
             console.dir(contentlist)
             if (contentlist.length < that.data.pageSize) {
               that.setData({
@@ -58,6 +58,7 @@ Page({
                 page: that.data.page + 1
               })
             }
+            that.loadImages(contentlist);
           } else {
             wx.showToast({
               title: res.msg,
@@ -87,9 +88,7 @@ Page({
           scrollH: scrollH,
           imgWidth: imgWidth
         });
-        // this.getList("正在加载数据...");
-        this.loadImages(this.data.contentlist);
-        console.log(this.data.contentlist)
+        this.getList("正在加载数据...");
       }
     })
     this.setData({
@@ -119,17 +118,16 @@ Page({
     let imgHeight = oImgH * scale;      //自适应高度
 
     let images = this.data.contentlist;
-    let imageObj = null;
+    let imageObj = {};
 
     for (let i = 0; i < images.length; i++) {
       let img = images[i];
       if (img.id === imageId) {
         imageObj = img;
+        imageObj.height = imgHeight;
         break;
       }
     }
-
-    imageObj.height = imgHeight;
 
     // let loadingCount = this.data.loadingCount - 1;
     let col1 = this.data.col1;
@@ -161,26 +159,20 @@ Page({
   },
 
   loadImages: function (list) {
-    let images = [
-      {pic: "http://pub.huilaila.net/dfclub/baohua/1.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/baohua/2.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/fake/fake-08.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/baohua/4.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/baohua/5.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/baohua/6.jpg", height: 0},
-      {pic: "http://pub.huilaila.net/dfclub/baohua/7.jpg", height: 0},
-    ];
+    let images = list;
 
     let baseId = "img-" + (+new Date());
 
     for (let i = 0; i < images.length; i++) {
       images[i].id = baseId + "-" + i;
+      images[i].height = 0;
     }
 
     this.setData({
       loadingCount: images.length,
-      images: images
+      contentlist: images
     });
+    console.log(images)
   },
   onShareAppMessage: function (res) {
     return {
@@ -211,23 +203,23 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    let that = this;
-    that.data.page = 1
-    that.getList('正在刷新数据')
-  },
+  // onPullDownRefresh: function () {
+  //   let that = this;
+  //   that.data.page = 1
+  //   that.getList('正在刷新数据')
+  // },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    let that = this;
-    if (that.data.hasMoreData) {
-      that.getList('加载更多数据')
-    } else {
-      wx.showToast({
-        title: '没有更多数据',
-      })
-    }
-  },
+  // onReachBottom: function () {
+  //   let that = this;
+  //   if (that.data.hasMoreData) {
+  //     that.getList('加载更多数据')
+  //   } else {
+  //     wx.showToast({
+  //       title: '没有更多数据',
+  //     })
+  //   }
+  // },
 })

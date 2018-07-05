@@ -11,11 +11,11 @@
   vertical-align: top;
 }
 .video_title{
-  margin: 10rpx 0;
+  margin: 20rpx 0;
   width:100%;
   font-size: 24rpx;
   line-height: 30rpx;
-  height: 65rpx;
+  height: 63rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;

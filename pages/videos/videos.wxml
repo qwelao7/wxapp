@@ -1,28 +1,28 @@
 <view>
   <view style="display:none">
-    <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.pic}}" bindload="onImageLoad"></image>
+    <image wx:for="{{contentlist}}" wx:key="id" id="{{item.id}}" src="{{item.headPicName}}" bindload="onImageLoad"></image>
   </view>
   <image src="../../img/publish_1.png" wx:if="{{wxShow}}" class="publish_icon" bindtap="tapPublish"></image>
   <scroll-view scroll-y="true" style="height:{{scrollH}}px">
     <view style="width:100%">
       <view class="img_item_1">
         <view wx:for="{{col1}}" wx:key="id">
-          <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+          <image src="{{item.headPicName}}" style="width:100%;height:{{item.height}}px"></image>
           <view style="height: 42rpx">
-            <image class="video_avatar" src="../../img/avatar_default.jpg" style=""></image>
-            <view class="video_author">桃李春风-123</view>
+            <image class="video_avatar" src="{{item.headPicName}}" style=""></image>
+            <view class="video_author">{{item.topicTag}}</view>
           </view>
-          <view class="video_title">asdfasdasdasdadadadadadasdadadfertfewgdasdasdasdasdadsadarwbyrbwywrbnye</view>
+          <view class="video_title">{{item.topicContent}}</view>
         </view>
       </view>
       <view class="img_item_2">
         <view wx:for="{{col2}}" wx:key="id">
           <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
           <view style="height: 42rpx">
-            <image class="video_avatar" src="../../img/avatar_default.jpg" style=""></image>
-            <view class="video_author">桃李春风-123</view>
+            <image class="video_avatar" src="{{item.headPicName}}" style=""></image>
+            <view class="video_author">{{item.topicTag}}</view>
           </view>
-          <view class="video_title">asdfasdasdasdadadadadadasdadadfertfewgdasdasdasdasdadsadarwbyrbwywrbnye</view>
+          <view class="video_title">{{item.topicContent}}</view>
         </view>
       </view>
     </view>
