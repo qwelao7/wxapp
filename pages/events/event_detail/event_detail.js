@@ -40,6 +40,9 @@ Page({
           }
           wx.stopPullDownRefresh()
           if (res.status === 100) {
+            wx.setNavigationBarTitle({
+              title: res.data.title
+            });
             that.setData({
               activityInfo: res.data
             })
