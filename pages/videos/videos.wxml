@@ -10,7 +10,7 @@
           <image src="{{item.annexs[0]}}" style="width:100%;height:{{item.height}}px"></image>
           <view style="height: 42rpx">
             <image class="video_avatar" src="{{item.headPicName}}" style=""></image>
-            <view class="video_author">{{item.topicTag}}</view>
+            <view class="video_author">{{item.userName}}</view>
           </view>
           <view class="video_title">{{item.topicContent}}</view>
         </view>
@@ -20,7 +20,7 @@
           <image src="{{item.annexs[0]}}" style="width:100%;height:{{item.height}}px"></image>
           <view style="height: 42rpx">
             <image class="video_avatar" src="{{item.headPicName}}" style=""></image>
-            <view class="video_author">{{item.topicTag}}</view>
+            <view class="video_author">{{item.userName}}</view>
           </view>
           <view class="video_title">{{item.topicContent}}</view>
         </view>
