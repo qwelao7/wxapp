@@ -54,10 +54,10 @@ Page({
                 let userInfo = wx.getStorageSync('userInfo');
                 likeTemp.unshift({
                   headPicName: userInfo.avatarUrl,
-                  userName: userInfo.nikeName
+                  userName: userInfo.nickName
                 })
                 _this.setData({
-                  likeList: likeTemp
+                  likelist: likeTemp
                 })
               } else {
                 wx.showToast({
@@ -85,7 +85,7 @@ Page({
                   }
                 })
                 _this.setData({
-                  likeList: likeTemp
+                  likelist: likeTemp
                 })
               } else {
                 wx.showToast({
