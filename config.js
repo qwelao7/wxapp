@@ -31,7 +31,7 @@ let config = {
   /**
    *提交审核版本号
    */
-  appVersion: "2.9.8",
+  appVersion: "3.0.0",
 
 
   /**

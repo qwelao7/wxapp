@@ -54,7 +54,7 @@
       </view>
     </view>
 
-    <view class="weui-cells weui-cells_after-title" bindtap="tapComment">
+    <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd gray fs-26">
           共{{content.topicCommentNumber}}人评论

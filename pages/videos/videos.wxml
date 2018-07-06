@@ -1,6 +1,6 @@
 <view>
-  <view style="display:none">
-    <image wx:for="{{contentlist}}" wx:key="id" id="{{item.id}}" src="{{item.annexs[0]}}" bindload="onImageLoad"></image>
+  <view style="width: 1rpx;height: 1rpx">
+    <image style="width: 1rpx;height: 1rpx" wx:for="{{contentlist}}" wx:key="id" id="{{item.id}}" src="{{item.annexs[0]}}" bindload="onImageLoad"></image>
   </view>
   <image src="../../img/publish_1.png" wx:if="{{wxShow}}" class="publish_icon" bindtap="tapPublish"></image>
   <scroll-view scroll-y="true" style="height:{{scrollH}}px">

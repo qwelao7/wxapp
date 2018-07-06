@@ -63,7 +63,7 @@ Page({
             console.log(res)
             wx.showToast({
               title: res.msg,
-              icon:'none'
+              icon: 'none'
             })
           }
         })
@@ -101,8 +101,8 @@ Page({
 
   onShow: function () {
     let _this = this
-    col1H=0;
-    col2H=0;
+    col1H = 0;
+    col2H = 0;
 
     this.setData({
       wxShow: true,
@@ -186,7 +186,7 @@ Page({
     for (let i = 0; i < images.length; i++) {
       images[i].id = baseId + "-" + i;
       images[i].height = 0;
-      if(images[i].annexs === []){
+      if (images[i].annexs === []) {
         images[i].annexs.push("../../img/transcoding.jpg")
       }
     }
@@ -224,35 +224,37 @@ Page({
 
   toVideoInfo: function (e) {
     console.log(e)
-    if(this.data.wxShow === true){
-      if(e.currentTarget.dataset.url !== undefined){
+    if (this.data.wxShow === true) {
+      if (e.currentTarget.dataset.url !== undefined) {
         wx.navigateTo({
-          url: './video_detail/video_detail?url='+e.currentTarget.dataset.url
+          url: './video_detail/video_detail?url=' + e.currentTarget.dataset.url
         })
       }
     }
-  }
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   // onPullDownRefresh: function () {
   //   let that = this;
-  //   that.data.page = 1
+  //   that.setData({
+  //     page: 1
+  //   })
   //   that.getList('正在刷新数据')
   // },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  // onReachBottom: function () {
-  //   let that = this;
-  //   if (that.data.hasMoreData) {
-  //     that.getList('加载更多数据')
-  //   } else {
-  //     wx.showToast({
-  //       title: '没有更多数据',
-  //     })
-  //   }
-  // },
+  onReachBottom: function () {
+    let that = this;
+    if (that.data.hasMoreData) {
+      that.getList('加载更多数据')
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
+  },
 })
