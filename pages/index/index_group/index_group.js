@@ -124,7 +124,7 @@ Page({
               contentlistTem = []
             }
             let contentlist = res.data.resultList
-            console.dir(contentlist)
+            console.log(contentlist)
 
             if (contentlist.length < that.data.pageSize) {
               that.setData({

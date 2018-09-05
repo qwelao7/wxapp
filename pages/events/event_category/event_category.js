@@ -6,7 +6,7 @@ Page({
     url:'',
     id: '',
     page: 1,
-    pageSize: 3,
+    pageSize: 10,
     contentlist: [],
     hasMoreData: false,
   },
@@ -33,7 +33,7 @@ Page({
               contentlistTem = []
             }
             let contentlist = res.data;
-            console.dir(contentlist)
+            console.log(contentlist)
             if (contentlist.length < that.data.pageSize) {
               that.setData({
                 contentlist: contentlistTem.concat(contentlist),

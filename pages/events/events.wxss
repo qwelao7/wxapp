@@ -48,6 +48,7 @@
   margin-right: 15px;
 
 }
+
 .event_img{
   width: calc(33.33333vw - 10px);
   height: calc(33.33333vw - 10px);

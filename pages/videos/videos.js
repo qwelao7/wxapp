@@ -45,7 +45,7 @@ Page({
               contentlistTem = []
             }
             let contentlist = res.data.resultList;
-            console.dir(contentlist)
+            console.log(contentlist)
             if (contentlist.length < that.data.pageSize) {
               that.setData({
                 contentlist: contentlistTem.concat(contentlist),
@@ -196,6 +196,19 @@ Page({
       contentlist: images
     });
   },
+
+  previewImg: function (e) {
+    if (this.data.wxShow === false) {
+      let src = e.currentTarget.dataset.src,
+          urls = []
+      urls.push(src)
+      wx.previewImage({
+        current: src, // 当前显示图片的http链接
+        urls: urls // 需要预览的图片http链接列表
+      })
+    }
+  },
+
   onShareAppMessage: function (res) {
     return {
       title: '东方小镇Club',
@@ -230,6 +243,14 @@ Page({
           url: './video_detail/video_detail?url=' + e.currentTarget.dataset.url
         })
       }
+    }else{
+      let src = e.currentTarget.dataset.src,
+          urls = []
+      urls.push(src)
+      wx.previewImage({
+        current: src, // 当前显示图片的http链接
+        urls: urls // 需要预览的图片http链接列表
+      })
     }
   },
 

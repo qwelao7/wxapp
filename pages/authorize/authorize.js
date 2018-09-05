@@ -10,13 +10,18 @@ Page({
 
   bindGetUserInfo: function () {
     const session = qcloud.Session.get()
+    wx.showLoading({
+      title: '登录中..',
+      mask: true
+    })
     if (session) {
       // 第二次登录
       // 或者本地已经有登录态
       // 可使用本函数更新登录态
       qcloud.loginWithCode({
         success: res => {
-          this.setData({ userInfo: res, logged: true })
+          wx.hideLoading()
+          this.setData({userInfo: res, logged: true})
           util.showSuccess('登录成功')
         },
         fail: err => {
@@ -28,10 +33,12 @@ Page({
       // 首次登录
       qcloud.login({
         success: res => {
-          this.setData({ userInfo: res, logged: true })
+          wx.hideLoading()
+          this.setData({userInfo: res, logged: true})
           util.showSuccess('登录成功')
         },
         fail: err => {
+          wx.hideLoading()
           console.error(err)
           util.showModel('登录错误', err.message)
         }

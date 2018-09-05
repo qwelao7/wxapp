@@ -37,7 +37,7 @@ Page({
     let _this = this
     this.setData({
       focus: false
-    },()=>{
+    }, () => {
       if ((_this.data.value !== '') && (_this.data.content !== '')) {
         if (_this.data.src === '') {
           wx.showToast({
@@ -45,64 +45,48 @@ Page({
             title: '请选择视频'
           })
         } else {
-          let url = config.baseURL + 'aliyun/video'
-          util.post(url)
-              .then(res => {
-                if (res.status === 100) {
-                  let data = res.data;
-                  console.log(data);
-                  const UploadAuthObj = JSON.parse(Base64.decode(data.uploadAuth));
-                  const UploadAddressObj = JSON.parse(Base64.decode(data.UploadAddress));
-                  _this.setData({
-                    video: data.videoId
-                  });
-                  env.accessKeyId = UploadAuthObj.AccessKeyId;
-                  env.accessKeySecret = UploadAuthObj.AccessKeySecret;
-                  env.securityToken = UploadAuthObj.SecurityToken;
-                  env.aliyunFileKey = UploadAddressObj.FileName;
-                  let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoId=' + _this.data.video;
-                  util.post(url)
-                      .then(res => {
-                        if (res.status === 100) {
-                          uploadFile(_this.data.src, "", "",
-                              function (res) {
-                                console.log("上传成功");
-                                wx.showToast({
-                                  icon: 'success',
-                                  title: '发布成功'
-                                });
-                                setTimeout(function () {
-                                  wx.hideToast()
-                                  wx.navigateBack({
-                                    delta: 1
-                                  })
-                                }, 1000)
-                              }, function (res) {
-                                console.log(res);
-                                wx.showToast({
-                                  icon: 'none',
-                                  title: '上传失败'
-                                });
-                              })
-                        } else {
-                          console.log(res);
-                          wx.showToast({
-                            title: res.msg
+          wx.showLoading({
+            title: '视频上传中',
+            mask: true
+          })
+          wx.uploadFile({
+            url: config.uploadURL,
+            filePath: _this.data.src,
+            name: 'file',
+            formData: {
+              'type': 'video'
+            },
+            header: {
+              "Content-Type": "multipart/form-data"
+            },
+            success: response => {
+              wx.hideLoading()
+              let res = JSON.parse(response.data)
+              if (res.status === 100) {
+                let url = 'posts?topicType=15&topicContent=' + _this.data.content + '&communityId=' + _this.data.value + '&videoUrl=' + res.data
+                util.post(url)
+                    .then(res => {
+                      if (res.status === 100) {
+                        wx.hideLoading();
+                        wx.showToast({
+                          icon: 'success',
+                          title: '发布成功'
+                        })
+                        setTimeout(function () {
+                          wx.navigateBack({
+                            delta: 1
                           })
-                        }
-                      }).catch(e => {
-                    wx.showToast({
-                      title: "发布失败",
+                        }, 1000)
+                      } else {
+                        wx.showToast({
+                          icon:'none',
+                          title: res.msg
+                        })
+                      }
                     })
-                  })
-                }
-              })
-              .catch(e => {
-                console.log(e);
-                wx.showToast({
-                  title: "上传失败",
-                })
-              })
+              }
+            }
+          })
         }
       } else {
         wx.showToast({
@@ -115,12 +99,18 @@ Page({
     })
 
 
-
   },
   onLoad: function () {
     this.setData({
       array: config.pickerInfo
     })
+    const session = qcloud.Session.get()
+    if (session) {
+      this.setData({
+        session: session
+      })
+    }
+    console.log(this.data.session)
   },
 
   contentInput: function (e) {

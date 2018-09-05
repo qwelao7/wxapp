@@ -8,7 +8,6 @@ App({
     qcloud.setLoginUrl(config.service.loginUrl);
     wx.getSetting({
       success: function (res) {
-        console.log(111)
         // 判断是否已授权
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
@@ -17,7 +16,6 @@ App({
             }
           })
         } else {
-          console.log(222)
           wx.navigateTo({
             url: '/pages/authorize/authorize'
           })
@@ -31,7 +29,7 @@ App({
             if (res.data.length>0 && res.data[0].switchValue === 0) {
               this.globalData.wxShow = false
               console.log(this.globalData.wxShow)
-            } else if (res.data.length>0 && res.data.switchValue === 1) {
+            } else if (res.data.length>0 && res.data[0].switchValue === 1) {
               this.globalData.wxShow = true
             }
           }
@@ -102,6 +100,6 @@ App({
   globalData: {
     userInfo: null,
     serverError: false,
-    wxShow: true
+    wxShow: false
   }
 })

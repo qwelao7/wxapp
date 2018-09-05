@@ -14,7 +14,6 @@
     <!--<button bindtap="tapM">手机号绑定测试按钮</button>-->
     <block wx:for="{{contentlist}}" wx:key="*this" wx:for-index="indexs" wx:for-item="items">
       <view bindtap="tapList" data-listid="{{indexs}}">
-
         <view class="pd-30">
           <view class="icon-box">
             <image class="icon-avatar" src="{{items.headPicName}}"></image>

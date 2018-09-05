@@ -2,7 +2,7 @@
  *此处主机域名修改成腾讯云解决方案分配的域名
  */
 // 生产环境host
-let host = 'signin.afguanjia.com/club/';
+let host = 'signin.huilaila.net/club';
 
 //测试环境host
 // let host = 'signin.afguanjia.com';
@@ -31,14 +31,14 @@ let config = {
   /**
    *提交审核版本号
    */
-  appVersion: "3.0.0",
+  appVersion: "3.0.1",
 
 
   /**
    * 生产环境地址
    */
-baseURL : 'https://signin.afguanjia.com/club/',// 后台API地址
-uploadURL : 'https://app-img.huilaila.net:7888/xcx/upload',
+  baseURL: 'https://signin.huilaila.net/club/',// 后台API地址
+  uploadURL: 'https://app-img.huilaila.net:7889/xcx/upload',
 
 
   /**

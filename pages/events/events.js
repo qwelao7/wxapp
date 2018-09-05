@@ -25,9 +25,9 @@ Page({
 
   getActivityList: function (message) {
     let that = this,
-      url_1='activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
-      url_2='activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
-      url_3='activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
+        url_1 = 'activities/category/1?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
+        url_2 = 'activities/category/2?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize,
+        url_3 = 'activities/category/3?curPage=' + that.data.page + '&pageSize=' + that.data.pageSize;
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({
@@ -42,13 +42,17 @@ Page({
           }
           wx.stopPullDownRefresh()
           if (res.status === 100) {
-            if(res.data){
+            if (res.data) {
               that.setData({
                 activityLiveList: res.data
               });
-              if(res.data.length > 0){
+              if (res.data.length > 0) {
                 that.setData({
                   liveDisable: true
+                });
+              } else {
+                that.setData({
+                  liveDisable: false
                 });
               }
             }
@@ -73,14 +77,18 @@ Page({
         .then(res => {
           wx.stopPullDownRefresh()
           if (res.status === 100) {
-            if(res.data){
+            if (res.data) {
               console.log(res)
               that.setData({
                 activityNewList: res.data
               });
-              if(res.data.length > 0){
+              if (res.data.length > 0) {
                 that.setData({
                   newDisable: true
+                });
+              } else {
+                that.setData({
+                  newDisable: false
                 });
               }
             }
@@ -100,13 +108,17 @@ Page({
         .then(res => {
           wx.stopPullDownRefresh()
           if (res.status === 100) {
-            console.log('history',res.data)
+            console.log('history', res.data)
             that.setData({
               activityOldList: res.data
             });
-            if(res.data.length > 0){
+            if (res.data.length > 0) {
               that.setData({
                 oldDisable: true
+              });
+            } else {
+              that.setData({
+                oldDisable: false
               });
             }
           } else {
@@ -145,9 +157,11 @@ Page({
     //     console.log(_this.data.events)
     //   }
     // })
-    _this.getActivityList("加载数据失败");
+    _this.getActivityList("加载数据中");
   },
-
+  onShow: function () {
+    this.onLoad()
+  },
   onShareAppMessage: function (res) {
     return {
       title: '东方小镇Club',
@@ -176,16 +190,16 @@ Page({
 
   toActivityInfo: function (e) {
     wx.navigateTo({
-      url: 'event_detail/event_detail?activityId='+e.currentTarget.dataset.id
+      url: 'event_detail/event_detail?activityId=' + e.currentTarget.dataset.id
     })
   },
 
   toCategoryList: function (e) {
-    var id = '',name = '',that = this;
+    var id = '', name = '', that = this;
     id = e.currentTarget.dataset.id;
     name = that.data.categoryList[id];
     wx.navigateTo({
-      url: 'event_category/event_category?categoryId='+id+'&categoryName='+name
+      url: 'event_category/event_category?categoryId=' + id + '&categoryName=' + name
     })
   }
 })

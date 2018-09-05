@@ -49,7 +49,7 @@ Page({
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    var index = e.detail.value;
+    let index = e.detail.value;
     this.data.defCommunityId = this.data.array[index].communityId;
     console.log('defCommunityId', this.data.defCommunityId)
     this.setData({
@@ -65,8 +65,7 @@ Page({
       if (_this.data.value) {
         if (_this.data.imgList.length) {
           // 如果有图片
-          wx.showToast({
-            icon: 'loading',
+          wx.showLoading({
             title: '上传图片中...'
           })
           let uploadImgCount = 0;
@@ -84,7 +83,6 @@ Page({
               success: function (response) {
                 let res = JSON.parse(response.data)
                 if (res.status === 100) {
-                  console.log(111111)
                   uploadImgCount++;
                   let temp = _this.data.uploadList
                   temp.push(res.data)
@@ -93,12 +91,12 @@ Page({
                   })
                   //如果是最后一张,则隐藏等待中，发起发布新鲜事请求
                   if (uploadImgCount === _this.data.imgList.length) {
-                    wx.hideToast();
                     console.log('uploadList', _this.data.uploadList)
                     let url = 'posts?topicType=6&topicContent=' + _this.data.value + '&communityId=' + _this.data.defCommunityId + '&imageUrls=' + JSON.stringify(_this.data.uploadList)
                     util.post(url)
                         .then(res => {
                           if (res.status === 100) {
+                            wx.hideLoading();
                             wx.showToast({
                               icon: 'success',
                               title: '发布成功'
@@ -169,6 +167,13 @@ Page({
     this.setData({
       array: config.pickerInfo
     })
+    const session = qcloud.Session.get()
+    if (session) {
+      this.setData({
+        session: session
+      })
+    }
+    console.log(this.data.session)
   },
 
 })

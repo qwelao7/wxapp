@@ -155,7 +155,7 @@ const http = ({url = '', params = {}, header = {}, ...other} = {}) => {
       complete: (res) => {
         wx.hideLoading()
         console.log(`耗时:${Date.now() - time}`)
-        console.dir(res.data)
+        console.log(res.data)
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data)
         }
