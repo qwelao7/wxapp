@@ -3,10 +3,10 @@ const util = require('../../utils/util.js')
 const qcloud = require('../../utils/wafer2-client-sdk/index');
 const config = require('../../config')
 // 引入 QCloud 小程序增强 SDK
-var uploadFile = require('../../utils/aliyun-vod-upload/uploadAliyun');
+// var uploadFile = require('../../utils/aliyun-vod-upload/uploadAliyun');
 // 引入配置
-var env = require('../../utils/aliyun-vod-upload/env.js');
-var Base64 = require('../../utils/aliyun-vod-upload/Base64.js');
+// var env = require('../../utils/aliyun-vod-upload/env.js');
+// var Base64 = require('../../utils/aliyun-vod-upload/Base64.js');
 
 Page({
   data: {

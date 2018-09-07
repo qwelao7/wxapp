@@ -39,7 +39,23 @@ let config = {
    */
   baseURL: 'https://signin.huilaila.net/club/',// 后台API地址
   uploadURL: 'https://app-img.huilaila.net:7889/xcx/upload',
-
+  aliOSSServer: 'https://app-adminv10.huilaila.net:7660/',
+  aliyunHome: 'http://oss.huilaila.net',
+  commonConfig: {
+    companyCode: 'df',
+    appVersion: 'V1.4',
+    passwordSalt: 'uama1209',
+    phoneRegp: /^1(3|4|5|7|8|9)\d{9}$/,
+    idCodeRegp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+    forButler: '!1ba2-@2a1-b3d4-1!2c42-c@-13d',
+    productPayBusiness: 'product',
+    scheme_IOS: 'SmartCommunityForNJDFEnterprise://WechatH5PayResult',
+    aliOSSConfig: {
+      region: 'oss-cn-hangzhou',
+      bucket: 'huilaila-pub'
+    },
+    baseSize: 37.5
+  },
 
   /**
    * 测试环境地址

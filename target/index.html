@@ -123,11 +123,11 @@
 <!--<script type="text/javascript" src="/unit.js"></script>-->
 <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
 <script type="text/javascript" src="unit.js"></script>
+<script src="./aliyun-oss-sdk-6.0.1.min.js"></script>
 <script src="h5upload.js"></script>
 <script type="text/javascript">
   $(function () {
     'use strict';
-
     $(document).on("pageInit", "#register", function (e, id, page) {
       var data = {};
 
@@ -139,7 +139,6 @@
       }
 
       $.fileUpload({filebutton: "#dd", previewZoom: "#preview"});
-
       $("#project").picker({
         toolbarTemplate: '<header class="bar bar-nav" style="background-color: #fff!important;">\
                             <button class="button button-link pull-right close-picker" style="color: #0dab60">确定</button>\
@@ -155,93 +154,10 @@
         ],
         cssClass: 'pickerClass'
       });
-      //
-      // $("#messageType").picker({
-      //   toolbarTemplate: '<header class="bar bar-nav" style="background-color: #fff!important;">\
-      //                       <button class="button button-link pull-right close-picker" style="color: #0dab60">确定</button>\
-      //                       <h1 class="title" style="color: #0dab60!important;">请选择留言类别</h1>\
-      //                   </header>',
-      //   cols: [
-      //     {
-      //       textAlign: 'center',
-      //       // displayValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      //       //如果你希望显示文案和实际值不同，可以在这里加一个displayValues: [.....]
-      //       values: ['投诉', '表扬', '咨询', '建议']
-      //     }
-      //   ],
-      //   cssClass: 'pickerClass'
-      //
-      // });
-      //
-      // $("#sex").picker({
-      //   toolbarTemplate: '<header class="bar bar-nav" style="background-color: #fff!important;">\
-      //                       <button class="button button-link pull-right close-picker" style="color: #0dab60">确定</button>\
-      //                       <h1 class="title" style="color: #0dab60!important;">请选择留言类别</h1>\
-      //                   </header>',
-      //   cols: [
-      //     {
-      //       textAlign: 'center',
-      //       // displayValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      //       //如果你希望显示文案和实际值不同，可以在这里加一个displayValues: [.....]
-      //       values: ['先生', '女士']
-      //     }
-      //   ],
-      //   cssClass: 'pickerClass'
-      //
-      // });
 
       $(document).on('click', '#btn', function () {
-        // $('#btn').addClass('fog-30');
-        // data.projectName = $('#project').val();
-        // data.messageType = $('#messageType').val();
-        // data.detail = $('#detail').val();
-        // data.userFamilyName = $('#name').val();
-        // data.sex = $('#sex').val();
-        // data.mobile = $('#mobile').val();
-        // if (data.projectName == '' || data.projectName == null || data.projectName == undefined) {
-        //   alert('请选择您要留言的项目名称！');
-        //   $('#btn').removeClass('fog-30');
-        // } else if (data.messageType == '' || data.messageType == null || data.messageType == undefined) {
-        //   alert('请选择留言类别！');
-        //   $('#btn').removeClass('fog-30');
-        // } else if (data.detail == '' || data.detail == null || data.detail == undefined) {
-        //   alert('请填写留言内容！');
-        //   $('#btn').removeClass('fog-30');
-        // } else if (data.userFamilyName == '' || data.userFamilyName == null || data.userFamilyName == undefined) {
-        //   alert('请填写您的姓氏！');
-        //   $('#btn').removeClass('fog-30');
-        // } else if (data.sex == '' || data.sex == null || data.sex == undefined) {
-        //   alert('请填写您的性别！');
-        //   $('#btn').removeClass('fog-30');
-        // } else if (data.mobile == '' || data.mobile == null || data.mobile == undefined) {
-        //   alert('请填写您的电话号码！');
-        //   $('#btn').removeClass('fog-30');
-        // } else {
-        //   console.log(data)
-        //   $.ajax({
-        //     url: "/sign/message",
-        //     type: 'POST',
-        //     data: data,
-        //     dataType: 'json',
-        //     success: function (rsp) {
-        //       if (rsp.code === 200) {
-        //         window.location.href = '/message_success'
-        //       } else if (rsp.code === 202) {
-        //         alert('手机号码格式错误，请重新输入！');
-        //         $('#btn').removeClass('fog-30');
-        //       } else if (rsp.code === 500) {
-        //         alert('网络连接错误！请重新提交');
-        //         window.location.href = '/'
-        //       }
-        //     },
-        //     error: function (rsp) {
-        //       alert('网络连接错误！请重新提交');
-        //       $('#btn').removeClass('fog-30');
-        //       window.location.href = '/'
-        //     }
-        //   });
-        // }
         console.log(imgLists)
+        console.log(imgCount)
         let pickerInfo = [
           {
             communityId: '9832d325-51d8-11e8-9faf-48d539affdb4',
@@ -279,6 +195,8 @@
           $.toast("请输入内容");
         } else if (!data.communityId) {
           $.toast("请选择发布小区");
+        } else if (imgLists.length < imgCount) {
+          $.toast("图片上传中，请稍后提交");
         } else {
           $.ajax({
             url: 'https://signin.huilaila.net/club/posts?topicType=6&topicContent=' + data.topicContent + '&communityId=' + data.communityId + '&imageUrls=' + JSON.stringify(data.imgUrls),

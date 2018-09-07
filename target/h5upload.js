@@ -1,4 +1,5 @@
 //图片压缩处理
+
 (function () {
   /**
    * 加载的时候进行抽样检测
@@ -257,8 +258,12 @@
     this.MegaPixImage = MegaPixImage;
   }
 
+
 })();
-let imgLists=[];
+
+
+let imgLists = [], imgCount = 0;
+
 (function ($) {
   $.extend($, {
     fileUpload: function (options) {
@@ -267,19 +272,19 @@ let imgLists=[];
         filebutton: ".filePicker",
         uploadButton: null,
         //url: "/home/MUploadImg",
-        url: "https://app-img.huilaila.net:7889/upload?type=show",
+        // url: "https://app-adminv10.huilaila.net:7660",
         base64strUrl: "/home/MUploadImgBase64Str",
         //filebase: "mfile",//mvc后台需要对应的名称
         filebase: "files",//mvc后台需要对应的名称
         auto: true,
         previewZoom: null,
-        imgList:[],
+        imgList: [],
         uploadComplete: function (res) {
           console.log("uploadComplete", res);
           uploadCount++;
           core.checkComplete();
           para.imgList.push(JSON.parse(res).data[0])
-          imgLists=para.imgList
+          imgLists = para.imgList
         },
         uploadError: function (err) {
           console.log("uploadError", err);
@@ -305,6 +310,7 @@ let imgLists=[];
         // "thumb": $self.find(".thumb"),
         // "progress": $self.find(".upload-progress")
       };
+
 
       function init () {
         $self.find("#fileImage").remove();
@@ -368,6 +374,8 @@ let imgLists=[];
         fileSelected: function () {
           var files = $("#fileImage")[0].files;
           var count = files.length;
+          imgCount += count;
+          console.log(imgCount, 'num')
           console.log("共有" + count + "个文件");
           for (var i = 0; i < count; i++) {
             if (i >= para.limitCount) {
@@ -400,7 +408,7 @@ let imgLists=[];
             //   })(item);
             //
             // } else {
-              if (para.auto) core.uploadFile(item);
+            if (para.auto) core.uploadFile(item);
             // }
             core.previewImage(item);
           }
@@ -428,26 +436,76 @@ let imgLists=[];
           xhr.send(formdata);
         },
         uploadFile: function (file) {
-          console.log("开始上传");
-          var formdata = new FormData();
+          // console.log("开始上传");
+          // var formdata = new FormData();
+          //
+          // formdata.append(para.filebase, file);//这个名字要和mvc后台配合
+          //
+          // var xhr = new XMLHttpRequest();
+          // xhr.upload.addEventListener("progress", function (e) {
+          //
+          //   var percentComplete = Math.round(e.loaded * 100 / e.total);
+          //   para.onProgress(percentComplete.toString() + '%');
+          // });
+          // xhr.addEventListener("load", function (e) {
+          //   para.uploadComplete(xhr.responseText);
+          // });
+          // xhr.addEventListener("error", function (e) {
+          //   para.uploadError(e);
+          // });
+          //
+          // xhr.open("post", para.url, true);
+          // xhr.send(formdata);
+          let result = {};
+          OSS.urllib.request("https://app-adminv10.huilaila.net:7660",
+              {method: 'GET'},
+              function (err, response) {
+                if (err) {
+                  return alert(err);
+                }
+                try {
+                  result = JSON.parse(response);
+                } catch (e) {
+                  return alert('parse sts response info error: ' + e.message);
+                }
+                let client = new OSS({
+                  accessKeyId: result.AccessKeyId,
+                  accessKeySecret: result.AccessKeySecret,
+                  stsToken: result.SecurityToken,
+                  region: 'oss-cn-hangzhou',
+                  bucket: 'huilaila-pub'
+                });
 
-          formdata.append(para.filebase, file);//这个名字要和mvc后台配合
+                async function multipartUpload (file) {
+                  // 循环上传
+                  try {
+                    var timestamp = Date.parse(new Date());
+                    let objectKey = 'neighbor/' + timestamp + file.name;
+                    let result = await client.multipartUpload(objectKey, file, {
 
-          var xhr = new XMLHttpRequest();
-          xhr.upload.addEventListener("progress", function (e) {
+                      // meta: file.type
+                    });
+                    var aliPath = result.name;
+                    // let imgUrl = result.res.requestUrls[0]
+                    console.log(result)
+                    imgLists.push(objectKey)
+                    // if (imgUrl.indexOf('?uploadId') != -1) {
+                    //   imgUrl = imgUrl.substring(0, imgUrl.indexOf('?'))
+                    //   imgLists.push(imgUrl)
+                    //   console.log(imgLists)
+                    // } else {
+                    //   imgLists.push(imgUrl)
+                    //   console.log(imgLists)
+                    // }
 
-            var percentComplete = Math.round(e.loaded * 100 / e.total);
-            para.onProgress(percentComplete.toString() + '%');
-          });
-          xhr.addEventListener("load", function (e) {
-            para.uploadComplete(xhr.responseText);
-          });
-          xhr.addEventListener("error", function (e) {
-            para.uploadError(e);
-          });
+                  } catch (e) {
+                    console.log(e);
+                    return alert('parse sts response info error: ' + e.message);
+                  }
+                }
 
-          xhr.open("post", para.url, true);
-          xhr.send(formdata);
+                multipartUpload(file);
+              });
         },
         checkComplete: function () {
           var all = (doms.fileToUpload)[0].files.length;
@@ -458,17 +516,11 @@ let imgLists=[];
             $self.append(inputstr);
           }
         },
-        uploadFiles: function () {
-          var files = (doms.fileToUpload)[0].files;
-          for (var i = 0; i < files.length; i++) {
-            core.uploadFile(files[i]);
-          }
-        },
         previewImage: function (file) {
           if (!para.previewZoom) return;
           var img = document.createElement("img");
           img.file = file;
-          console.log('file',file)
+          console.log('file', file)
           $(para.previewZoom).append(img);
           // 使用FileReader方法显示图片内容
           var reader = new FileReader();
@@ -489,9 +541,252 @@ let imgLists=[];
       });
       if (para.uploadButton) {
         $(document).on("click", para.uploadButton, function () {
-          core.uploadFiles();
+          core.uploadFile();
         });
       }
     }
   });
 })(Zepto);
+
+// (function ($) {
+//   $.extend($, {
+//     fileUpload: function (options) {
+//       var para = {
+//         multiple: true,
+//         filebutton: ".filePicker",
+//         uploadButton: null,
+//         //url: "/home/MUploadImg",
+//         url: "https://app-img.huilaila.net:7889/upload?type=show",
+//         base64strUrl: "/home/MUploadImgBase64Str",
+//         //filebase: "mfile",//mvc后台需要对应的名称
+//         filebase: "files",//mvc后台需要对应的名称
+//         auto: true,
+//         previewZoom: null,
+//         imgList: [],
+//         uploadComplete: function (res) {
+//           console.log("uploadComplete", res);
+//           uploadCount++;
+//           core.checkComplete();
+//           para.imgList.push(JSON.parse(res).data[0])
+//           imgLists = para.imgList
+//         },
+//         uploadError: function (err) {
+//           console.log("uploadError", err);
+//         },
+//         onProgress: function (percent) {  // 提供给外部获取单个文件的上传进度，供外部实现上传进度效果
+//           console.log(percent);
+//         },
+//       };
+//       para = $.extend(para, options);
+//
+//       var $self = $(para.filebutton);
+//       init();
+//       //先加入一个file元素
+//       var multiple = "";  // 设置多选的参数
+//       para.multiple ? multiple = "multiple" : multiple = "";
+//       $self.css('position', 'relative');
+//       var types = ["image/png", "image/jpeg", "image/gif", "image/bmp"];
+//       var inputstr = '<input id="fileImage"  style="opacity:0;position:absolute;top: 0;left: 0;width:100%;height:100%" accept="image/jpeg,.jpg,image/gif,.gif,image/png,.png,image/bmp,.bmp,.jpeg"  type="file" size="30" name="fileselect[]" ' + multiple + '>';
+//       $self.append(inputstr);
+//
+//       var doms = {
+//         "fileToUpload": $self.find("#fileImage"),
+//         // "thumb": $self.find(".thumb"),
+//         // "progress": $self.find(".upload-progress")
+//       };
+//
+//       function init () {
+//         $self.find("#fileImage").remove();
+//         $(document).off("change", "#fileImage");
+//         $(document).off("click", para.filebutton);
+//         // $(document).off("click", para.uploadButton);
+//       }
+//
+//       function getBase64Image (img) {
+//         var canvas = document.createElement("canvas");
+//         canvas.width = img.width;
+//         canvas.height = img.height;
+//
+//         var ctx = canvas.getContext("2d");
+//         ctx.drawImage(img, 0, 0, img.width, img.height);
+//
+//         var dataURL = canvas.toDataURL("image/jpeg");
+//         return dataURL;
+//
+//         // return dataURL.replace("data:image/png;base64,", "");
+//       }
+//
+//       function simpleSize (size) {
+//         if (!size) return "0";
+//         if (size < 1024) {
+//           return size;
+//         }
+//         var kb = size / 1024;
+//         if (kb < 1024) {
+//           return kb.toFixed(2) + "K";
+//         }
+//         var mb = kb / 1024;
+//         if (mb < 1024) {
+//           return mb.toFixed(2) + "M";
+//
+//         }
+//         var gb = mb / 1024;
+//         return gb.toFixed(2) + "G";
+//       };
+//
+//       //Convert DataURL to Blob to send over Ajax
+//       function dataURItoBlob (dataUrl) {
+//         // convert base64 to raw binary data held in a string
+//         // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+//         var byteString = atob(dataUrl.split(',')[1]);
+//
+//         // separate out the mime component
+//         var mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+//
+//         // write the bytes of the string to an ArrayBuffer
+//         var ab = new ArrayBuffer(byteString.length);
+//         var ia = new Uint8Array(ab);
+//         for (var i = 0; i < byteString.length; i++) {
+//           ia[i] = byteString.charCodeAt(i);
+//         }
+//         return new Blob([ab], {type: 'image/jpeg'});
+//       }
+//
+//       var uploadCount = 0;
+//       var core = {
+//         fileSelected: function () {
+//           var files = $("#fileImage")[0].files;
+//           var count = files.length;
+//           console.log("共有" + count + "个文件");
+//           for (var i = 0; i < count; i++) {
+//             if (i >= para.limitCount) {
+//               // imClient.customerSay("最多只能选择"+para.limitCount+"张图片!");
+//               break;
+//             }
+//             var item = files[i];
+//             console.log("原图片大小", item.size);
+//             if (item.size > 1024 * 1024 * para.maxSize) {
+//               para.onMaxSize("文件太大不能上传!");
+//               return;
+//             }
+//             if (!~types.indexOf(item.type)) {
+//               imClient.showerrorInfo("请选择图片上传!");
+//               return;
+//             }
+//             // if (item.size > 1024 * 1024 * 2) {
+//             //   console.log("图片大于2M，开始进行压缩...");
+//             //
+//             //   (function (img) {
+//             //     var mpImg = new MegaPixImage(img);
+//             //     var resImg = document.getElementById("resultImage");
+//             //     resImg.file = img;
+//             //     mpImg.render(resImg, {maxWidth: 500, maxHeight: 500, quality: 1}, function () {
+//             //       var base64 = getBase64Image(resImg);
+//             //       var base641 = resImg.src;
+//             //       console.log("base64", base64.length, simpleSize(base64.length), base641.length, simpleSize(base641.length));
+//             //       if (para.auto) core.uploadBase64str(base64);
+//             //     });
+//             //   })(item);
+//             //
+//             // } else {
+//             if (para.auto) core.uploadFile(item);
+//             // }
+//             core.previewImage(item);
+//           }
+//         },
+//         uploadBase64str: function (base64Str) {
+//
+//           //var blob = dataURItoBlob(base64Str);
+//           //console.log("压缩后的文件大小", blob.size);
+//           //core.uploadFile(blob);
+//           var formdata = new FormData();
+//           formdata.append("base64str", base64Str);
+//           var xhr = new XMLHttpRequest();
+//           xhr.upload.addEventListener("progress", function (e) {
+//             var percentComplete = Math.round(e.loaded * 100 / e.total);
+//             para.onProgress(percentComplete.toString() + '%');
+//           });
+//           xhr.addEventListener("load", function (e) {
+//             para.uploadComplete(xhr.responseText);
+//           });
+//           xhr.addEventListener("error", function (e) {
+//             para.uploadError(e);
+//           });
+//
+//           xhr.open("post", para.base64strUrl, true);
+//           xhr.send(formdata);
+//         },
+//         uploadFile: function (file) {
+//           // console.log("开始上传");
+//           // var formdata = new FormData();
+//           //
+//           // formdata.append(para.filebase, file);//这个名字要和mvc后台配合
+//           //
+//           // var xhr = new XMLHttpRequest();
+//           // xhr.upload.addEventListener("progress", function (e) {
+//           //
+//           //   var percentComplete = Math.round(e.loaded * 100 / e.total);
+//           //   para.onProgress(percentComplete.toString() + '%');
+//           // });
+//           // xhr.addEventListener("load", function (e) {
+//           //   para.uploadComplete(xhr.responseText);
+//           // });
+//           // xhr.addEventListener("error", function (e) {
+//           //   para.uploadError(e);
+//           // });
+//           //
+//           // xhr.open("post", para.url, true);
+//           // xhr.send(formdata);
+//           AliOSSUtil.uploadFile(file, 'neighbor', undefined, undefined, function (resList) {
+//             para.uploadComplete(resList);
+//           })``
+//         },
+//         checkComplete: function () {
+//           var all = (doms.fileToUpload)[0].files.length;
+//           if (all == uploadCount) {
+//             console.log(all + "个文件上传完毕");
+//             doms.fileToUpload.remove();
+//             //input有一个问题就是选择重复的文件不会触发change事件，所以做了一个处理，再每次上传完之后删掉这个元素再新增一个input。
+//             $self.append(inputstr);
+//           }
+//         },
+//         uploadFiles: function () {
+//           var files = (doms.fileToUpload)[0].files;
+//           for (var i = 0; i < files.length; i++) {
+//             // core.uploadFile(files[i]);
+//             AliOSSUtil.uploadFile(files[i], 'neighbor', undefined, undefined, function (resList) {
+//               para.uploadComplete(resList);
+//             })
+//           }
+//         },
+//         previewImage: function (file) {
+//           if (!para.previewZoom) return;
+//           var img = document.createElement("img");
+//           img.file = file;
+//           console.log('file', file)
+//           $(para.previewZoom).append(img);
+//           // 使用FileReader方法显示图片内容
+//           var reader = new FileReader();
+//           reader.onload = (function (aImg) {
+//             return function (e) {
+//               aImg.src = e.target.result;
+//             };
+//           })(img);
+//           reader.readAsDataURL(file);
+//         }
+//       }
+//       $(document).on("change", "#fileImage", function () {
+//         core.fileSelected();
+//       });
+//
+//       $(document).on("click", para.filebutton, function () {
+//         console.log("clicked");
+//       });
+//       if (para.uploadButton) {
+//         $(document).on("click", para.uploadButton, function () {
+//           core.uploadFiles();
+//         });
+//       }
+//     }
+//   });
+// })(Zepto);
