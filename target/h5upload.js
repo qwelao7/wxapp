@@ -271,10 +271,8 @@ let imgLists = [], imgCount = 0;
         multiple: true,
         filebutton: ".filePicker",
         uploadButton: null,
-        //url: "/home/MUploadImg",
         // url: "https://app-adminv10.huilaila.net:7660",
         base64strUrl: "/home/MUploadImgBase64Str",
-        //filebase: "mfile",//mvc后台需要对应的名称
         filebase: "files",//mvc后台需要对应的名称
         auto: true,
         previewZoom: null,
@@ -307,8 +305,6 @@ let imgLists = [], imgCount = 0;
 
       var doms = {
         "fileToUpload": $self.find("#fileImage"),
-        // "thumb": $self.find(".thumb"),
-        // "progress": $self.find(".upload-progress")
       };
 
 
@@ -319,59 +315,84 @@ let imgLists = [], imgCount = 0;
         // $(document).off("click", para.uploadButton);
       }
 
-      function getBase64Image (img) {
-        var canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-
-        var dataURL = canvas.toDataURL("image/jpeg");
-        return dataURL;
-
-        // return dataURL.replace("data:image/png;base64,", "");
+      function dateformat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+        if (typeof date === 'string') {
+          date = new Date(date.replace(/-/g, '/'))
+        }
+        if (typeof date === 'number') {
+          date = new Date(date)
+        }
+        var o = {
+          'M+': date.getMonth() + 1, // 月份
+          'd+': date.getDate(), // 日
+          'h+': date.getHours(), // 小时
+          'm+': date.getMinutes(), // 分
+          's+': date.getSeconds(), // 秒
+          'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+          'S': date.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+          fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+          if (new RegExp('(' + k + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+          }
+        }
+        return fmt;
       }
 
-      function simpleSize (size) {
-        if (!size) return "0";
-        if (size < 1024) {
-          return size;
-        }
-        var kb = size / 1024;
-        if (kb < 1024) {
-          return kb.toFixed(2) + "K";
-        }
-        var mb = kb / 1024;
-        if (mb < 1024) {
-          return mb.toFixed(2) + "M";
+      function replaceAll (str, oldVal, val) {
+        let reg = new RegExp(oldVal, 'g'); // 创建正则RegExp对象
+        return str.replace(reg, val);
+      }
 
+      function generateKey (path, fileName) {
+        Math.uuid = function (len, radix) {
+          let CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+          let chars = CHARS;
+          let uuid = [];
+          let i;
+          radix = radix || chars.length;
+          if (len) {
+            // Compact form
+            for (i = 0; i < len; i++) {
+              uuid[i] = chars[0 | Math.random() * radix];
+            }
+          } else {
+            // rfc4122, version 4 form
+            let r;
+            // rfc4122 requires these characters
+            uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+            uuid[14] = '4';
+            // Fill in random data.  At i==19 set the high bits of clock sequence as
+            // per rfc4122, sec. 4.1.5
+            for (i = 0; i < 36; i++) {
+              if (!uuid[i]) {
+                r = 0 | Math.random() * 16;
+                uuid[i] = chars[(i === 19) ? (r & 0x3) | 0x8 : r];
+              }
+            }
+          }
+          return uuid.join('');
+        };
+
+        let timeSuffix = dateformat(new Date(), 'yyyyMMddhhmmss');
+        let uuidSuffix = replaceAll(Math.uuid().toLowerCase(), '-', '');
+        let fileExt = '.' + fileName.split('.')[1];
+        let objectKey = '';
+        if (path) {
+          objectKey += ('/' + path + '/' + timeSuffix + '/' + uuidSuffix + fileExt);
+        } else {
+          objectKey += ('/' + timeSuffix + '/' + uuidSuffix + fileExt);
         }
-        var gb = mb / 1024;
-        return gb.toFixed(2) + "G";
-      };
-
-      //Convert DataURL to Blob to send over Ajax
-      function dataURItoBlob (dataUrl) {
-        // convert base64 to raw binary data held in a string
-        // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-        var byteString = atob(dataUrl.split(',')[1]);
-
-        // separate out the mime component
-        var mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
-
-        // write the bytes of the string to an ArrayBuffer
-        var ab = new ArrayBuffer(byteString.length);
-        var ia = new Uint8Array(ab);
-        for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
-        return new Blob([ab], {type: 'image/jpeg'});
+        return objectKey;
       }
 
       var uploadCount = 0;
       var core = {
         fileSelected: function () {
+          $.showPreloader('上传中..');
           var files = $("#fileImage")[0].files;
           var count = files.length;
           imgCount += count;
@@ -392,25 +413,11 @@ let imgLists = [], imgCount = 0;
               imClient.showerrorInfo("请选择图片上传!");
               return;
             }
-            // if (item.size > 1024 * 1024 * 2) {
-            //   console.log("图片大于2M，开始进行压缩...");
-            //
-            //   (function (img) {
-            //     var mpImg = new MegaPixImage(img);
-            //     var resImg = document.getElementById("resultImage");
-            //     resImg.file = img;
-            //     mpImg.render(resImg, {maxWidth: 500, maxHeight: 500, quality: 1}, function () {
-            //       var base64 = getBase64Image(resImg);
-            //       var base641 = resImg.src;
-            //       console.log("base64", base64.length, simpleSize(base64.length), base641.length, simpleSize(base641.length));
-            //       if (para.auto) core.uploadBase64str(base64);
-            //     });
-            //   })(item);
-            //
-            // } else {
             if (para.auto) core.uploadFile(item);
-            // }
             core.previewImage(item);
+            if (i === count - 1) {
+              $.hidePreloader();
+            }
           }
         },
         uploadBase64str: function (base64Str) {
@@ -436,26 +443,6 @@ let imgLists = [], imgCount = 0;
           xhr.send(formdata);
         },
         uploadFile: function (file) {
-          // console.log("开始上传");
-          // var formdata = new FormData();
-          //
-          // formdata.append(para.filebase, file);//这个名字要和mvc后台配合
-          //
-          // var xhr = new XMLHttpRequest();
-          // xhr.upload.addEventListener("progress", function (e) {
-          //
-          //   var percentComplete = Math.round(e.loaded * 100 / e.total);
-          //   para.onProgress(percentComplete.toString() + '%');
-          // });
-          // xhr.addEventListener("load", function (e) {
-          //   para.uploadComplete(xhr.responseText);
-          // });
-          // xhr.addEventListener("error", function (e) {
-          //   para.uploadError(e);
-          // });
-          //
-          // xhr.open("post", para.url, true);
-          // xhr.send(formdata);
           let result = {};
           OSS.urllib.request("https://app-adminv10.huilaila.net:7660",
               {method: 'GET'},
@@ -479,25 +466,10 @@ let imgLists = [], imgCount = 0;
                 async function multipartUpload (file) {
                   // 循环上传
                   try {
-                    var timestamp = Date.parse(new Date());
-                    let objectKey = 'neighbor/' + timestamp + file.name;
-                    let result = await client.multipartUpload(objectKey, file, {
-
-                      // meta: file.type
-                    });
-                    var aliPath = result.name;
-                    // let imgUrl = result.res.requestUrls[0]
+                    let objectKey = generateKey('neighbor', file.name)
+                    let result = await client.multipartUpload(objectKey, file, {});
                     console.log(result)
                     imgLists.push(objectKey)
-                    // if (imgUrl.indexOf('?uploadId') != -1) {
-                    //   imgUrl = imgUrl.substring(0, imgUrl.indexOf('?'))
-                    //   imgLists.push(imgUrl)
-                    //   console.log(imgLists)
-                    // } else {
-                    //   imgLists.push(imgUrl)
-                    //   console.log(imgLists)
-                    // }
-
                   } catch (e) {
                     console.log(e);
                     return alert('parse sts response info error: ' + e.message);

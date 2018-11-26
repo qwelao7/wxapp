@@ -406,28 +406,6 @@ let imgLists=[];
             core.previewImage(item);
           }
         },
-        uploadBase64str: function (base64Str) {
-
-          //var blob = dataURItoBlob(base64Str);
-          //console.log("压缩后的文件大小", blob.size);
-          //core.uploadFile(blob);
-          var formdata = new FormData();
-          formdata.append("base64str", base64Str);
-          var xhr = new XMLHttpRequest();
-          xhr.upload.addEventListener("progress", function (e) {
-            var percentComplete = Math.round(e.loaded * 100 / e.total);
-            para.onProgress(percentComplete.toString() + '%');
-          });
-          xhr.addEventListener("load", function (e) {
-            para.uploadComplete(xhr.responseText);
-          });
-          xhr.addEventListener("error", function (e) {
-            para.uploadError(e);
-          });
-
-          xhr.open("post", para.base64strUrl, true);
-          xhr.send(formdata);
-        },
         uploadFile: function (file) {
           console.log("开始上传");
           var formdata = new FormData();

@@ -124,6 +124,7 @@
 <script src="https://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="/unit.js"></script>-->
 <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+<script src="./aliyun-oss-sdk-6.0.1.min.js"></script>
 <script type="text/javascript" src="unit.js"></script>
 <!--<script src="videoupload.js"></script>-->
 <script type="text/javascript">
@@ -136,39 +137,153 @@
       let videoUrl = ''
       $("#file").change(function () {
         $.showPreloader('上传中..');
-        let formData = new FormData();
-        formData.append('file', $('#file')[0].files[0]);
-        console.log(formData)
-        $.ajax({
-          url: 'https://app-img.huilaila.net:7889/xcx/upload?type=video',//这里写你的url
-          name: 'file',
-          formData: {
-            'type': 'video',
-          },
-          header: {
-            "Content-Type": "multipart/form-data"
-          },
-          type: 'POST',
-          data: formData,
-          contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置
-          processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post)
-          dataType: 'json',//这里是返回类型，一般是json,text等
-          clearForm: true,//提交后是否清空表单数据
-          success: function (res) {   //提交成功后自动执行的处理函数，参数data就是服务器返回的数据。
-            console.log(res)
-            $.hidePreloader();
-            if (res.status === 100) {
-              videoUrl = res.data
-            }else{
-              $.toast("上传视频失败");
-            }
-          },
-          error: function (data, status, e) {  //提交失败自动执行的处理函数。
-            console.error(e);
-          }
-        });
+
+        // $.showPreloader('上传中..');
+        // let formData = new FormData();
+        // formData.append('file', $('#file')[0].files[0]);
+        // console.log(formData)
+        // $.ajax({
+        //   url: 'https://app-img.huilaila.net:7889/xcx/upload?type=video',//这里写你的url
+        //   name: 'file',
+        //   formData: {
+        //     'type': 'video',
+        //   },
+        //   header: {
+        //     "Content-Type": "multipart/form-data"
+        //   },
+        //   type: 'POST',
+        //   data: formData,
+        //   contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置
+        //   processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post)
+        //   dataType: 'json',//这里是返回类型，一般是json,text等
+        //   clearForm: true,//提交后是否清空表单数据
+        //   success: function (res) {   //提交成功后自动执行的处理函数，参数data就是服务器返回的数据。
+        //     console.log(res)
+        //     $.hidePreloader();
+        //     if (res.status === 100) {
+        //       videoUrl = res.data
+        //     }else{
+        //       $.toast("上传视频失败");
+        //     }
+        //   },
+        //   error: function (data, status, e) {  //提交失败自动执行的处理函数。
+        //     console.error(e);
+        //   }
+        // });
+        let result = {};
+        let file = $('#file')[0].files[0];
+        OSS.urllib.request("https://app-adminv10.huilaila.net:7660",
+            {method: 'GET'},
+            function (err, response) {
+              if (err) {
+                return alert(err);
+              }
+              try {
+                result = JSON.parse(response);
+              } catch (e) {
+                return alert('parse sts response info error: ' + e.message);
+              }
+              let client = new OSS({
+                accessKeyId: result.AccessKeyId,
+                accessKeySecret: result.AccessKeySecret,
+                stsToken: result.SecurityToken,
+                region: 'oss-cn-hangzhou',
+                bucket: 'huilaila-pub'
+              });
+
+              async function multipartUpload (file) {
+                // 循环上传
+                try {
+                  let objectKey = generateKey('video', file.name)
+                  let result = await client.multipartUpload(objectKey, file, {
+
+                  });
+                  console.log(result)
+                  videoUrl=result.name
+                  $.hidePreloader();
+                } catch (e) {
+                  console.log(e);
+                  return alert('parse sts response info error: ' + e.message);
+                }
+              }
+
+              multipartUpload(file);
+            });
       });
 
+      function dateformat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+        if (typeof date === 'string') {
+          date = new Date(date.replace(/-/g, '/'))
+        }
+        if (typeof date === 'number') {
+          date = new Date(date)
+        }
+        var o = {
+          'M+': date.getMonth() + 1, // 月份
+          'd+': date.getDate(), // 日
+          'h+': date.getHours(), // 小时
+          'm+': date.getMinutes(), // 分
+          's+': date.getSeconds(), // 秒
+          'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+          'S': date.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+          fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+          if (new RegExp('(' + k + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+          }
+        }
+        return fmt;
+      }
+
+      function replaceAll (str, oldVal, val) {
+        let reg = new RegExp(oldVal, 'g'); // 创建正则RegExp对象
+        return str.replace(reg, val);
+      }
+
+      function generateKey (path, fileName) {
+        Math.uuid = function (len, radix) {
+          let CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+          let chars = CHARS;
+          let uuid = [];
+          let i;
+          radix = radix || chars.length;
+          if (len) {
+            // Compact form
+            for (i = 0; i < len; i++) {
+              uuid[i] = chars[0 | Math.random() * radix];
+            }
+          } else {
+            // rfc4122, version 4 form
+            let r;
+            // rfc4122 requires these characters
+            uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+            uuid[14] = '4';
+            // Fill in random data.  At i==19 set the high bits of clock sequence as
+            // per rfc4122, sec. 4.1.5
+            for (i = 0; i < 36; i++) {
+              if (!uuid[i]) {
+                r = 0 | Math.random() * 16;
+                uuid[i] = chars[(i === 19) ? (r & 0x3) | 0x8 : r];
+              }
+            }
+          }
+          return uuid.join('');
+        };
+
+        let timeSuffix = dateformat(new Date(), 'yyyyMMddhhmmss');
+        let uuidSuffix = replaceAll(Math.uuid().toLowerCase(), '-', '');
+        let fileExt = '.' + fileName.split('.')[1];
+        let objectKey = '';
+        if (path) {
+          objectKey += ('/' + path + '/' + timeSuffix + '/' + uuidSuffix + fileExt);
+        } else {
+          objectKey += ('/' + timeSuffix + '/' + uuidSuffix + fileExt);
+        }
+        return objectKey;
+      }
 
       function getUrlParam (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -321,7 +436,7 @@
           $.toast("请选择发布视频");
         } else {
           $.ajax({
-            url: 'https://signin.huilaila.net/club/posts?topicType=15&topicContent=' + data.topicContent + '&communityId=' + data.communityId + '&videoUrl=' + JSON.stringify(data.url),
+            url: 'https://signin.huilaila.net/club/posts?topicType=15&topicContent=' + data.topicContent + '&communityId=' + data.communityId + '&videoUrl=' + data.url,
             type: 'POST',
             headers: {token: data.token},
             success: function (res) {
